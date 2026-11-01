@@ -69,20 +69,24 @@ ul, ol, dl, dd { margin: 0; padding: 0; list-style: none; }
   pointer-events: none;
   overflow: hidden;
 }
+/* Sin filter: blur() ni animación: los degradados ya tienen borde suave y no
+   obligan a recomponer capas gigantes en cada frame. */
 .orb {
   position: absolute;
   border-radius: 50%;
-  filter: blur(90px);
-  opacity: 0.5;
-  animation: drift 26s var(--ease) infinite alternate;
+  opacity: 0.55;
 }
-.orb-a { width: 46vw; height: 46vw; left: -8vw; top: -14vw; background: radial-gradient(circle, rgba(242,169,78,.32), transparent 68%); }
-.orb-b { width: 40vw; height: 40vw; right: -6vw; top: 4vw; background: radial-gradient(circle, rgba(232,112,91,.26), transparent 68%); animation-delay: -8s; }
-.orb-c { width: 52vw; height: 52vw; left: 22vw; top: 46vw; background: radial-gradient(circle, rgba(120,96,160,.18), transparent 70%); animation-delay: -15s; }
-
-@keyframes drift {
-  from { transform: translate3d(0, 0, 0) scale(1); }
-  to   { transform: translate3d(3vw, 4vw, 0) scale(1.12); }
+.orb-a {
+  width: 46vw; height: 46vw; left: -8vw; top: -14vw;
+  background: radial-gradient(circle, rgba(242,169,78,.30) 0%, rgba(242,169,78,.13) 38%, rgba(242,169,78,0) 70%);
+}
+.orb-b {
+  width: 40vw; height: 40vw; right: -6vw; top: 4vw;
+  background: radial-gradient(circle, rgba(232,112,91,.24) 0%, rgba(232,112,91,.10) 40%, rgba(232,112,91,0) 70%);
+}
+.orb-c {
+  width: 52vw; height: 52vw; left: 22vw; top: 46vw;
+  background: radial-gradient(circle, rgba(120,96,160,.16) 0%, rgba(120,96,160,.07) 42%, rgba(120,96,160,0) 72%);
 }
 
 .grain {
@@ -211,8 +215,7 @@ h1 {
 .stage-glow {
   position: absolute;
   inset: 8% 6% -10%;
-  background: radial-gradient(60% 60% at 50% 40%, rgba(242, 169, 78, 0.20), transparent 70%);
-  filter: blur(40px);
+  background: radial-gradient(50% 50% at 50% 42%, rgba(242, 169, 78, 0.16), rgba(242, 169, 78, 0) 72%);
   z-index: -1;
 }
 .app {
@@ -405,7 +408,6 @@ h2 { font-size: clamp(30px, 4.2vw, 52px); }
   display: flex;
   flex-direction: column;
   gap: 10px;
-  backdrop-filter: blur(10px);
   transition: border-color 0.3s var(--ease), transform 0.3s var(--ease);
 }
 .bento-card:hover { border-color: rgba(255, 255, 255, 0.16); transform: translateY(-2px); }
