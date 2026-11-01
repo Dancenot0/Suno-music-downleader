@@ -1,6 +1,6 @@
 # Suno v1
 
-Descargador de playlists públicas de Suno para Windows, con interfaz propia.
+Descargador de playlists públicas de Suno para Windows y Android, con interfaz propia.
 
 > **Web oficial:** <https://dancenot0.github.io/Suno-music-downleader/>
 
@@ -36,6 +36,18 @@ cualquier programa.
 
 Requisitos: Windows 10 u 11 de 64 bits. No hace falta cuenta de Suno ni Python.
 
+### Android
+
+La misma aplicación, nativa para el teléfono (Kotlin + Jetpack Compose), en
+[`descargas/Suno-v1-android.apk`](descargas/Suno-v1-android.apk).
+
+Guarda en `Música/Suno v1` a través de MediaStore, con la portada, la letra y
+las etiquetas dentro del `.m4a`, así que las canciones aparecen solas en el
+reproductor del teléfono. Requisitos: Android 8 (API 26) o superior.
+
+Al ser un `.apk` fuera de Play Store, Android pedirá permitir la instalación
+desde el navegador la primera vez.
+
 ## Compilar desde el código
 
 ```bat
@@ -43,6 +55,17 @@ Iniciar Mi Suno.bat        :: entorno y dependencias
 compilar.bat               :: genera dist\Mi Suno\Mi Suno.exe
 instalador\compilar_instalador.bat   :: genera el .msi
 ```
+
+El `.apk` se compila con Gradle (JDK 21 y SDK de Android):
+
+```bat
+cd android
+gradlew :app:assembleRelease   :: -> app\build\outputs\apk\release\app-release.apk
+```
+
+La firma de release se lee de `android\keystore.properties`, que no está en el
+repositorio: sin ese archivo (y su `.jks`) la compilación sale sin firmar. Guarda
+ambos: si se pierden, las actualizaciones no se pueden instalar encima.
 
 La captura que aparece en la web se genera desde la app real:
 

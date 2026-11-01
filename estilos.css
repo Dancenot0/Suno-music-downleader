@@ -426,6 +426,39 @@ h2 { font-size: clamp(30px, 4.2vw, 52px); }
 .down .cta { justify-content: flex-start; margin-top: 28px; }
 .down .fine { margin-top: 14px; }
 
+/* ------------------------------------------------- descargas por sistema -- */
+.down-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 26px; }
+.down-card {
+  display: flex; flex-direction: column; gap: 14px;
+  border-radius: 30px;
+  border: 1px solid var(--line);
+  background:
+    radial-gradient(120% 130% at 100% 0%, rgba(242, 169, 78, 0.12), transparent 55%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.015));
+  padding: clamp(22px, 2.6vw, 34px);
+}
+.down-card-head { display: flex; align-items: center; gap: 14px; }
+.down-card-head h3 { font-size: 20px; }
+.down-card-head .ver { display: inline-block; margin-top: 4px; font-size: 12px; }
+.os-badge {
+  width: 46px; height: 46px; flex: none;
+  display: grid; place-items: center;
+  border-radius: 14px;
+  color: var(--amber);
+  background: rgba(242, 169, 78, 0.11);
+  border: 1px solid rgba(242, 169, 78, 0.26);
+}
+.os-badge svg {
+  width: 24px; height: 24px; fill: none; stroke: currentColor;
+  stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round;
+}
+.down-card .down-sub { margin-top: 0; font-size: 14px; max-width: none; }
+.down-card .btn { align-self: flex-start; margin-top: 4px; }
+.down-card .fine { margin-top: 0; }
+.down-card .specs { margin-top: auto; }
+.down-note { margin-top: 22px; text-align: center; }
+.down-note .link { color: var(--amber); }
+
 .specs { display: grid; gap: 0; border-top: 1px solid var(--line-soft); }
 .specs > div {
   display: flex; justify-content: space-between; gap: 18px;
@@ -508,6 +541,7 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
   .b-split { flex-direction: column; align-items: flex-start; }
   .upd { width: 100%; }
   .down { grid-template-columns: 1fr; gap: 28px; }
+  .down-grid { grid-template-columns: 1fr; }
   .honest-in { grid-template-columns: 1fr; gap: 30px; }
   .steps { grid-template-columns: 1fr; gap: 26px; }
   .steps p { max-width: 52ch; }

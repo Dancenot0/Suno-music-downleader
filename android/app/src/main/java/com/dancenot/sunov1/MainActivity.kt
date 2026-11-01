@@ -94,11 +94,17 @@ class MainActivity : ComponentActivity() {
 
     private fun pedirPermisos() {
         val faltan = mutableListOf<String>()
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU &&
-            ContextCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS) !=
-            PackageManager.PERMISSION_GRANTED
-        ) {
-            faltan.add(Manifest.permission.POST_NOTIFICATIONS)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            for (permiso in listOf(
+                Manifest.permission.POST_NOTIFICATIONS,
+                "android.permission.READ_MEDIA_AUDIO",
+            )) {
+                if (ContextCompat.checkSelfPermission(this, permiso) !=
+                    PackageManager.PERMISSION_GRANTED
+                ) {
+                    faltan.add(permiso)
+                }
+            }
         }
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.Q &&
             ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) !=
@@ -819,12 +825,17 @@ private fun PantallaAjustes(
                 Etiqueta("CARPETA")
                 Row(verticalAlignment = Alignment.CenterVertically) {
                     Column(Modifier.weight(1f)) {
-                        Text(ajustes.destino, color = T.TEXTO, fontSize = 13.sp)
+                        Text(
+                            ajustes.destino.substringAfterLast('/'),
+                            color = T.TEXTO, fontSize = 13.sp, maxLines = 1
+                        )
+                        Text(ajustes.destino, color = T.TENUE, fontSize = 10.5.sp, maxLines = 1)
                     }
+                    Spacer(Modifier.width(8.dp))
                     Boton("Música", variante = 1, alto = 34) {
                         alCambiar(ajustes.copy(destino = Ajustes.MUSICA))
                     }
-                    Spacer(Modifier.width(8.dp))
+                    Spacer(Modifier.width(6.dp))
                     Boton("Descargas", variante = 1, alto = 34) {
                         alCambiar(ajustes.copy(destino = Ajustes.DESCARGAS))
                     }

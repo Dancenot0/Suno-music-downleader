@@ -1,7 +1,15 @@
+import java.util.Properties
+
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
     id("org.jetbrains.kotlin.plugin.compose")
+}
+
+// La firma de release vive fuera del repo (android/keystore.properties).
+val firmaProps = Properties().apply {
+    val f = rootProject.file("keystore.properties")
+    if (f.exists()) f.inputStream().use { cargar -> load(cargar) }
 }
 
 android {
@@ -16,11 +24,26 @@ android {
         versionName = "1.3.0"
     }
 
+    signingConfigs {
+        create("release") {
+            if (firmaProps.getProperty("storeFile") != null) {
+                storeFile = rootProject.file(firmaProps.getProperty("storeFile"))
+                storePassword = firmaProps.getProperty("storePassword")
+                keyAlias = firmaProps.getProperty("keyAlias")
+                keyPassword = firmaProps.getProperty("keyPassword")
+            }
+        }
+    }
+
     buildTypes {
         release {
             isMinifyEnabled = true
             isShrinkResources = true
-            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
+            signingConfig = signingConfigs.getByName("release")
         }
     }
 

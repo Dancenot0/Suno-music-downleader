@@ -36,16 +36,17 @@
   if (year) year.textContent = String(new Date().getFullYear());
 
   /* ---------- versión y descarga ----------
-     El instalador se sirve desde esta misma web (docs/descargas/), así que no
-     hace falta compilar ni pasar por Releases. La versión se escribe aquí y en
-     el HTML; al publicar una nueva, se sustituye el .msi y se actualiza el
-     número. */
-  const ver1 = document.getElementById("ver-1");
-  const ver2 = document.getElementById("ver-2");
+     Los instaladores se sirven desde esta misma web (descargas/), así que no
+     hace falta compilar para quien descarga. Las versiones se escriben aquí y
+     en el HTML; al publicar una nueva, se sustituye el archivo y se actualiza
+     el número. Escritorio y móvil llevan ritmos distintos. */
+  const verWin = document.getElementById("ver-win");
+  const verAndroid = document.getElementById("ver-android");
   const VERSION = "1.2.1";
+  const VERSION_ANDROID = "1.3.0";
 
-  if (ver1) ver1.textContent = "v" + VERSION;
-  if (ver2) ver2.textContent = VERSION;
+  if (verWin) verWin.textContent = VERSION;
+  if (verAndroid) verAndroid.textContent = VERSION_ANDROID;
 
   /* ---------- sombra al bajar ---------- */
   const nav = document.getElementById("nav");

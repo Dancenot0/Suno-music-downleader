@@ -34,8 +34,8 @@ android/app/build/
 android/local.properties
 android/.idea/
 android/app/release/
-*.apk
 *.aab
 *.jks
+android/keystore.properties
 *.keystore
 

@@ -12,8 +12,31 @@ import java.io.File
 /** Guarda los archivos en la carpeta elegida usando MediaStore (Android 10+). */
 object Almacen {
 
+    private const val AUDIO = 0
+    private const val VIDEO = 1
+    private const val OTRO = 2
+
     private fun normal(carpeta: String): String =
         if (carpeta.endsWith("/")) carpeta else "$carpeta/"
+
+    /**
+     * MediaStore no deja meter audio ni vídeo en la colección de Descargas, y
+     * no deja archivos que no son multimedia en `Music/`. Así que la colección
+     * depende de la carpeta elegida.
+     */
+    private fun coleccion(carpeta: String, tipo: Int): Uri {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.Q) {
+            return MediaStore.Files.getContentUri("external")
+        }
+        if (carpeta.startsWith("Download")) {
+            return MediaStore.Files.getContentUri(MediaStore.VOLUME_EXTERNAL)
+        }
+        return when (tipo) {
+            AUDIO -> MediaStore.Audio.Media.EXTERNAL_CONTENT_URI
+            VIDEO -> MediaStore.Video.Media.EXTERNAL_CONTENT_URI
+            else -> MediaStore.Downloads.EXTERNAL_CONTENT_URI
+        }
+    }
 
     private fun existe(contexto: Context, coleccion: Uri, nombre: String, carpeta: String): Boolean {
         val seleccion = "${MediaStore.MediaColumns.DISPLAY_NAME} = ? AND " +
@@ -74,20 +97,26 @@ object Almacen {
     }
 
     fun existeAudio(contexto: Context, nombre: String, carpeta: String): Boolean =
-        existe(contexto, MediaStore.Audio.Media.EXTERNAL_CONTENT_URI, nombre, carpeta)
+        existe(contexto, coleccion(carpeta, AUDIO), nombre, carpeta)
+
+    /** Borra la entrada; devuelve false si sigue habiendo un archivo con ese nombre. */
+    fun borrarAudio(contexto: Context, nombre: String, carpeta: String): Boolean {
+        borrar(contexto, coleccion(carpeta, AUDIO), nombre, carpeta)
+        return !existeAudio(contexto, nombre, carpeta)
+    }
 
     fun existeVideo(contexto: Context, nombre: String, carpeta: String): Boolean =
-        existe(contexto, MediaStore.Video.Media.EXTERNAL_CONTENT_URI, nombre, carpeta)
+        existe(contexto, coleccion(carpeta, VIDEO), nombre, carpeta)
 
     fun guardarAudio(contexto: Context, origen: File, nombre: String, carpeta: String): String =
         guardar(
-            contexto, MediaStore.Audio.Media.EXTERNAL_CONTENT_URI, "audio/mp4",
-            origen, nombre, carpeta, esMusica = true
+            contexto, coleccion(carpeta, AUDIO), "audio/mp4",
+            origen, nombre, carpeta, esMusica = !carpeta.startsWith("Download")
         )
 
     fun guardarVideo(contexto: Context, origen: File, nombre: String, carpeta: String): String =
         guardar(
-            contexto, MediaStore.Video.Media.EXTERNAL_CONTENT_URI, "video/mp4",
+            contexto, coleccion(carpeta, VIDEO), "video/mp4",
             origen, nombre, carpeta
         )
 
@@ -105,13 +134,8 @@ object Almacen {
     ): String {
         val temporal = File(contexto.cacheDir, nombre)
         temporal.writeText(texto, Charsets.UTF_8)
-        val coleccion = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-            MediaStore.Downloads.EXTERNAL_CONTENT_URI
-        } else {
-            MediaStore.Files.getContentUri("external")
-        }
         return try {
-            guardar(contexto, coleccion, mime, temporal, nombre, carpeta)
+            guardar(contexto, coleccion(carpeta, OTRO), mime, temporal, nombre, carpeta)
         } finally {
             temporal.delete()
         }

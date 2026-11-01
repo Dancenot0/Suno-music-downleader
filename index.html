@@ -43,19 +43,22 @@
 
   <section class="hero">
     <div class="wrap">
-      <p class="eyebrow reveal"><span class="dot"></span> Windows 10 y 11 · <span id="ver-1">v1.2.1</span></p>
+      <p class="eyebrow reveal"><span class="dot"></span> Windows 10/11 y Android · gratis y sin cuenta</p>
       <h1 class="reveal d1">Tus playlists de Suno,<br><span class="grad">en tu disco.</span></h1>
       <p class="lede reveal d2">Pega un enlace, elige el formato y listo.
-        Con carátula, letra y etiquetas en cada archivo. Una app de escritorio
-        que se ve tan bien como suena.</p>
+        Con carátula, letra y etiquetas en cada archivo. En la computadora
+        y ahora también en el teléfono.</p>
       <div class="cta reveal d3">
         <a class="btn btn-lg" id="dl-principal" href="descargas/Suno-v1.msi" download>
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0 4.5-4.5M12 15l-4.5-4.5M5 20h14"/></svg>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 4.8h7v5.9h-7zM13.5 4.8h7v5.9h-7zM3.5 13.3h7v5.9h-7zM13.5 13.3h7v5.9h-7z"/></svg>
           Descargar para Windows
         </a>
-        <a class="btn-ghost" href="#funciones">Ver funciones</a>
+        <a class="btn btn-lg" id="dl-android-hero" href="descargas/Suno-v1-android.apk" download>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5.2 16.6v-3.1a6.8 6.8 0 0 1 13.6 0v3.1"/><path d="M8.2 6.4 6.9 4.6M15.8 6.4l1.3-1.8"/><circle cx="9.6" cy="11.3" r=".95"/><circle cx="14.4" cy="11.3" r=".95"/><path d="M5.2 18.8h13.6"/></svg>
+          Descargar para Android
+        </a>
       </div>
-      <p class="fine reveal d3">Gratis · Instalador <span class="mono">.msi</span> · Sin cuenta · Sin anuncios</p>
+      <p class="fine reveal d3">Instalador <span class="mono">.msi</span> para Windows · <span class="mono">.apk</span> para Android · Sin cuenta · Sin anuncios</p>
 
       <div class="stage reveal d4">
         <div class="stage-glow" aria-hidden="true"></div>
@@ -66,7 +69,7 @@
 
   <section class="strip reveal">
     <div class="wrap strip-in">
-      <p>Instalador firmado por Windows Installer</p>
+      <p>Windows y Android</p>
       <p>Sin cuenta de Suno</p>
       <p>Solo playlists públicas</p>
       <p>Español</p>
@@ -186,28 +189,67 @@
 
   <section class="block" id="descargar">
     <div class="wrap">
-      <div class="down reveal">
-        <div class="down-copy">
-          <p class="kicker">Descargar</p>
-          <h2>Suno v1 <span class="mono ver" id="ver-2">1.2.1</span></h2>
+      <header class="sec-head reveal">
+        <p class="kicker">Descargar</p>
+        <h2>Elige tu plataforma.<br><span class="muted">Misma cuenta, misma música.</span></h2>
+      </header>
+
+      <div class="down-grid reveal">
+        <article class="down-card">
+          <div class="down-card-head">
+            <span class="os-badge">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 4.8h7v5.9h-7zM13.5 4.8h7v5.9h-7zM3.5 13.3h7v5.9h-7zM13.5 13.3h7v5.9h-7z"/></svg>
+            </span>
+            <div>
+              <h3>Windows</h3>
+              <p class="mono ver" id="ver-win">1.2.1</p>
+            </div>
+          </div>
           <p class="down-sub">Instalador para Windows 10 y 11, 64 bits. Crea el acceso directo
              en el menú Inicio y en el escritorio, y se desinstala como cualquier programa.</p>
-          <div class="cta">
-            <a class="btn btn-lg" id="dl-msi" href="descargas/Suno-v1.msi" download>
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0 4.5-4.5M12 15l-4.5-4.5M5 20h14"/></svg>
-              Descargar el .msi
-            </a>
-            <a class="btn-ghost" href="https://github.com/Dancenot0/Suno-music-downleader/releases" target="_blank" rel="noopener">Versiones anteriores</a>
+          <a class="btn btn-lg" id="dl-msi" href="descargas/Suno-v1.msi" download>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 4.8h7v5.9h-7zM13.5 4.8h7v5.9h-7zM3.5 13.3h7v5.9h-7zM13.5 13.3h7v5.9h-7z"/></svg>
+            Descargar para Windows
+          </a>
+          <p class="fine">≈ 72 MB · <span class="mono">.msi</span> · pide permisos de administrador</p>
+          <dl class="specs">
+            <div><dt>Sistema</dt><dd>Windows 10 / 11 · x64</dd></div>
+            <div><dt>Formatos</dt><dd>MP3, M4A, WAV, FLAC, OGG</dd></div>
+            <div><dt>Requiere</dt><dd>Nada más. ffmpeg va dentro</dd></div>
+          </dl>
+        </article>
+
+        <article class="down-card">
+          <div class="down-card-head">
+            <span class="os-badge">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5.2 16.6v-3.1a6.8 6.8 0 0 1 13.6 0v3.1"/><path d="M8.2 6.4 6.9 4.6M15.8 6.4l1.3-1.8"/><circle cx="9.6" cy="11.3" r=".95"/><circle cx="14.4" cy="11.3" r=".95"/><path d="M5.2 18.8h13.6"/></svg>
+            </span>
+            <div>
+              <h3>Android</h3>
+              <p class="mono ver" id="ver-android">1.3.0</p>
+            </div>
           </div>
-          <p class="fine">≈ 72 MB · Gratis · Pide permisos de administrador, como cualquier instalador</p>
-        </div>
-        <dl class="specs">
-          <div><dt>Sistema</dt><dd>Windows 10 / 11 · x64</dd></div>
-          <div><dt>Instalador</dt><dd><span class="mono">.msi</span> (WiX)</dd></div>
-          <div><dt>Espacio</dt><dd>≈ 220 MB instalado</dd></div>
-          <div><dt>Requiere</dt><dd>Nada más. ffmpeg va dentro</dd></div>
-        </dl>
+          <p class="down-sub">App nativa para el teléfono. Guarda en <b>Música/Suno v1</b>,
+             así que las canciones aparecen solas en tu reproductor, con portada y letra dentro.</p>
+          <a class="btn btn-lg" id="dl-apk" href="descargas/Suno-v1-android.apk" download>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5.2 16.6v-3.1a6.8 6.8 0 0 1 13.6 0v3.1"/><path d="M8.2 6.4 6.9 4.6M15.8 6.4l1.3-1.8"/><circle cx="9.6" cy="11.3" r=".95"/><circle cx="14.4" cy="11.3" r=".95"/><path d="M5.2 18.8h13.6"/></svg>
+            Descargar para Android
+          </a>
+          <p class="fine">≈ 1,4 MB · <span class="mono">.apk</span> · Android 8 o superior</p>
+          <dl class="specs">
+            <div><dt>Sistema</dt><dd>Android 8+ (API 26)</dd></div>
+            <div><dt>Formato</dt><dd>M4A original de Suno, sin recomprimir</dd></div>
+            <div><dt>Tamaño</dt><dd>≈ 1,4 MB instalada</dd></div>
+          </dl>
+          <p class="fine">Android pedirá permitir la instalación desde el navegador:
+             es lo normal en cualquier app fuera de Play Store.</p>
+        </article>
       </div>
+
+      <p class="fine reveal down-note">
+        <a class="link" href="https://github.com/Dancenot0/Suno-music-downleader/releases" target="_blank" rel="noopener">Versiones anteriores</a>
+        · El .apk está firmado con la clave del proyecto: las actualizaciones se instalan encima sin desinstalar.
+      </p>
     </div>
   </section>
 

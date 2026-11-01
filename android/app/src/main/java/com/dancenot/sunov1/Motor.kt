@@ -217,6 +217,14 @@ class Motor(
                 avisar("= ${t.titulo} (ya está)")
                 return "saltada"
             }
+        } else if (!esVideo &&
+            Almacen.existeAudio(contexto, nombre, plan.carpeta) &&
+            !Almacen.borrarAudio(contexto, nombre, plan.carpeta)
+        ) {
+            // El archivo existe pero no es nuestro (de otra instalación):
+            // mejor no duplicarlo con "(1)".
+            avisar("= ${t.titulo} (ya está y no se puede reemplazar)")
+            return "saltada"
         }
 
         pista = t.titulo
