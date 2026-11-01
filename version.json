@@ -1,5 +1,5 @@
 {
-  "version": "1.1.0",
+  "version": "1.2.0",
   "url": "https://dancenot0.github.io/Suno-music-downleader/descargas/Suno-v1.msi",
-  "notes": "Primera versión pública: descargador de playlists públicas de Suno."
+  "notes": "La carpeta de descargas queda solo con musica: portada y letra van dentro del archivo."
 }

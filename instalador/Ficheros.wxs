@@ -668,117 +668,123 @@
       </Directory>
       </Directory>
       <Directory Id="d_0013" Name="assets">
-      <Component Id="c_0215" Guid="{F3C65130-AC45-58D5-86A3-BB60C32E2E76}" Win64="yes">
-        <File Id="f_0215" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\assets\demo.svg" KeyPath="yes" />
+      <Component Id="c_0215" Guid="{1FB6389F-A85A-5ED1-ACEC-B077AC6E4C06}" Win64="yes">
+        <File Id="f_0215" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\assets\app-v1.png" KeyPath="yes" />
       </Component>
-      <Component Id="c_0216" Guid="{8B4DD977-8C04-5338-8A6A-110FF375D176}" Win64="yes">
-        <File Id="f_0216" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\assets\fuckyousuno.svg" KeyPath="yes" />
+      <Component Id="c_0216" Guid="{998F6FD9-0F9C-5336-8F5E-A4BF8F0392C5}" Win64="yes">
+        <File Id="f_0216" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\assets\app-v1.webp" KeyPath="yes" />
       </Component>
-      <Component Id="c_0217" Guid="{08E99FCE-9A26-5570-871A-ADFFAA4372F4}" Win64="yes">
-        <File Id="f_0217" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\assets\logo.svg" KeyPath="yes" />
+      <Component Id="c_0217" Guid="{F3C65130-AC45-58D5-86A3-BB60C32E2E76}" Win64="yes">
+        <File Id="f_0217" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\assets\demo.svg" KeyPath="yes" />
       </Component>
-      <Component Id="c_0218" Guid="{CC12C619-CC60-5CDD-9E91-270D48CEE018}" Win64="yes">
-        <File Id="f_0218" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\assets\mi_suno.ico" KeyPath="yes" />
+      <Component Id="c_0218" Guid="{8B4DD977-8C04-5338-8A6A-110FF375D176}" Win64="yes">
+        <File Id="f_0218" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\assets\fuckyousuno.svg" KeyPath="yes" />
       </Component>
-      <Component Id="c_0219" Guid="{B8B1A65A-9879-51BD-AD96-5608672DC345}" Win64="yes">
-        <File Id="f_0219" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\assets\mi_suno.svg" KeyPath="yes" />
+      <Component Id="c_0219" Guid="{08E99FCE-9A26-5570-871A-ADFFAA4372F4}" Win64="yes">
+        <File Id="f_0219" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\assets\logo.svg" KeyPath="yes" />
       </Component>
-      <Component Id="c_0220" Guid="{77F3C5EF-F026-5EE1-B585-BE1D3721DEE1}" Win64="yes">
-        <File Id="f_0220" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\assets\mi_suno_512.png" KeyPath="yes" />
+      <Component Id="c_0220" Guid="{CC12C619-CC60-5CDD-9E91-270D48CEE018}" Win64="yes">
+        <File Id="f_0220" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\assets\mi_suno.ico" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0221" Guid="{B8B1A65A-9879-51BD-AD96-5608672DC345}" Win64="yes">
+        <File Id="f_0221" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\assets\mi_suno.svg" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0222" Guid="{77F3C5EF-F026-5EE1-B585-BE1D3721DEE1}" Win64="yes">
+        <File Id="f_0222" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\assets\mi_suno_512.png" KeyPath="yes" />
       </Component>
       </Directory>
       <Directory Id="d_0014" Name="certifi">
-      <Component Id="c_0221" Guid="{B3529CEB-504F-55C3-9108-9865C0B64A3C}" Win64="yes">
-        <File Id="f_0221" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\certifi\cacert.pem" KeyPath="yes" />
+      <Component Id="c_0223" Guid="{B3529CEB-504F-55C3-9108-9865C0B64A3C}" Win64="yes">
+        <File Id="f_0223" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\certifi\cacert.pem" KeyPath="yes" />
       </Component>
-      <Component Id="c_0222" Guid="{9BF92A14-B7B9-5239-8915-E2F2C54FE4F1}" Win64="yes">
-        <File Id="f_0222" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\certifi\py.typed" KeyPath="yes" />
+      <Component Id="c_0224" Guid="{9BF92A14-B7B9-5239-8915-E2F2C54FE4F1}" Win64="yes">
+        <File Id="f_0224" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\certifi\py.typed" KeyPath="yes" />
       </Component>
       </Directory>
       <Directory Id="d_0015" Name="charset_normalizer">
-      <Component Id="c_0223" Guid="{9326C997-A4DC-5F4D-B1BE-247B49463BAF}" Win64="yes">
-        <File Id="f_0223" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\charset_normalizer\cd.cp313-win_amd64.pyd" KeyPath="yes" />
+      <Component Id="c_0225" Guid="{9326C997-A4DC-5F4D-B1BE-247B49463BAF}" Win64="yes">
+        <File Id="f_0225" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\charset_normalizer\cd.cp313-win_amd64.pyd" KeyPath="yes" />
       </Component>
-      <Component Id="c_0224" Guid="{2A36EB16-FBB3-5DFA-9C6A-B7C1915ECA1B}" Win64="yes">
-        <File Id="f_0224" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\charset_normalizer\md.cp313-win_amd64.pyd" KeyPath="yes" />
+      <Component Id="c_0226" Guid="{2A36EB16-FBB3-5DFA-9C6A-B7C1915ECA1B}" Win64="yes">
+        <File Id="f_0226" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\charset_normalizer\md.cp313-win_amd64.pyd" KeyPath="yes" />
       </Component>
       </Directory>
       <Directory Id="d_0016" Name="cryptography">
       <Directory Id="d_0017" Name="hazmat">
       <Directory Id="d_0018" Name="bindings">
-      <Component Id="c_0225" Guid="{C1A7F3C9-6A01-5E02-876A-8E11997AD168}" Win64="yes">
-        <File Id="f_0225" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\cryptography\hazmat\bindings\_rust.pyd" KeyPath="yes" />
+      <Component Id="c_0227" Guid="{C1A7F3C9-6A01-5E02-876A-8E11997AD168}" Win64="yes">
+        <File Id="f_0227" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\cryptography\hazmat\bindings\_rust.pyd" KeyPath="yes" />
       </Component>
       </Directory>
       </Directory>
       </Directory>
       <Directory Id="d_0019" Name="cryptography-50.0.2.dist-info">
-      <Component Id="c_0226" Guid="{65E9A7F3-F491-55E7-9F4E-400A46BECC2D}" Win64="yes">
-        <File Id="f_0226" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\cryptography-50.0.2.dist-info\INSTALLER" KeyPath="yes" />
+      <Component Id="c_0228" Guid="{65E9A7F3-F491-55E7-9F4E-400A46BECC2D}" Win64="yes">
+        <File Id="f_0228" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\cryptography-50.0.2.dist-info\INSTALLER" KeyPath="yes" />
       </Component>
-      <Component Id="c_0227" Guid="{85EBAB90-0460-5E05-A17C-E482CB1FB619}" Win64="yes">
-        <File Id="f_0227" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\cryptography-50.0.2.dist-info\METADATA" KeyPath="yes" />
+      <Component Id="c_0229" Guid="{85EBAB90-0460-5E05-A17C-E482CB1FB619}" Win64="yes">
+        <File Id="f_0229" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\cryptography-50.0.2.dist-info\METADATA" KeyPath="yes" />
       </Component>
-      <Component Id="c_0228" Guid="{A43764CB-C7F0-5D41-9E40-55861D1F9B65}" Win64="yes">
-        <File Id="f_0228" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\cryptography-50.0.2.dist-info\RECORD" KeyPath="yes" />
+      <Component Id="c_0230" Guid="{A43764CB-C7F0-5D41-9E40-55861D1F9B65}" Win64="yes">
+        <File Id="f_0230" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\cryptography-50.0.2.dist-info\RECORD" KeyPath="yes" />
       </Component>
-      <Component Id="c_0229" Guid="{23411211-B06E-5C6A-B456-E24EADDB0272}" Win64="yes">
-        <File Id="f_0229" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\cryptography-50.0.2.dist-info\REQUESTED" KeyPath="yes" />
+      <Component Id="c_0231" Guid="{23411211-B06E-5C6A-B456-E24EADDB0272}" Win64="yes">
+        <File Id="f_0231" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\cryptography-50.0.2.dist-info\REQUESTED" KeyPath="yes" />
       </Component>
-      <Component Id="c_0230" Guid="{E920C129-F973-5664-BF2D-245294218287}" Win64="yes">
-        <File Id="f_0230" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\cryptography-50.0.2.dist-info\WHEEL" KeyPath="yes" />
+      <Component Id="c_0232" Guid="{E920C129-F973-5664-BF2D-245294218287}" Win64="yes">
+        <File Id="f_0232" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\cryptography-50.0.2.dist-info\WHEEL" KeyPath="yes" />
       </Component>
       <Directory Id="d_0020" Name="licenses">
-      <Component Id="c_0231" Guid="{B5CA3475-D3FE-5994-858F-2B70445CF3C4}" Win64="yes">
-        <File Id="f_0231" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\cryptography-50.0.2.dist-info\licenses\LICENSE" KeyPath="yes" />
+      <Component Id="c_0233" Guid="{B5CA3475-D3FE-5994-858F-2B70445CF3C4}" Win64="yes">
+        <File Id="f_0233" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\cryptography-50.0.2.dist-info\licenses\LICENSE" KeyPath="yes" />
       </Component>
-      <Component Id="c_0232" Guid="{A65780C8-AA4A-59AE-8CEF-CEA8E909D020}" Win64="yes">
-        <File Id="f_0232" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\cryptography-50.0.2.dist-info\licenses\LICENSE.APACHE" KeyPath="yes" />
+      <Component Id="c_0234" Guid="{A65780C8-AA4A-59AE-8CEF-CEA8E909D020}" Win64="yes">
+        <File Id="f_0234" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\cryptography-50.0.2.dist-info\licenses\LICENSE.APACHE" KeyPath="yes" />
       </Component>
-      <Component Id="c_0233" Guid="{3B1C6AFD-9E65-5453-BEA4-AF5297DB7B34}" Win64="yes">
-        <File Id="f_0233" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\cryptography-50.0.2.dist-info\licenses\LICENSE.BSD" KeyPath="yes" />
+      <Component Id="c_0235" Guid="{3B1C6AFD-9E65-5453-BEA4-AF5297DB7B34}" Win64="yes">
+        <File Id="f_0235" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\cryptography-50.0.2.dist-info\licenses\LICENSE.BSD" KeyPath="yes" />
       </Component>
       </Directory>
       <Directory Id="d_0021" Name="sboms">
-      <Component Id="c_0234" Guid="{4708F8C9-2D81-53A7-9FEE-6224930543BD}" Win64="yes">
-        <File Id="f_0234" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\cryptography-50.0.2.dist-info\sboms\cryptography-rust.cyclonedx.json" KeyPath="yes" />
+      <Component Id="c_0236" Guid="{4708F8C9-2D81-53A7-9FEE-6224930543BD}" Win64="yes">
+        <File Id="f_0236" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\cryptography-50.0.2.dist-info\sboms\cryptography-rust.cyclonedx.json" KeyPath="yes" />
       </Component>
-      <Component Id="c_0235" Guid="{438AD171-8009-5AB1-8E15-18DA680A3864}" Win64="yes">
-        <File Id="f_0235" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\cryptography-50.0.2.dist-info\sboms\sbom.json" KeyPath="yes" />
+      <Component Id="c_0237" Guid="{438AD171-8009-5AB1-8E15-18DA680A3864}" Win64="yes">
+        <File Id="f_0237" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\cryptography-50.0.2.dist-info\sboms\sbom.json" KeyPath="yes" />
       </Component>
       </Directory>
       </Directory>
       <Directory Id="d_0022" Name="herramientas">
-      <Component Id="c_0236" Guid="{6029D83E-4BA7-5DE8-B0B2-C820967170F0}" Win64="yes">
-        <File Id="f_0236" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\herramientas\ffmpeg.exe" KeyPath="yes" />
+      <Component Id="c_0238" Guid="{6029D83E-4BA7-5DE8-B0B2-C820967170F0}" Win64="yes">
+        <File Id="f_0238" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\herramientas\ffmpeg.exe" KeyPath="yes" />
       </Component>
       </Directory>
       <Directory Id="d_0023" Name="setuptools">
       <Directory Id="d_0024" Name="_vendor">
       <Directory Id="d_0025" Name="jaraco">
       <Directory Id="d_0026" Name="text">
-      <Component Id="c_0237" Guid="{50D64C5F-E21F-54C0-A30B-6FD64C61FA46}" Win64="yes">
-        <File Id="f_0237" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\setuptools\_vendor\jaraco\text\Lorem ipsum.txt" KeyPath="yes" />
+      <Component Id="c_0239" Guid="{50D64C5F-E21F-54C0-A30B-6FD64C61FA46}" Win64="yes">
+        <File Id="f_0239" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\setuptools\_vendor\jaraco\text\Lorem ipsum.txt" KeyPath="yes" />
       </Component>
       </Directory>
       </Directory>
       </Directory>
       </Directory>
       <Directory Id="d_0027" Name="shiboken6">
-      <Component Id="c_0238" Guid="{43F5C7F7-BDED-5E69-9C4B-3DADE27A8C3F}" Win64="yes">
-        <File Id="f_0238" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\shiboken6\MSVCP140.dll" KeyPath="yes" />
+      <Component Id="c_0240" Guid="{43F5C7F7-BDED-5E69-9C4B-3DADE27A8C3F}" Win64="yes">
+        <File Id="f_0240" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\shiboken6\MSVCP140.dll" KeyPath="yes" />
       </Component>
-      <Component Id="c_0239" Guid="{8FFAAC9C-6504-5022-B657-3B54110DED44}" Win64="yes">
-        <File Id="f_0239" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\shiboken6\Shiboken.pyd" KeyPath="yes" />
+      <Component Id="c_0241" Guid="{8FFAAC9C-6504-5022-B657-3B54110DED44}" Win64="yes">
+        <File Id="f_0241" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\shiboken6\Shiboken.pyd" KeyPath="yes" />
       </Component>
-      <Component Id="c_0240" Guid="{7CA24EF1-6AFF-5052-9AE6-457433B4F846}" Win64="yes">
-        <File Id="f_0240" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\shiboken6\shiboken6.abi3.dll" KeyPath="yes" />
+      <Component Id="c_0242" Guid="{7CA24EF1-6AFF-5052-9AE6-457433B4F846}" Win64="yes">
+        <File Id="f_0242" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\shiboken6\shiboken6.abi3.dll" KeyPath="yes" />
       </Component>
-      <Component Id="c_0241" Guid="{92F5A9E6-F6DA-518C-ADC8-1B76591CCFCC}" Win64="yes">
-        <File Id="f_0241" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\shiboken6\VCRUNTIME140.dll" KeyPath="yes" />
+      <Component Id="c_0243" Guid="{92F5A9E6-F6DA-518C-ADC8-1B76591CCFCC}" Win64="yes">
+        <File Id="f_0243" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\shiboken6\VCRUNTIME140.dll" KeyPath="yes" />
       </Component>
-      <Component Id="c_0242" Guid="{38B425A2-9174-5847-8514-979EEBA1E357}" Win64="yes">
-        <File Id="f_0242" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\shiboken6\VCRUNTIME140_1.dll" KeyPath="yes" />
+      <Component Id="c_0244" Guid="{38B425A2-9174-5847-8514-979EEBA1E357}" Win64="yes">
+        <File Id="f_0244" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\shiboken6\VCRUNTIME140_1.dll" KeyPath="yes" />
       </Component>
       </Directory>
       </Directory>
@@ -1029,6 +1035,8 @@
       <ComponentRef Id="c_0240" />
       <ComponentRef Id="c_0241" />
       <ComponentRef Id="c_0242" />
+      <ComponentRef Id="c_0243" />
+      <ComponentRef Id="c_0244" />
     </ComponentGroup>
   </Fragment>
 </Wix>

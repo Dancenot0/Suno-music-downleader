@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
   Instalador de "Suno v1".
   Instala en C:\Program Files\Suno v1 (perMachine, pide administrador),
@@ -9,7 +9,7 @@
   <Product Id="*"
            Name="Suno v1"
            Language="3082"
-           Version="1.1.0"
+           Version="1.2.0"
            Manufacturer="Suno v1"
            UpgradeCode="{7C1B5E4A-2D9F-4E8B-9A31-5F0C2B7D6E10}">
 

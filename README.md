@@ -5,8 +5,8 @@ Descargador de playlists públicas de Suno para Windows, con interfaz propia.
 > **Web oficial:** <https://dancenot0.github.io/Suno-music-downleader/>
 
 Pega el enlace de una playlist pública, elige formato y descarga. Cada archivo
-sale con carátula incrustada, letra (`.lrc` y `.txt`), etiquetas y un `.json` con
-todos los datos que expone Suno.
+sale con carátula, letra y etiquetas **dentro del propio audio**, así que la
+carpeta de descargas se queda limpia: solo música.
 
 ---
 
@@ -16,7 +16,11 @@ todos los datos que expone Suno.
 - **Vista previa** de la playlist con portada, duración y selección por pistas.
 - **Pausa y reanudación**, reintento solo de lo que falló y manifiesto para no
   volver a bajar lo que ya tienes.
-- **Metadatos completos**: título, artista, álbum, género, portada y letra.
+- **Metadatos completos**: título, artista, álbum, género, portada y letra dentro
+  del archivo. Los archivos sueltos (`.json`, `.lrc`, `.txt`, `cover.jpg`, `.m3u8`)
+  son opcionales y están apagados por defecto.
+- **Carpeta limpia**: el registro de lo ya descargado vive en
+  `%APPDATA%\MiSuno\manifiestos`, no entre tus canciones.
 - **Proxy** HTTP y SOCKS5, concurrencia limitada y pausas humanas.
 - **Actualizaciones** desde la propia app (un botón, dos modos: buscar y descargar).
 - **Instalador `.msi`** que crea accesos en el menú Inicio y en el escritorio.

@@ -85,7 +85,7 @@ BAD = QColor("#E06C6C")
 
 RADIUS = 22
 SETTINGS = QSettings("MiSuno", "MiSuno")
-APP_VERSION = "1.1.0"
+APP_VERSION = "1.2.0"
 # Canal de actualizaciones: el JSON que sirve GitHub Pages junto a la web.
 UPDATE_FEED = "https://dancenot0.github.io/Suno-music-downleader/version.json"
 
@@ -1454,7 +1454,7 @@ class MainWindow(QMainWindow):
             ("tags", "Etiquetas", True),
             ("cover", "Portada", True),
             ("lyrics", "Letras", True),
-            ("sidecar", "JSON", True),
+            ("aparte", "Archivos aparte", False),
             ("normalize", "Normalizar", False),
             ("video", "Video", False),
         ]):
@@ -1463,6 +1463,9 @@ class MainWindow(QMainWindow):
             toggles.addWidget(sw, i // 2, (i % 2) * 2)
             toggles.addWidget(label(txt, 9, QFont.DemiBold, TEXT), i // 2, (i % 2) * 2 + 1)
         lay.addLayout(toggles)
+        nota = label("La portada y la letra van dentro del archivo de música.", 8.2, QFont.Normal, TEXT3)
+        nota.setWordWrap(True)
+        lay.addWidget(nota)
 
         lay.addWidget(label("Nombre de archivo", 9, QFont.DemiBold, TEXT))
         self.txt_template = QLineEdit("{n} - {title}")
@@ -1844,9 +1847,10 @@ class MainWindow(QMainWindow):
             tags=self.tg["tags"].isChecked(),
             cover=self.tg["cover"].isChecked(),
             lyrics=self.tg["lyrics"].isChecked(),
-            sidecar=self.tg["sidecar"].isChecked(),
-            cover_file=self.tg["cover"].isChecked(),
-            playlist_files=True,
+            sidecar=self.tg["aparte"].isChecked(),
+            cover_file=self.tg["aparte"].isChecked(),
+            lyrics_files=self.tg["aparte"].isChecked(),
+            playlist_files=self.tg["aparte"].isChecked(),
             template=self.txt_template.text().strip() or "{n} - {title}",
             normalize=self.tg["normalize"].isChecked(),
             video=self.tg["video"].isChecked(),
@@ -1982,7 +1986,7 @@ class MainWindow(QMainWindow):
         if idx >= 0:
             self.cmb_quality.setCurrentIndex(idx)
         for key, default in (("tags", True), ("cover", True), ("lyrics", True),
-                             ("sidecar", True), ("normalize", False), ("video", False)):
+                             ("aparte", False), ("normalize", False), ("video", False)):
             self.tg[key].setChecked(SETTINGS.value(key, default, bool))
         self.txt_template.setText(SETTINGS.value("template", "{n} - {title}"))
         self._on_format(0)
@@ -1992,7 +1996,7 @@ class MainWindow(QMainWindow):
         SETTINGS.setValue("outdir", self.txt_out.text())
         SETTINGS.setValue("fmt", self.seg_fmt.current())
         SETTINGS.setValue("quality", self.cmb_quality.currentData())
-        for key in ("tags", "cover", "lyrics", "sidecar", "normalize", "video"):
+        for key in ("tags", "cover", "lyrics", "aparte", "normalize", "video"):
             SETTINGS.setValue(key, self.tg[key].isChecked())
         SETTINGS.setValue("template", self.txt_template.text())
 

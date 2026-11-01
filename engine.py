@@ -118,9 +118,10 @@ class Options:
     tags: bool = True
     cover: bool = True
     lyrics: bool = True
-    sidecar: bool = True
-    cover_file: bool = True
-    playlist_files: bool = True
+    sidecar: bool = False
+    cover_file: bool = False
+    playlist_files: bool = False
+    lyrics_files: bool = False
     template: str = "{n} - {title}"
     normalize: bool = False
     video: bool = False
@@ -382,8 +383,12 @@ class Engine:
         dest_dir.mkdir(parents=True, exist_ok=True)
         self._folders.append(str(dest_dir))
 
-        manifest_path = dest_dir / ".mi_suno.json"
+        manifest_path = self._manifest_path(pl)
         manifest = self._load_manifest(manifest_path)
+        # Compatibilidad: manifiestos viejos escritos dentro de la carpeta.
+        heredado = dest_dir / ".mi_suno.json"
+        if not manifest and heredado.exists():
+            manifest = self._load_manifest(heredado)
 
         cover_bytes = None
         if (self.o.cover or self.o.cover_file) and pl.cover:
@@ -473,7 +478,7 @@ class Engine:
             if MUTAGEN:
                 self._tag(final, t, pl, cover)
 
-            if self.o.lyrics and t.lyrics:
+            if self.o.lyrics_files and t.lyrics:
                 self._write_lyrics(final, t)
 
             if self.o.sidecar:
@@ -596,6 +601,7 @@ class Engine:
         return dst
 
     def _tag(self, path: Path, t: Track, pl: Playlist, cover: bytes | None):
+        """Etiquetas, portada y letra DENTRO del archivo. Sin archivos sueltos."""
         try:
             artist = pl.author or t.raw.get("display_name") or "Suno"
             album = pl.name
@@ -606,56 +612,63 @@ class Engine:
             comment = f"Generado con Suno · modelo {t.model}".strip()
             suffix = path.suffix.lower()
 
+            letra = t.lyrics if (t.lyrics and self.o.lyrics) else ""
+            portada = cover if self.o.cover else None
+            datos = self.o.tags
+
             if suffix == ".mp3":
                 tags = ID3()
-                tags.add(TIT2(encoding=3, text=title))
-                tags.add(TPE1(encoding=3, text=artist))
-                tags.add(TALB(encoding=3, text=album))
-                tags.add(TDRC(encoding=3, text=date))
-                tags.add(TRCK(encoding=3, text=track_no))
-                if genre:
-                    tags.add(TCON(encoding=3, text=genre))
-                tags.add(COMM(encoding=3, lang="spa", desc="", text=comment))
-                tags.add(TXXX(encoding=3, desc="Suno", text=t.id))
-                if t.lyrics:
-                    tags.add(USLT(encoding=3, lang="spa", desc="", text=t.lyrics))
-                if cover:
-                    tags.add(APIC(encoding=3, mime="image/jpeg", type=3, desc="Cover", data=cover))
+                if datos:
+                    tags.add(TIT2(encoding=3, text=title))
+                    tags.add(TPE1(encoding=3, text=artist))
+                    tags.add(TALB(encoding=3, text=album))
+                    tags.add(TDRC(encoding=3, text=date))
+                    tags.add(TRCK(encoding=3, text=track_no))
+                    if genre:
+                        tags.add(TCON(encoding=3, text=genre))
+                    tags.add(COMM(encoding=3, lang="spa", desc="", text=comment))
+                    tags.add(TXXX(encoding=3, desc="Suno", text=t.id))
+                if letra:
+                    tags.add(USLT(encoding=3, lang="spa", desc="", text=letra))
+                if portada:
+                    tags.add(APIC(encoding=3, mime="image/jpeg", type=3, desc="Cover", data=portada))
                 tags.save(path)
 
             elif suffix == ".m4a":
                 audio = MP4(path)
-                audio["\xa9nam"] = [title]
-                audio["\xa9ART"] = [artist]
-                audio["\xa9alb"] = [album]
-                audio["\xa9day"] = [date]
-                audio["trkn"] = [(t.index, 0)]
-                if genre:
-                    audio["\xa9gen"] = [genre]
-                audio["\xa9cmt"] = [comment]
-                if t.lyrics:
-                    audio["\xa9lyr"] = [t.lyrics]
-                if cover:
-                    audio["covr"] = [MP4Cover(cover, imageformat=MP4Cover.FORMAT_JPEG)]
+                if datos:
+                    audio["\xa9nam"] = [title]
+                    audio["\xa9ART"] = [artist]
+                    audio["\xa9alb"] = [album]
+                    audio["\xa9day"] = [date]
+                    audio["trkn"] = [(t.index, 0)]
+                    if genre:
+                        audio["\xa9gen"] = [genre]
+                    audio["\xa9cmt"] = [comment]
+                if letra:
+                    audio["\xa9lyr"] = [letra]
+                if portada:
+                    audio["covr"] = [MP4Cover(portada, imageformat=MP4Cover.FORMAT_JPEG)]
                 audio.save()
 
             elif suffix == ".flac":
                 audio = FLAC(path)
-                audio["title"] = title
-                audio["artist"] = artist
-                audio["album"] = album
-                audio["date"] = date
-                audio["tracknumber"] = track_no
-                if genre:
-                    audio["genre"] = genre
-                audio["comment"] = comment
-                if t.lyrics:
-                    audio["lyrics"] = t.lyrics
-                if cover:
+                if datos:
+                    audio["title"] = title
+                    audio["artist"] = artist
+                    audio["album"] = album
+                    audio["date"] = date
+                    audio["tracknumber"] = track_no
+                    if genre:
+                        audio["genre"] = genre
+                    audio["comment"] = comment
+                if letra:
+                    audio["lyrics"] = letra
+                if portada:
                     pic = Picture()
                     pic.type = 3
                     pic.mime = "image/jpeg"
-                    pic.data = cover
+                    pic.data = portada
                     audio.add_picture(pic)
                 audio.save()
 
@@ -664,21 +677,22 @@ class Engine:
                     audio = OggOpus(path)
                 except Exception:  # noqa: BLE001
                     audio = OggVorbis(path)
-                audio["title"] = title
-                audio["artist"] = artist
-                audio["album"] = album
-                audio["date"] = date
-                audio["tracknumber"] = track_no
-                if genre:
-                    audio["genre"] = genre
-                audio["comment"] = comment
-                if t.lyrics:
-                    audio["lyrics"] = t.lyrics
-                if cover:
+                if datos:
+                    audio["title"] = title
+                    audio["artist"] = artist
+                    audio["album"] = album
+                    audio["date"] = date
+                    audio["tracknumber"] = track_no
+                    if genre:
+                        audio["genre"] = genre
+                    audio["comment"] = comment
+                if letra:
+                    audio["lyrics"] = letra
+                if portada:
                     pic = Picture()
                     pic.type = 3
                     pic.mime = "image/jpeg"
-                    pic.data = cover
+                    pic.data = portada
                     audio["metadata_block_picture"] = [
                         base64.b64encode(pic.write()).decode("ascii")
                     ]
@@ -752,6 +766,13 @@ class Engine:
         except Exception:  # noqa: BLE001
             pass
         return None
+
+    @staticmethod
+    def _manifest_path(pl: Playlist) -> Path:
+        """El registro de lo ya descargado vive en %APPDATA%, no en tu música."""
+        carpeta = APP_DIR / "manifiestos"
+        carpeta.mkdir(parents=True, exist_ok=True)
+        return carpeta / f"{sanitize(pl.name)}-{pl.id[:8]}.json"
 
     @staticmethod
     def _load_manifest(path: Path) -> dict:
