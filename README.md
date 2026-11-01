@@ -64,14 +64,14 @@ La app consulta un JSON pequeño:
 }
 ```
 
-El canal público está en `docs/version.json`, servido por GitHub Pages:
+El canal público está en `version.json`, servido por GitHub Pages:
 <https://dancenot0.github.io/Suno-music-downleader/version.json>
 
 Para publicar una versión nueva:
 
 1. Compila con `compilar.bat` y `instalador\compilar_instalador.bat`.
 2. Copia el `.msi` sobre `descargas\Suno-v1.msi` (mismo nombre, se sustituye).
-3. Actualiza `version` en `docs/version.json`, `VERSION` en `app.js` y
+3. Actualiza `version` en `version.json`, `VERSION` en `app.js` y
    `APP_VERSION` en `app_pyside.py`.
 4. `git add -A && git commit -m "v1.1.1" && git push`.
 
