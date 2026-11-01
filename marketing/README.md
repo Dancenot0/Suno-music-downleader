@@ -3,7 +3,8 @@
 Pieza **"De la nube a tu carpeta"**: 73,7 s, 1920×1080, 30 fps, español (es-MX-JorgeNeural +4 %).
 
 - Guion y dirección: [`guion.md`](guion.md)
-- Video final: [`video/promo-full-con-audio.mp4`](video/promo-full-con-audio.mp4)
+- Video final (1080p, 25 MB): [`video/promo-full-con-audio.mp4`](video/promo-full-con-audio.mp4)
+- Copia ligera para la web (720p, 3 MB): [`video/promo-web.mp4`](video/promo-web.mp4)
 - Portada para publicarlo: [`video/portada.png`](video/portada.png)
 
 ## Cómo está hecho

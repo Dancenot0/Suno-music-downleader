@@ -278,6 +278,7 @@ h2 { font-size: clamp(30px, 4.2vw, 52px); }
   margin: 0;
   padding: 8px;
   border-radius: 26px;
+  overflow: hidden;
   background: linear-gradient(160deg, rgba(242, 169, 78, 0.20), rgba(255, 255, 255, 0.03) 42%, rgba(232, 112, 91, 0.14));
   border: 1px solid rgba(255, 255, 255, 0.10);
   box-shadow: var(--shadow);
