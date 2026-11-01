@@ -87,7 +87,7 @@ BAD = QColor("#E06C6C")
 
 RADIUS = 22
 SETTINGS = QSettings("MiSuno", "MiSuno")
-APP_VERSION = "1.2.2"
+APP_VERSION = "1.2.3"
 # Canal de actualizaciones: el JSON que sirve GitHub Pages junto a la web.
 UPDATE_FEED = "https://dancenot0.github.io/Suno-music-downleader/version.json"
 
@@ -1771,8 +1771,9 @@ class MainWindow(QMainWindow):
             guion.write_text(
                 "@echo off\r\n"
                 "ping -n 3 127.0.0.1 >nul\r\n"
-                f'msiexec /i "{ruta}" /qn /norestart\r\n'
-                f'start "" "{exe}"\r\n',
+                f'msiexec /i "{ruta}" /qb /norestart\r\n'
+                f'start "" "{exe}"\r\n'
+                'del "%~f0"\r\n',
                 encoding="utf-8",
             )
         except OSError as exc:
@@ -1791,12 +1792,10 @@ class MainWindow(QMainWindow):
         except Exception as exc:  # noqa: BLE001
             engine.log_to_file(f"actualizacion: {exc}")
         if codigo <= 32:
-            # Canceló el aviso de administrador: se deja el instalador a mano.
-            self._on_status("Actualización descargada. Falta el permiso de administrador.")
-            try:
-                os.startfile(ruta)  # noqa: S606
-            except Exception:  # noqa: BLE001
-                pass
+            # Canceló el aviso de administrador: no se abre el asistente.
+            self._on_status(
+                "No se instaló la actualización: se canceló el aviso de administrador."
+            )
             return
         QTimer.singleShot(700, self._quit)
 

@@ -42,7 +42,7 @@
      el número. Escritorio y móvil llevan ritmos distintos. */
   const verWin = document.getElementById("ver-win");
   const verAndroid = document.getElementById("ver-android");
-  const VERSION = "1.2.2";
+  const VERSION = "1.2.3";
   const VERSION_ANDROID = "1.3.6";
 
   if (verWin) verWin.textContent = VERSION;
