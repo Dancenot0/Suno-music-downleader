@@ -1,0 +1,146 @@
+[
+ {
+  "b": "gancho",
+  "t0": 0.098083,
+  "t1": 2.359124,
+  "texto": "Creas una canción increíble en Suno…"
+ },
+ {
+  "b": "gancho",
+  "t0": 2.261541,
+  "t1": 3.945708,
+  "texto": "y se queda atrapada ahí."
+ },
+ {
+  "b": "golpe",
+  "t0": 6.698083,
+  "t1": 7.985581999999999,
+  "texto": "Sin archivos."
+ },
+ {
+  "b": "golpe",
+  "t0": 8.463,
+  "t1": 10.411541,
+  "texto": "Sin escucharla sin internet."
+ },
+ {
+  "b": "golpe",
+  "t0": 10.902875,
+  "t1": 12.106249,
+  "texto": "Sin portada."
+ },
+ {
+  "b": "golpe",
+  "t0": 12.585583,
+  "t1": 13.692791,
+  "texto": "Sin letra."
+ },
+ {
+  "b": "revelacion",
+  "t0": 14.778083,
+  "t1": 15.873249999999999,
+  "texto": "Hasta ahora."
+ },
+ {
+  "b": "revelacion",
+  "t0": 16.350666,
+  "t1": 18.0347909,
+  "texto": "Esto es Suno v1."
+ },
+ {
+  "b": "escritorio",
+  "t0": 20.618083,
+  "t1": 22.542624,
+  "texto": "Pega el enlace de la playlist."
+ },
+ {
+  "b": "escritorio",
+  "t0": 23.032,
+  "t1": 25.882,
+  "texto": "Suno v1 la analiza y te deja elegir."
+ },
+ {
+  "b": "escritorio",
+  "t0": 27.028083,
+  "t1": 27.906916000000002,
+  "texto": "Un clic…"
+ },
+ {
+  "b": "escritorio",
+  "t0": 27.833375,
+  "t1": 30.142500000000002,
+  "texto": "y cada canción aparece en tu carpeta,"
+ },
+ {
+  "b": "escritorio",
+  "t0": 30.020875,
+  "t1": 32.678541,
+  "texto": "con su portada y su letra dentro del archivo."
+ },
+ {
+  "b": "movil",
+  "t0": 36.618083,
+  "t1": 38.831041,
+  "texto": "En el móvil, igual de simple."
+ },
+ {
+  "b": "movil",
+  "t0": 39.308457999999995,
+  "t1": 42.49499899999999,
+  "texto": "Y sin recomprimir: se guarda el archivo original."
+ },
+ {
+  "b": "potencia",
+  "t0": 46.618083,
+  "t1": 49.059416,
+  "texto": "Pausa, reanuda, reintenta."
+ },
+ {
+  "b": "potencia",
+  "t0": 49.548832999999995,
+  "t1": 51.569540999999994,
+  "texto": "Hasta tres descargas a la vez."
+ },
+ {
+  "b": "potencia",
+  "t0": 52.048832999999995,
+  "t1": 54.177707999999996,
+  "texto": "Y nunca te duplica una canción."
+ },
+ {
+  "b": "pago",
+  "t0": 56.218083,
+  "t1": 58.094499,
+  "texto": "Tu música, en el auto,"
+ },
+ {
+  "b": "pago",
+  "t0": 57.960874999999994,
+  "t1": 59.993582999999994,
+  "texto": "en el gym, donde quieras."
+ },
+ {
+  "b": "cierre",
+  "t0": 63.818083,
+  "t1": 64.829124,
+  "texto": "Gratis."
+ },
+ {
+  "b": "cierre",
+  "t0": 65.318541,
+  "t1": 66.54595699999999,
+  "texto": "Sin cuentas."
+ },
+ {
+  "b": "cierre",
+  "t0": 67.025291,
+  "t1": 68.30075,
+  "texto": "Sin anuncios."
+ },
+ {
+  "b": "cierre",
+  "t0": 68.780083,
+  "t1": 71.786333,
+  "texto": "Descarga Suno v1 para Windows y Android."
+ }
+]

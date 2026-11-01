@@ -1,0 +1,6 @@
+# audio regenerable (voz.py vuelve a bajarlo de edge-tts)
+audio/voz/
+audio/mezcla.wav
+
+# render intermedio (se rehace con render.py)
+video/promo-full.mp4
