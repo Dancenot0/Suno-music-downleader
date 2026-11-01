@@ -142,27 +142,6 @@ object Actualizador {
                 sesion.commit(pendiente.intentSender)
             }
             apk.delete()
-
-            // Android cierra la app al reemplazarla. Esta alarma la vuelve a
-            // abrir un rato después, ya actualizada.
-            try {
-                val abrir = PendingIntent.getActivity(
-                    contexto,
-                    42,
-                    Intent(contexto, MainActivity::class.java)
-                        .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                        .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP),
-                    PendingIntent.FLAG_UPDATE_CURRENT or
-                        (if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) PendingIntent.FLAG_IMMUTABLE else 0),
-                )
-                val alarmas = contexto.getSystemService(android.app.AlarmManager::class.java)
-                alarmas?.set(
-                    android.app.AlarmManager.ELAPSED_REALTIME_WAKEUP,
-                    android.os.SystemClock.elapsedRealtime() + 14_000,
-                    abrir,
-                )
-            } catch (_: Exception) {
-            }
             null
         } catch (e: Exception) {
             e.message ?: e.javaClass.simpleName
@@ -170,8 +149,7 @@ object Actualizador {
     }
 }
 
-/** Recoge el resultado del instalador del sistema. */
-class InstaladorReceptor : BroadcastReceiver() {
+/** Recoge el resultado del instalador del sistema. */class InstaladorReceptor : BroadcastReceiver() {
     companion object {
         const val ACCION = "com.dancenot.sunov1.INSTALADO"
     }
@@ -187,5 +165,27 @@ class InstaladorReceptor : BroadcastReceiver() {
             } catch (_: Exception) {
             }
         }
+    }
+}
+
+/**
+ * Android avisa a la app cuando acaba de ser reemplazada. Aprovechamos ese
+ * aviso para volver a abrirla, ya en la versión nueva.
+ */
+class ReinicioReceptor : BroadcastReceiver() {
+    override fun onReceive(contexto: Context, intent: Intent?) {
+        if (intent?.action != Intent.ACTION_MY_PACKAGE_REPLACED) return
+        try {
+            contexto.startActivity(
+                Intent(contexto, MainActivity::class.java)
+                    .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+            )
+        } catch (_: Exception) {
+        }
+        Avisos.terminar(
+            contexto,
+            "Suno v1 actualizado",
+            "Ya tienes la versión $VERSION. Toca aquí si no se abrió sola.",
+        )
     }
 }
