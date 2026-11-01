@@ -27,3 +27,15 @@ herramientas/*.exe
 # restos
 error.log
 
+# build android
+android/.gradle/
+android/build/
+android/app/build/
+android/local.properties
+android/.idea/
+android/app/release/
+*.apk
+*.aab
+*.jks
+*.keystore
+
