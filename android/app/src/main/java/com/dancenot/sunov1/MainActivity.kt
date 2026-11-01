@@ -31,6 +31,7 @@ import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material.icons.filled.List
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -127,6 +128,7 @@ private fun Pantalla(enlaceInicial: String, auto: Boolean) {
 
     var ajustes by remember { mutableStateOf(Ajustes.cargar(contexto)) }
     var verAjustes by remember { mutableStateOf(false) }
+    var verRecientes by remember { mutableStateOf(false) }
     var enlaces by remember { mutableStateOf(enlaceInicial) }
     var playlists by remember { mutableStateOf<List<SunoApi.Playlist>>(emptyList()) }
     var elegidos by remember { mutableStateOf<Set<String>>(emptySet()) }
@@ -268,6 +270,24 @@ private fun Pantalla(enlaceInicial: String, auto: Boolean) {
         return
     }
 
+    if (verRecientes) {
+        PantallaRecientes(
+            recientes = recientes,
+            alAbrir = { r ->
+                val url = "https://suno.com/${r.tipo}/${r.id}"
+                enlaces = url
+                verRecientes = false
+                analizar(url)
+            },
+            alCerrar = { verRecientes = false },
+            alBorrar = {
+                Historial.limpiar(contexto)
+                recientes = emptyList()
+            },
+        )
+        return
+    }
+
     val visibles = remember(playlists, filtro) {
         playlists.flatMap { pl ->
             pl.pistas
@@ -283,7 +303,7 @@ private fun Pantalla(enlaceInicial: String, auto: Boolean) {
                 .statusBarsPadding()
                 .navigationBarsPadding()
         ) {
-            Cabecera(alAjustes = { verAjustes = true })
+            Cabecera(alAjustes = { verAjustes = true }, alRecientes = { verRecientes = true })
             Column(
                 Modifier
                     .weight(1f)
@@ -331,34 +351,6 @@ private fun Pantalla(enlaceInicial: String, auto: Boolean) {
                             playlists = emptyList()
                             elegidos = emptySet()
                             estado("Pega uno o varios enlaces de Suno.")
-                        }
-                    }
-                }
-
-                if (playlists.isEmpty() && recientes.isNotEmpty() && !analizando) {
-                    Tarjeta {
-                        Etiqueta("RECIENTES")
-                        recientes.take(3).forEach { r ->
-                            Row(
-                                Modifier
-                                    .fillMaxWidth()
-                                    .clip(RoundedCornerShape(10.dp))
-                                    .padding(vertical = 6.dp),
-                                verticalAlignment = Alignment.CenterVertically,
-                            ) {
-                                Column(Modifier.weight(1f)) {
-                                    Text(r.nombre, color = T.TEXTO, fontSize = 14.sp, maxLines = 1)
-                                    Text(
-                                        "${r.autor.ifBlank { "Suno" }} · ${r.pistas} pistas",
-                                        color = T.TENUE, fontSize = 11.sp
-                                    )
-                                }
-                                Boton("Abrir", variante = 1, alto = 34) {
-                                    val url = "https://suno.com/${r.tipo}/${r.id}"
-                                    enlaces = url
-                                    analizar(url)
-                                }
-                            }
                         }
                     }
                 }
@@ -594,7 +586,7 @@ private fun Pantalla(enlaceInicial: String, auto: Boolean) {
 }
 
 @Composable
-private fun Cabecera(alAjustes: () -> Unit) {
+private fun Cabecera(alAjustes: () -> Unit, alRecientes: () -> Unit) {
     Row(
         Modifier
             .fillMaxWidth()
@@ -612,8 +604,93 @@ private fun Cabecera(alAjustes: () -> Unit) {
             Text("Suno v1", color = T.TEXTO, fontSize = 18.sp, fontWeight = FontWeight.Bold)
             Text("móvil · $VERSION", color = T.TENUE, fontSize = 11.sp)
         }
+        IconButton(onClick = alRecientes) {
+            Icon(Icons.Filled.List, contentDescription = "Recientes", tint = T.SUAVE)
+        }
         IconButton(onClick = alAjustes) {
             Icon(Icons.Filled.Settings, contentDescription = "Ajustes", tint = T.SUAVE)
+        }
+    }
+}
+
+@Composable
+private fun PantallaRecientes(
+    recientes: List<Reciente>,
+    alAbrir: (Reciente) -> Unit,
+    alCerrar: () -> Unit,
+    alBorrar: () -> Unit,
+) {
+    Column(
+        Modifier
+            .fillMaxSize()
+            .background(T.FONDO)
+            .statusBarsPadding()
+            .navigationBarsPadding()
+    ) {
+        Row(
+            Modifier
+                .fillMaxWidth()
+                .padding(start = 6.dp, end = 18.dp, top = 8.dp, bottom = 6.dp),
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
+            IconButton(onClick = alCerrar) {
+                Icon(Icons.Filled.ArrowBack, contentDescription = "Volver", tint = T.TEXTO)
+            }
+            Column(Modifier.weight(1f)) {
+                Text("Recientes", color = T.TEXTO, fontSize = 18.sp, fontWeight = FontWeight.Bold)
+                Text(
+                    if (recientes.isEmpty()) "Todavía no has analizado ninguna"
+                    else "${recientes.size} playlist(s) guardadas",
+                    color = T.TENUE, fontSize = 11.sp
+                )
+            }
+            if (recientes.isNotEmpty()) {
+                Boton("Borrar", variante = 1, alto = 34, alPulsar = alBorrar)
+            }
+        }
+        Column(
+            Modifier
+                .weight(1f)
+                .verticalScroll(rememberScrollState())
+                .padding(horizontal = 16.dp),
+            verticalArrangement = Arrangement.spacedBy(10.dp),
+        ) {
+            if (recientes.isEmpty()) {
+                Tarjeta {
+                    Nota("Cuando analices una playlist o una canción aparecerá aquí para volver a abrirla sin pegar el enlace otra vez.")
+                }
+            }
+            recientes.forEach { r ->
+                Tarjeta {
+                    Row(verticalAlignment = Alignment.CenterVertically) {
+                        Box(
+                            Modifier
+                                .size(40.dp)
+                                .clip(RoundedCornerShape(11.dp))
+                                .background(
+                                    Brush.linearGradient(
+                                        listOf(T.AMBAR.copy(alpha = 0.55f), T.CORAL.copy(alpha = 0.5f))
+                                    )
+                                )
+                        )
+                        Spacer(Modifier.width(12.dp))
+                        Column(Modifier.weight(1f)) {
+                            Text(r.nombre, color = T.TEXTO, fontSize = 15.sp, maxLines = 1)
+                            Text(
+                                "${r.autor.ifBlank { "Suno" }} · ${r.pistas} pista(s) · " +
+                                    if (r.tipo == "song") "canción" else "playlist",
+                                color = T.TENUE, fontSize = 11.sp, maxLines = 1
+                            )
+                        }
+                    }
+                    Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                        Boton("Abrir", variante = 1, alto = 38, modifier = Modifier.weight(1f)) {
+                            alAbrir(r)
+                        }
+                    }
+                }
+            }
+            Spacer(Modifier.height(24.dp))
         }
     }
 }
