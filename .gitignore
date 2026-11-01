@@ -14,3 +14,16 @@ venv/
 .DS_Store
 Thumbs.db
 .zcode/
+
+# binarios y artefactos de build
+dist/
+build/
+instalador/obj/
+instalador/wix/
+instalador/*.msi
+instalador/*.wixpdb
+herramientas/*.exe
+
+# restos
+error.log
+

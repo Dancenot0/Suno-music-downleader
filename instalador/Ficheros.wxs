@@ -1,0 +1,1034 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <Fragment>
+    <DirectoryRef Id="INSTALLFOLDER">
+      <Component Id="c_0001" Guid="{1E73EB67-4F47-51D6-B401-2457B2D2B9E5}" Win64="yes">
+        <File Id="f_0001" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\Mi Suno.exe" KeyPath="yes" />
+      </Component>
+      <Directory Id="d_0001" Name="_internal">
+      <Component Id="c_0002" Guid="{140DF875-3301-51DB-9DB3-967743BB873E}" Win64="yes">
+        <File Id="f_0002" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\_bz2.pyd" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0003" Guid="{55592E6E-8E8B-56D6-B525-6B6A937062DB}" Win64="yes">
+        <File Id="f_0003" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\_cffi_backend.cp313-win_amd64.pyd" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0004" Guid="{A2BF468A-9822-5BAA-A8A3-4EA359BF1297}" Win64="yes">
+        <File Id="f_0004" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\_ctypes.pyd" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0005" Guid="{D59B3C98-3EC5-5563-AE47-F0D0910D76DB}" Win64="yes">
+        <File Id="f_0005" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\_decimal.pyd" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0006" Guid="{8FB63643-4C05-5476-8A7C-B0480F233E69}" Win64="yes">
+        <File Id="f_0006" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\_hashlib.pyd" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0007" Guid="{7D2967EA-AEC5-5FA9-BB36-FB11258EE608}" Win64="yes">
+        <File Id="f_0007" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\_lzma.pyd" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0008" Guid="{533FBC1E-4B63-503A-887D-B39E90574DC5}" Win64="yes">
+        <File Id="f_0008" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\_multiprocessing.pyd" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0009" Guid="{E403F615-FB4F-5CF7-A596-1D5DD3446544}" Win64="yes">
+        <File Id="f_0009" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\_queue.pyd" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0010" Guid="{0D7BCBEF-A593-5698-9D15-3C0A1EA3DDDD}" Win64="yes">
+        <File Id="f_0010" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\_socket.pyd" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0011" Guid="{741C5784-E909-5BFE-9541-0E44A46E429B}" Win64="yes">
+        <File Id="f_0011" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\_ssl.pyd" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0012" Guid="{B2E81F9C-6D21-5106-A39E-8B34AEE1BA04}" Win64="yes">
+        <File Id="f_0012" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\_wmi.pyd" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0013" Guid="{C38E1729-D7A8-5D06-95E0-38781BF1480F}" Win64="yes">
+        <File Id="f_0013" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\api-ms-win-core-console-l1-1-0.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0014" Guid="{2D0B4A1D-F99B-5931-A19F-3C9B4A237C20}" Win64="yes">
+        <File Id="f_0014" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\api-ms-win-core-datetime-l1-1-0.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0015" Guid="{9D3FF032-DCF0-5D7D-9D63-AE64D860AC1D}" Win64="yes">
+        <File Id="f_0015" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\api-ms-win-core-debug-l1-1-0.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0016" Guid="{36669D72-6A77-53A7-B296-4F8B131A93B8}" Win64="yes">
+        <File Id="f_0016" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\api-ms-win-core-errorhandling-l1-1-0.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0017" Guid="{9A9C0C5F-5085-58F3-987F-04A2DE18D1C9}" Win64="yes">
+        <File Id="f_0017" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\api-ms-win-core-fibers-l1-1-0.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0018" Guid="{6939910A-BD37-5007-B0EB-F099D7C1AB02}" Win64="yes">
+        <File Id="f_0018" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\api-ms-win-core-fibers-l1-1-1.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0019" Guid="{901749AE-8290-591A-A9B0-B1912FBB1477}" Win64="yes">
+        <File Id="f_0019" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\api-ms-win-core-file-l1-1-0.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0020" Guid="{FAA75074-5EB2-5CED-86F2-E74FFD100175}" Win64="yes">
+        <File Id="f_0020" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\api-ms-win-core-file-l1-2-0.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0021" Guid="{9B76DF22-7E37-5B0E-AA17-709DFB7EB6B2}" Win64="yes">
+        <File Id="f_0021" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\api-ms-win-core-file-l2-1-0.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0022" Guid="{920F192E-8DC6-5415-A05C-78218022FD8D}" Win64="yes">
+        <File Id="f_0022" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\api-ms-win-core-handle-l1-1-0.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0023" Guid="{FFE91BC9-1479-5382-BD84-6F46973CDDE4}" Win64="yes">
+        <File Id="f_0023" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\api-ms-win-core-heap-l1-1-0.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0024" Guid="{A0AACC64-4D1C-5FE2-BA43-E50229A10E36}" Win64="yes">
+        <File Id="f_0024" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\api-ms-win-core-interlocked-l1-1-0.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0025" Guid="{2059DE55-C1C1-58DE-8D2B-4A86D43BA7EB}" Win64="yes">
+        <File Id="f_0025" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\api-ms-win-core-kernel32-legacy-l1-1-1.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0026" Guid="{5E16222A-2CBA-510A-A083-0D2160AA484B}" Win64="yes">
+        <File Id="f_0026" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\api-ms-win-core-libraryloader-l1-1-0.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0027" Guid="{F84CBDD7-497C-5BF8-B3F8-0EAE683511F5}" Win64="yes">
+        <File Id="f_0027" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\api-ms-win-core-localization-l1-2-0.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0028" Guid="{1628971D-D4D9-5C1B-B341-5E57B0748003}" Win64="yes">
+        <File Id="f_0028" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\api-ms-win-core-memory-l1-1-0.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0029" Guid="{4409040B-DD45-563C-A843-5B1CC171D1FE}" Win64="yes">
+        <File Id="f_0029" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\api-ms-win-core-namedpipe-l1-1-0.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0030" Guid="{EC837629-C637-5CAC-BC18-CB238365140E}" Win64="yes">
+        <File Id="f_0030" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\api-ms-win-core-processenvironment-l1-1-0.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0031" Guid="{58AB7610-7A22-5749-B578-FA747582BA70}" Win64="yes">
+        <File Id="f_0031" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\api-ms-win-core-processthreads-l1-1-0.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0032" Guid="{523126FD-5F8A-502E-9E23-D928E7B1A4B4}" Win64="yes">
+        <File Id="f_0032" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\api-ms-win-core-processthreads-l1-1-1.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0033" Guid="{E36987B3-8EA9-56D8-A577-F36390FB1751}" Win64="yes">
+        <File Id="f_0033" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\api-ms-win-core-profile-l1-1-0.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0034" Guid="{FE782AB6-37FD-5553-89A9-E8BFF920D279}" Win64="yes">
+        <File Id="f_0034" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\api-ms-win-core-rtlsupport-l1-1-0.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0035" Guid="{71391A59-31FC-5111-B288-8387097A53E9}" Win64="yes">
+        <File Id="f_0035" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\api-ms-win-core-string-l1-1-0.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0036" Guid="{8B69A11B-D48E-5ABC-A3DD-13F53254E50F}" Win64="yes">
+        <File Id="f_0036" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\api-ms-win-core-synch-l1-1-0.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0037" Guid="{C3106AF3-4EA9-53B3-A038-77AD99A21A1B}" Win64="yes">
+        <File Id="f_0037" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\api-ms-win-core-synch-l1-2-0.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0038" Guid="{42F47DF1-DE84-5321-9B0C-5A003000AC0F}" Win64="yes">
+        <File Id="f_0038" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\api-ms-win-core-sysinfo-l1-1-0.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0039" Guid="{0E79AC96-BB68-5400-83DD-DFE948CA0832}" Win64="yes">
+        <File Id="f_0039" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\api-ms-win-core-sysinfo-l1-2-0.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0040" Guid="{5D02ECC6-218A-5603-A13C-07456F4F6E14}" Win64="yes">
+        <File Id="f_0040" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\api-ms-win-core-timezone-l1-1-0.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0041" Guid="{8D42CD86-5388-5F13-911C-6DF960656471}" Win64="yes">
+        <File Id="f_0041" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\api-ms-win-core-util-l1-1-0.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0042" Guid="{0DEEC318-D519-5D6F-9320-DDAC4F9D6392}" Win64="yes">
+        <File Id="f_0042" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\api-ms-win-crt-conio-l1-1-0.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0043" Guid="{3C076246-7E80-5CFA-A88C-73EBCF827400}" Win64="yes">
+        <File Id="f_0043" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\api-ms-win-crt-convert-l1-1-0.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0044" Guid="{6C619E4B-5775-5099-831B-B748774B3A7F}" Win64="yes">
+        <File Id="f_0044" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\api-ms-win-crt-environment-l1-1-0.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0045" Guid="{C4B30377-9DB4-5ADE-8DB8-CE0B9C0E221A}" Win64="yes">
+        <File Id="f_0045" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\api-ms-win-crt-filesystem-l1-1-0.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0046" Guid="{29CE983E-3EE3-5C2A-9949-8DB5B9954828}" Win64="yes">
+        <File Id="f_0046" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\api-ms-win-crt-heap-l1-1-0.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0047" Guid="{71F73119-BF08-59C4-A2F9-0DB3102B40FE}" Win64="yes">
+        <File Id="f_0047" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\api-ms-win-crt-locale-l1-1-0.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0048" Guid="{17488209-04B5-5A7D-90D7-5C1E9D0D7A99}" Win64="yes">
+        <File Id="f_0048" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\api-ms-win-crt-math-l1-1-0.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0049" Guid="{CC5992C2-F3E3-569E-941A-023923915CCD}" Win64="yes">
+        <File Id="f_0049" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\api-ms-win-crt-process-l1-1-0.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0050" Guid="{0B4D5E77-D2BE-57C5-A302-AB0B78420DA4}" Win64="yes">
+        <File Id="f_0050" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\api-ms-win-crt-runtime-l1-1-0.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0051" Guid="{2E8F96AD-056A-58CD-8CD0-B85ADFD48DCD}" Win64="yes">
+        <File Id="f_0051" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\api-ms-win-crt-stdio-l1-1-0.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0052" Guid="{890DEA4D-66C6-5573-8E2B-DADC4217C3E9}" Win64="yes">
+        <File Id="f_0052" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\api-ms-win-crt-string-l1-1-0.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0053" Guid="{A09FC13A-AD46-5F59-8AC7-19BB9447FB03}" Win64="yes">
+        <File Id="f_0053" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\api-ms-win-crt-time-l1-1-0.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0054" Guid="{334D5D44-1907-5B14-AF93-B1F6AE463917}" Win64="yes">
+        <File Id="f_0054" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\api-ms-win-crt-utility-l1-1-0.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0055" Guid="{14B07B3B-4298-57C6-8FB7-8B732A4F52D5}" Win64="yes">
+        <File Id="f_0055" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\base_library.zip" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0056" Guid="{548FC3BF-EE29-5248-8DCB-63A85996CF7E}" Win64="yes">
+        <File Id="f_0056" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\libcrypto-3-x64.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0057" Guid="{A1080124-BF96-51F1-8697-5687E3D2ECB7}" Win64="yes">
+        <File Id="f_0057" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\libcrypto-3.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0058" Guid="{C6FA2253-9F1F-59A2-808F-6133617F77DA}" Win64="yes">
+        <File Id="f_0058" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\libffi-8.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0059" Guid="{9277E13E-A6DF-542A-A7D8-04C71057B789}" Win64="yes">
+        <File Id="f_0059" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\libssl-3-x64.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0060" Guid="{B463B262-74DC-5D57-8AE3-CAA3DBB4EA46}" Win64="yes">
+        <File Id="f_0060" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\libssl-3.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0061" Guid="{C347822F-2FB2-5D1D-B7FD-547C26148D32}" Win64="yes">
+        <File Id="f_0061" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\pyexpat.pyd" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0062" Guid="{80C6302B-9E94-5083-A99A-E72532A1888C}" Win64="yes">
+        <File Id="f_0062" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\python3.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0063" Guid="{C9826FFD-5539-5A43-8244-922CE8E4E6B7}" Win64="yes">
+        <File Id="f_0063" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\python313.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0064" Guid="{59FEAA1E-0FCD-50E7-A871-C22E358FB586}" Win64="yes">
+        <File Id="f_0064" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\select.pyd" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0065" Guid="{39341A75-D16A-5464-8EBE-8C66F62ECA84}" Win64="yes">
+        <File Id="f_0065" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\ucrtbase.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0066" Guid="{EC6159FD-3192-5A51-A3EB-1C185CCD89FB}" Win64="yes">
+        <File Id="f_0066" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\unicodedata.pyd" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0067" Guid="{0E6F5EBB-C2F0-5241-8CC0-23515097E3B3}" Win64="yes">
+        <File Id="f_0067" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\VCRUNTIME140.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0068" Guid="{378E007C-10D5-52C2-A47C-68C89D745424}" Win64="yes">
+        <File Id="f_0068" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\VCRUNTIME140_1.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0069" Guid="{7C4AAE09-E262-5C6B-9FB3-142CBD718F5A}" Win64="yes">
+        <File Id="f_0069" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\zlib1.dll" KeyPath="yes" />
+      </Component>
+      <Directory Id="d_0002" Name="PySide6">
+      <Component Id="c_0070" Guid="{1E635278-C9FC-5CAB-96B4-67A1BD53D594}" Win64="yes">
+        <File Id="f_0070" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\MSVCP140.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0071" Guid="{92ED49A6-A76F-5CFD-A041-18C1E8771B3A}" Win64="yes">
+        <File Id="f_0071" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\MSVCP140_1.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0072" Guid="{61D5D0CD-12BA-5DFB-B24B-4A8D08C6B88A}" Win64="yes">
+        <File Id="f_0072" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\MSVCP140_2.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0073" Guid="{E24FCB03-1CE8-5C80-AA5F-806AA88E5BF5}" Win64="yes">
+        <File Id="f_0073" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\opengl32sw.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0074" Guid="{D5595DFB-0379-511B-8273-22BE52240BEB}" Win64="yes">
+        <File Id="f_0074" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\pyside6.abi3.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0075" Guid="{282C3C8A-3D4C-5938-B5B0-91B4397E190B}" Win64="yes">
+        <File Id="f_0075" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\Qt6Core.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0076" Guid="{720266F8-79E6-584B-94FA-9433ADF05DCE}" Win64="yes">
+        <File Id="f_0076" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\Qt6Gui.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0077" Guid="{40BBD98F-CBD1-5D9B-9567-8BF3F9625811}" Win64="yes">
+        <File Id="f_0077" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\Qt6Network.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0078" Guid="{AD947B8E-743D-5876-8532-F095A6CAB4BD}" Win64="yes">
+        <File Id="f_0078" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\Qt6OpenGL.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0079" Guid="{4B835BCF-B7B5-594F-93E1-1E641AFDDF9D}" Win64="yes">
+        <File Id="f_0079" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\Qt6Pdf.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0080" Guid="{2F5D3602-9A26-5E95-BCB7-97B2A1DB55B4}" Win64="yes">
+        <File Id="f_0080" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\Qt6Qml.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0081" Guid="{6E91B4ED-EED7-5732-AE80-B4EA419AD512}" Win64="yes">
+        <File Id="f_0081" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\Qt6QmlMeta.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0082" Guid="{D6E5F61F-1FC0-5911-96C9-9BCD004542A7}" Win64="yes">
+        <File Id="f_0082" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\Qt6QmlModels.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0083" Guid="{5A6D08EA-86C9-5BBA-99A2-C9B01070BB8C}" Win64="yes">
+        <File Id="f_0083" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\Qt6QmlWorkerScript.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0084" Guid="{75290FAA-0B6A-5DA8-A4AF-FE3DE3E102E4}" Win64="yes">
+        <File Id="f_0084" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\Qt6Quick.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0085" Guid="{9940BAF9-A88F-59F5-AAA5-4AE27726CB41}" Win64="yes">
+        <File Id="f_0085" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\Qt6Svg.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0086" Guid="{3001F0DA-DB75-5285-AFF9-37D45599EBD1}" Win64="yes">
+        <File Id="f_0086" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\Qt6VirtualKeyboard.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0087" Guid="{C4CE88FD-72DB-5DB0-9A3D-4F1665401BBD}" Win64="yes">
+        <File Id="f_0087" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\Qt6Widgets.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0088" Guid="{6F93C89A-EE02-5CC6-9582-83FC2E22F4AB}" Win64="yes">
+        <File Id="f_0088" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\QtCore.pyd" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0089" Guid="{AE885997-0CD0-567E-9960-AACD1445D450}" Win64="yes">
+        <File Id="f_0089" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\QtGui.pyd" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0090" Guid="{D558A09A-5762-5C11-99D0-23CDAFE4A49D}" Win64="yes">
+        <File Id="f_0090" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\QtNetwork.pyd" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0091" Guid="{243DFFE7-6B97-5A76-B75D-C1AF11E46DF9}" Win64="yes">
+        <File Id="f_0091" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\QtWidgets.pyd" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0092" Guid="{53214A31-D5CB-52BD-8254-5CD90FE7115D}" Win64="yes">
+        <File Id="f_0092" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\VCRUNTIME140.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0093" Guid="{0D203B37-DD89-505E-BE68-3D6F5995B0EC}" Win64="yes">
+        <File Id="f_0093" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\VCRUNTIME140_1.dll" KeyPath="yes" />
+      </Component>
+      <Directory Id="d_0003" Name="plugins">
+      <Directory Id="d_0004" Name="generic">
+      <Component Id="c_0094" Guid="{89C050D0-91AA-5874-9FD8-C7EE5A45148C}" Win64="yes">
+        <File Id="f_0094" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\plugins\generic\qtuiotouchplugin.dll" KeyPath="yes" />
+      </Component>
+      </Directory>
+      <Directory Id="d_0005" Name="iconengines">
+      <Component Id="c_0095" Guid="{56D9E26C-0BD5-5F80-9CF2-123ED5837A9F}" Win64="yes">
+        <File Id="f_0095" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\plugins\iconengines\qsvgicon.dll" KeyPath="yes" />
+      </Component>
+      </Directory>
+      <Directory Id="d_0006" Name="imageformats">
+      <Component Id="c_0096" Guid="{760CA57F-AE5D-5C1E-801B-7D88918072D2}" Win64="yes">
+        <File Id="f_0096" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\plugins\imageformats\qgif.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0097" Guid="{2BF813D8-DD52-5627-9CEC-E5C98D14CF00}" Win64="yes">
+        <File Id="f_0097" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\plugins\imageformats\qicns.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0098" Guid="{312883D2-50D1-5EA6-A9CF-01464ACAE319}" Win64="yes">
+        <File Id="f_0098" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\plugins\imageformats\qico.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0099" Guid="{E83BC2EE-6924-5393-922B-424A3F105DB5}" Win64="yes">
+        <File Id="f_0099" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\plugins\imageformats\qjpeg.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0100" Guid="{304B6689-690E-56A9-845C-87148E4B6CC4}" Win64="yes">
+        <File Id="f_0100" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\plugins\imageformats\qpdf.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0101" Guid="{36382DEA-CA45-519C-8F89-822777CE5558}" Win64="yes">
+        <File Id="f_0101" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\plugins\imageformats\qsvg.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0102" Guid="{3B94890A-40C9-535B-AA86-1F96AE1BA27F}" Win64="yes">
+        <File Id="f_0102" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\plugins\imageformats\qtga.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0103" Guid="{60F9F9FC-A38E-54C0-AAC6-AD8127DE6CA6}" Win64="yes">
+        <File Id="f_0103" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\plugins\imageformats\qtiff.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0104" Guid="{0E747BEA-FDE2-5FF3-BEE5-2B990035A09A}" Win64="yes">
+        <File Id="f_0104" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\plugins\imageformats\qwbmp.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0105" Guid="{1757739C-5091-5C05-BB82-1355FD09E079}" Win64="yes">
+        <File Id="f_0105" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\plugins\imageformats\qwebp.dll" KeyPath="yes" />
+      </Component>
+      </Directory>
+      <Directory Id="d_0007" Name="networkinformation">
+      <Component Id="c_0106" Guid="{ECB28465-33A8-5038-995F-8F9A74767579}" Win64="yes">
+        <File Id="f_0106" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\plugins\networkinformation\qnetworklistmanager.dll" KeyPath="yes" />
+      </Component>
+      </Directory>
+      <Directory Id="d_0008" Name="platforminputcontexts">
+      <Component Id="c_0107" Guid="{F7537746-9DC7-584C-8FDF-09914BEDAC0F}" Win64="yes">
+        <File Id="f_0107" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\plugins\platforminputcontexts\qtvirtualkeyboardplugin.dll" KeyPath="yes" />
+      </Component>
+      </Directory>
+      <Directory Id="d_0009" Name="platforms">
+      <Component Id="c_0108" Guid="{6FC90E83-30E0-51FC-8350-FD41536B8942}" Win64="yes">
+        <File Id="f_0108" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\plugins\platforms\qdirect2d.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0109" Guid="{319E8147-D1F8-534E-8490-69CF96F12A48}" Win64="yes">
+        <File Id="f_0109" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\plugins\platforms\qminimal.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0110" Guid="{7A7480D3-981C-53C9-9AA6-0E1135DD3329}" Win64="yes">
+        <File Id="f_0110" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\plugins\platforms\qoffscreen.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0111" Guid="{1CD9E643-6E75-5217-BADB-916AD0CA2229}" Win64="yes">
+        <File Id="f_0111" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\plugins\platforms\qwindows.dll" KeyPath="yes" />
+      </Component>
+      </Directory>
+      <Directory Id="d_0010" Name="styles">
+      <Component Id="c_0112" Guid="{5B0FBC02-D16D-5E84-AAF5-847237ED620A}" Win64="yes">
+        <File Id="f_0112" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\plugins\styles\qmodernwindowsstyle.dll" KeyPath="yes" />
+      </Component>
+      </Directory>
+      <Directory Id="d_0011" Name="tls">
+      <Component Id="c_0113" Guid="{660803BB-2E8C-509C-BABC-EC0D9211D786}" Win64="yes">
+        <File Id="f_0113" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\plugins\tls\qcertonlybackend.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0114" Guid="{A6D4F0DB-9E95-5B1F-BE2F-1352537B4A2B}" Win64="yes">
+        <File Id="f_0114" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\plugins\tls\qopensslbackend.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0115" Guid="{193ACE1D-08CF-5145-A6C0-E875C72651E1}" Win64="yes">
+        <File Id="f_0115" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\plugins\tls\qschannelbackend.dll" KeyPath="yes" />
+      </Component>
+      </Directory>
+      </Directory>
+      <Directory Id="d_0012" Name="translations">
+      <Component Id="c_0116" Guid="{D00F8777-505A-5FCE-BFE6-9B8D263DA7F3}" Win64="yes">
+        <File Id="f_0116" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\translations\qt_ar.qm" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0117" Guid="{5E5ADF0E-F148-5068-94F1-2984C24E53F3}" Win64="yes">
+        <File Id="f_0117" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\translations\qt_bg.qm" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0118" Guid="{469DE3E3-914A-5F64-9769-7F5B8E031FEA}" Win64="yes">
+        <File Id="f_0118" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\translations\qt_ca.qm" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0119" Guid="{1F6DFEB3-4459-57E5-91C8-08DECBC32B37}" Win64="yes">
+        <File Id="f_0119" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\translations\qt_cs.qm" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0120" Guid="{8A55E7B4-D26B-5EA3-A683-3E1B716AE8FA}" Win64="yes">
+        <File Id="f_0120" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\translations\qt_da.qm" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0121" Guid="{1EA29375-043E-54A0-96C3-E3C12C014D96}" Win64="yes">
+        <File Id="f_0121" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\translations\qt_de.qm" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0122" Guid="{00104815-DDC4-53D6-9B9E-4766DD271DD4}" Win64="yes">
+        <File Id="f_0122" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\translations\qt_en.qm" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0123" Guid="{18CC1180-FD80-571E-972D-6B2DC37BF446}" Win64="yes">
+        <File Id="f_0123" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\translations\qt_es.qm" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0124" Guid="{3593E8B1-F341-5B5D-8C23-00F72DE51FC5}" Win64="yes">
+        <File Id="f_0124" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\translations\qt_fa.qm" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0125" Guid="{B9D24735-3391-538C-98D2-FB47B7A8A1C1}" Win64="yes">
+        <File Id="f_0125" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\translations\qt_fi.qm" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0126" Guid="{1196C72C-1B1B-56D3-BB3F-7EE55A6C71D2}" Win64="yes">
+        <File Id="f_0126" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\translations\qt_fr.qm" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0127" Guid="{45189FD4-50BF-5F9D-B261-C134FF0E05D3}" Win64="yes">
+        <File Id="f_0127" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\translations\qt_gd.qm" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0128" Guid="{87E1E866-CDCE-582D-A8CF-CE2244B097DA}" Win64="yes">
+        <File Id="f_0128" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\translations\qt_gl.qm" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0129" Guid="{7508441C-3DF2-535E-8043-A95314BDE506}" Win64="yes">
+        <File Id="f_0129" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\translations\qt_he.qm" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0130" Guid="{1276155C-975D-5221-8A6B-1C1146907FB3}" Win64="yes">
+        <File Id="f_0130" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\translations\qt_help_ar.qm" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0131" Guid="{A6B9B81C-5AD7-52CB-AFFE-2C649F116798}" Win64="yes">
+        <File Id="f_0131" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\translations\qt_help_bg.qm" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0132" Guid="{7D60607D-928A-51E5-9726-CDEEA67B1E70}" Win64="yes">
+        <File Id="f_0132" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\translations\qt_help_ca.qm" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0133" Guid="{577E768D-66BB-5E37-908D-13E0671C2675}" Win64="yes">
+        <File Id="f_0133" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\translations\qt_help_cs.qm" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0134" Guid="{F2E942CA-732C-5ABE-A6DC-8E8612C1BE0D}" Win64="yes">
+        <File Id="f_0134" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\translations\qt_help_da.qm" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0135" Guid="{9820CAB1-511A-515C-9510-FB0F60F932A9}" Win64="yes">
+        <File Id="f_0135" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\translations\qt_help_de.qm" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0136" Guid="{5C824405-AF31-5CF0-9A18-E2C7BACC4E78}" Win64="yes">
+        <File Id="f_0136" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\translations\qt_help_en.qm" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0137" Guid="{FFAB7FF2-7EBF-5E3A-B052-EB373AE4B602}" Win64="yes">
+        <File Id="f_0137" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\translations\qt_help_es.qm" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0138" Guid="{928A4EC2-6CCF-58E4-B4F0-6F74ADC5AA0D}" Win64="yes">
+        <File Id="f_0138" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\translations\qt_help_fr.qm" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0139" Guid="{005A752F-1D99-5262-A8D1-6C62D97D980F}" Win64="yes">
+        <File Id="f_0139" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\translations\qt_help_gl.qm" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0140" Guid="{4361572B-81FF-5A3A-82BD-0B120A673590}" Win64="yes">
+        <File Id="f_0140" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\translations\qt_help_hr.qm" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0141" Guid="{B870D686-A07E-5EC7-A04E-1FF5A0666ED8}" Win64="yes">
+        <File Id="f_0141" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\translations\qt_help_hu.qm" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0142" Guid="{75913173-6C06-5ADB-9E9D-2AB604FC5BDA}" Win64="yes">
+        <File Id="f_0142" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\translations\qt_help_it.qm" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0143" Guid="{299D592D-16F5-568B-8219-321F5DEECBB4}" Win64="yes">
+        <File Id="f_0143" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\translations\qt_help_ja.qm" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0144" Guid="{A1926AAE-49C7-5209-8482-6ABE1DCA52AB}" Win64="yes">
+        <File Id="f_0144" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\translations\qt_help_ka.qm" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0145" Guid="{65178EBA-5FDD-5E18-9945-C77ADDDEDD68}" Win64="yes">
+        <File Id="f_0145" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\translations\qt_help_kk.qm" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0146" Guid="{85548A80-6539-5150-9A11-AD5FBE6D94EF}" Win64="yes">
+        <File Id="f_0146" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\translations\qt_help_ko.qm" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0147" Guid="{DE2F4C28-C745-5B92-A7D2-E8AC7DD2CFF7}" Win64="yes">
+        <File Id="f_0147" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\translations\qt_help_nl.qm" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0148" Guid="{BFB5DE52-F911-56C3-B71C-E54D1C63CF50}" Win64="yes">
+        <File Id="f_0148" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\translations\qt_help_nn.qm" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0149" Guid="{42F06AF5-5D3B-59B4-B742-4B9E5DADEB6C}" Win64="yes">
+        <File Id="f_0149" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\translations\qt_help_pl.qm" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0150" Guid="{72F7F6C0-F260-57AD-AFE8-C363419260FC}" Win64="yes">
+        <File Id="f_0150" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\translations\qt_help_pt_BR.qm" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0151" Guid="{5481EDB3-8B7E-57FA-9D0E-44ECF5F206C0}" Win64="yes">
+        <File Id="f_0151" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\translations\qt_help_ru.qm" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0152" Guid="{184E6C73-6C76-5E07-89ED-BAC103BA1E1B}" Win64="yes">
+        <File Id="f_0152" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\translations\qt_help_sk.qm" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0153" Guid="{95DF5A35-0E74-5733-9FE2-6FA276C8AA32}" Win64="yes">
+        <File Id="f_0153" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\translations\qt_help_sl.qm" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0154" Guid="{55A3DAA7-0519-5022-AFC8-04785FFE8163}" Win64="yes">
+        <File Id="f_0154" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\translations\qt_help_sv.qm" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0155" Guid="{C3CBF9EC-51E2-5270-80F1-755804664153}" Win64="yes">
+        <File Id="f_0155" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\translations\qt_help_tr.qm" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0156" Guid="{3A30D0A4-C7E5-5134-8EED-9A7E53590940}" Win64="yes">
+        <File Id="f_0156" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\translations\qt_help_uk.qm" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0157" Guid="{B02A6CD5-691B-55C8-A6CE-ED72B01BA8AA}" Win64="yes">
+        <File Id="f_0157" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\translations\qt_help_zh_CN.qm" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0158" Guid="{C8F7AD0D-461E-575A-B92B-43A3D392E35D}" Win64="yes">
+        <File Id="f_0158" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\translations\qt_help_zh_TW.qm" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0159" Guid="{A5E5D292-794E-5DA3-BFB9-2BF1B9A26E96}" Win64="yes">
+        <File Id="f_0159" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\translations\qt_hr.qm" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0160" Guid="{18B8B946-6B2E-58C8-83A7-F1CA3A87A874}" Win64="yes">
+        <File Id="f_0160" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\translations\qt_hu.qm" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0161" Guid="{7459A849-B1DE-56ED-8629-C14D29153512}" Win64="yes">
+        <File Id="f_0161" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\translations\qt_it.qm" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0162" Guid="{7B0E7CD4-713C-5361-A8FD-4AA5FE28CF15}" Win64="yes">
+        <File Id="f_0162" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\translations\qt_ja.qm" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0163" Guid="{421A9DE5-77DA-50BC-9E88-CA4CCCB5A4B8}" Win64="yes">
+        <File Id="f_0163" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\translations\qt_ka.qm" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0164" Guid="{1F6FA211-0AB6-50EC-B399-EC5724D422B0}" Win64="yes">
+        <File Id="f_0164" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\translations\qt_kk.qm" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0165" Guid="{A2DCF571-D42B-5C73-A2A3-B95DE3595392}" Win64="yes">
+        <File Id="f_0165" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\translations\qt_ko.qm" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0166" Guid="{93DBCE8E-504F-5655-9F8C-05859957A73F}" Win64="yes">
+        <File Id="f_0166" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\translations\qt_lg.qm" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0167" Guid="{7DD1D5C5-9185-50BC-8DDA-270FACBFE9FB}" Win64="yes">
+        <File Id="f_0167" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\translations\qt_lt.qm" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0168" Guid="{384385A5-1317-56D7-9FC9-F2B3D3D92B0C}" Win64="yes">
+        <File Id="f_0168" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\translations\qt_lv.qm" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0169" Guid="{AA4ECF78-CF39-523F-898B-CF68CCD0292F}" Win64="yes">
+        <File Id="f_0169" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\translations\qt_nl.qm" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0170" Guid="{E60EAD72-C478-5C9C-8C09-7BEA436EAD4F}" Win64="yes">
+        <File Id="f_0170" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\translations\qt_nn.qm" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0171" Guid="{5672D880-F23F-510F-BA02-66619CD1B3AE}" Win64="yes">
+        <File Id="f_0171" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\translations\qt_pl.qm" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0172" Guid="{199BA071-43FF-5254-9ACD-003B11C4B886}" Win64="yes">
+        <File Id="f_0172" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\translations\qt_pt_BR.qm" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0173" Guid="{B075AB80-DE73-521C-A96A-711FA3B80930}" Win64="yes">
+        <File Id="f_0173" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\translations\qt_pt_PT.qm" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0174" Guid="{C8247B5C-A2F2-5CDD-808C-0CBCC38CBFE0}" Win64="yes">
+        <File Id="f_0174" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\translations\qt_ru.qm" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0175" Guid="{00A5F4F6-0B6D-55A9-A31C-8E330AE8CD71}" Win64="yes">
+        <File Id="f_0175" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\translations\qt_sk.qm" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0176" Guid="{9997CC99-132C-5121-9FBE-3AE1190335B0}" Win64="yes">
+        <File Id="f_0176" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\translations\qt_sl.qm" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0177" Guid="{C1102358-9FCD-5B8C-A473-9635290EE520}" Win64="yes">
+        <File Id="f_0177" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\translations\qt_sv.qm" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0178" Guid="{FCDC1E95-A583-518D-87A8-DA92670E7282}" Win64="yes">
+        <File Id="f_0178" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\translations\qt_tr.qm" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0179" Guid="{D3583536-9FA5-5F89-B21F-B483CDA17590}" Win64="yes">
+        <File Id="f_0179" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\translations\qt_uk.qm" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0180" Guid="{0675B21D-8FDD-5D24-871A-4DA8654F4430}" Win64="yes">
+        <File Id="f_0180" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\translations\qt_zh_CN.qm" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0181" Guid="{4D75459A-6F58-5579-8160-132814A7642E}" Win64="yes">
+        <File Id="f_0181" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\translations\qt_zh_TW.qm" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0182" Guid="{AC9B75D3-51B2-5ECC-BD7B-9E2985EA5C79}" Win64="yes">
+        <File Id="f_0182" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\translations\qtbase_ar.qm" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0183" Guid="{99A83E8F-DE78-5D95-8446-8F8A684562E0}" Win64="yes">
+        <File Id="f_0183" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\translations\qtbase_bg.qm" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0184" Guid="{5F4C8C65-779E-5FED-82D4-355589757F5A}" Win64="yes">
+        <File Id="f_0184" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\translations\qtbase_ca.qm" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0185" Guid="{5D16A422-6AEB-52EA-848B-F8B4D4E3F0F0}" Win64="yes">
+        <File Id="f_0185" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\translations\qtbase_cs.qm" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0186" Guid="{823A8547-CD7D-52E4-A7E3-C0756BC6EF3F}" Win64="yes">
+        <File Id="f_0186" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\translations\qtbase_da.qm" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0187" Guid="{F55E491C-FA8A-53E7-A41F-0204B972B0AC}" Win64="yes">
+        <File Id="f_0187" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\translations\qtbase_de.qm" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0188" Guid="{9BF1C8D3-B199-548D-9D8B-3D6250DE434F}" Win64="yes">
+        <File Id="f_0188" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\translations\qtbase_en.qm" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0189" Guid="{C35CCE26-455E-5EFA-A9AE-A6BAA145EEA7}" Win64="yes">
+        <File Id="f_0189" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\translations\qtbase_es.qm" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0190" Guid="{D3944E4B-0103-54FC-B716-E2B384987B6B}" Win64="yes">
+        <File Id="f_0190" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\translations\qtbase_fa.qm" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0191" Guid="{2DB00EE6-475C-5ECA-B995-D664F66EDA3F}" Win64="yes">
+        <File Id="f_0191" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\translations\qtbase_fi.qm" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0192" Guid="{52A212DA-93BD-5767-8930-1825B9751956}" Win64="yes">
+        <File Id="f_0192" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\translations\qtbase_fr.qm" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0193" Guid="{8FC0022C-7550-5E74-8B9C-0D34F22F39B7}" Win64="yes">
+        <File Id="f_0193" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\translations\qtbase_gd.qm" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0194" Guid="{E41F4E32-60A1-591A-8382-65AA1F26AE22}" Win64="yes">
+        <File Id="f_0194" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\translations\qtbase_he.qm" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0195" Guid="{0D05C678-5B20-54D6-BEDA-199FADA029F1}" Win64="yes">
+        <File Id="f_0195" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\translations\qtbase_hr.qm" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0196" Guid="{4A543C05-B192-5D21-8A4C-3E943A755B60}" Win64="yes">
+        <File Id="f_0196" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\translations\qtbase_hu.qm" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0197" Guid="{BB4B8114-3E57-51A4-8260-1B4FBB79B74B}" Win64="yes">
+        <File Id="f_0197" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\translations\qtbase_it.qm" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0198" Guid="{E905D83D-DBDA-5CD1-81B3-001FD28208D1}" Win64="yes">
+        <File Id="f_0198" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\translations\qtbase_ja.qm" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0199" Guid="{2052851B-8E6B-5EED-A9EB-9D28FA54E79B}" Win64="yes">
+        <File Id="f_0199" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\translations\qtbase_ka.qm" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0200" Guid="{50E10AC2-A23F-5A73-985A-D3989AFA42AD}" Win64="yes">
+        <File Id="f_0200" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\translations\qtbase_kk.qm" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0201" Guid="{B8DD54B9-E2A1-557E-8BE9-1CFBA0D1016F}" Win64="yes">
+        <File Id="f_0201" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\translations\qtbase_ko.qm" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0202" Guid="{4AA70BED-309A-54AC-ABD4-6E49F9DEE60C}" Win64="yes">
+        <File Id="f_0202" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\translations\qtbase_lg.qm" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0203" Guid="{BE7F0A34-038E-5932-A49D-BEFFA51E49E4}" Win64="yes">
+        <File Id="f_0203" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\translations\qtbase_lv.qm" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0204" Guid="{F56BDA4B-2098-56F3-BF61-1469CD7EE665}" Win64="yes">
+        <File Id="f_0204" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\translations\qtbase_nl.qm" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0205" Guid="{BDBAFE55-8251-5711-906B-1F437D3E9D04}" Win64="yes">
+        <File Id="f_0205" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\translations\qtbase_nn.qm" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0206" Guid="{F43BB4C9-C8FF-56B9-9A93-B37BE86A58E3}" Win64="yes">
+        <File Id="f_0206" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\translations\qtbase_pl.qm" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0207" Guid="{86023603-E486-5E6C-A183-694FD07D838A}" Win64="yes">
+        <File Id="f_0207" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\translations\qtbase_pt_BR.qm" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0208" Guid="{1945A7B5-AA85-54A0-A35E-1653D77588E9}" Win64="yes">
+        <File Id="f_0208" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\translations\qtbase_ru.qm" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0209" Guid="{D4EABD44-18C2-5228-A3ED-769D37D5C39A}" Win64="yes">
+        <File Id="f_0209" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\translations\qtbase_sk.qm" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0210" Guid="{74109128-4242-5CB9-AC82-7E51CBAADB5B}" Win64="yes">
+        <File Id="f_0210" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\translations\qtbase_sv.qm" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0211" Guid="{068E535D-4F3C-5B7F-A760-873A7061489E}" Win64="yes">
+        <File Id="f_0211" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\translations\qtbase_tr.qm" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0212" Guid="{31954633-73D5-5D61-AA92-90F2C24ACBA5}" Win64="yes">
+        <File Id="f_0212" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\translations\qtbase_uk.qm" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0213" Guid="{F741D759-E523-5EC3-B965-5F9F65B1B15B}" Win64="yes">
+        <File Id="f_0213" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\translations\qtbase_zh_CN.qm" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0214" Guid="{FE914B54-28AC-575C-A2FE-0FC1AEF29BD8}" Win64="yes">
+        <File Id="f_0214" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\PySide6\translations\qtbase_zh_TW.qm" KeyPath="yes" />
+      </Component>
+      </Directory>
+      </Directory>
+      <Directory Id="d_0013" Name="assets">
+      <Component Id="c_0215" Guid="{F3C65130-AC45-58D5-86A3-BB60C32E2E76}" Win64="yes">
+        <File Id="f_0215" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\assets\demo.svg" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0216" Guid="{8B4DD977-8C04-5338-8A6A-110FF375D176}" Win64="yes">
+        <File Id="f_0216" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\assets\fuckyousuno.svg" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0217" Guid="{08E99FCE-9A26-5570-871A-ADFFAA4372F4}" Win64="yes">
+        <File Id="f_0217" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\assets\logo.svg" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0218" Guid="{CC12C619-CC60-5CDD-9E91-270D48CEE018}" Win64="yes">
+        <File Id="f_0218" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\assets\mi_suno.ico" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0219" Guid="{B8B1A65A-9879-51BD-AD96-5608672DC345}" Win64="yes">
+        <File Id="f_0219" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\assets\mi_suno.svg" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0220" Guid="{77F3C5EF-F026-5EE1-B585-BE1D3721DEE1}" Win64="yes">
+        <File Id="f_0220" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\assets\mi_suno_512.png" KeyPath="yes" />
+      </Component>
+      </Directory>
+      <Directory Id="d_0014" Name="certifi">
+      <Component Id="c_0221" Guid="{B3529CEB-504F-55C3-9108-9865C0B64A3C}" Win64="yes">
+        <File Id="f_0221" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\certifi\cacert.pem" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0222" Guid="{9BF92A14-B7B9-5239-8915-E2F2C54FE4F1}" Win64="yes">
+        <File Id="f_0222" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\certifi\py.typed" KeyPath="yes" />
+      </Component>
+      </Directory>
+      <Directory Id="d_0015" Name="charset_normalizer">
+      <Component Id="c_0223" Guid="{9326C997-A4DC-5F4D-B1BE-247B49463BAF}" Win64="yes">
+        <File Id="f_0223" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\charset_normalizer\cd.cp313-win_amd64.pyd" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0224" Guid="{2A36EB16-FBB3-5DFA-9C6A-B7C1915ECA1B}" Win64="yes">
+        <File Id="f_0224" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\charset_normalizer\md.cp313-win_amd64.pyd" KeyPath="yes" />
+      </Component>
+      </Directory>
+      <Directory Id="d_0016" Name="cryptography">
+      <Directory Id="d_0017" Name="hazmat">
+      <Directory Id="d_0018" Name="bindings">
+      <Component Id="c_0225" Guid="{C1A7F3C9-6A01-5E02-876A-8E11997AD168}" Win64="yes">
+        <File Id="f_0225" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\cryptography\hazmat\bindings\_rust.pyd" KeyPath="yes" />
+      </Component>
+      </Directory>
+      </Directory>
+      </Directory>
+      <Directory Id="d_0019" Name="cryptography-50.0.2.dist-info">
+      <Component Id="c_0226" Guid="{65E9A7F3-F491-55E7-9F4E-400A46BECC2D}" Win64="yes">
+        <File Id="f_0226" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\cryptography-50.0.2.dist-info\INSTALLER" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0227" Guid="{85EBAB90-0460-5E05-A17C-E482CB1FB619}" Win64="yes">
+        <File Id="f_0227" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\cryptography-50.0.2.dist-info\METADATA" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0228" Guid="{A43764CB-C7F0-5D41-9E40-55861D1F9B65}" Win64="yes">
+        <File Id="f_0228" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\cryptography-50.0.2.dist-info\RECORD" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0229" Guid="{23411211-B06E-5C6A-B456-E24EADDB0272}" Win64="yes">
+        <File Id="f_0229" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\cryptography-50.0.2.dist-info\REQUESTED" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0230" Guid="{E920C129-F973-5664-BF2D-245294218287}" Win64="yes">
+        <File Id="f_0230" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\cryptography-50.0.2.dist-info\WHEEL" KeyPath="yes" />
+      </Component>
+      <Directory Id="d_0020" Name="licenses">
+      <Component Id="c_0231" Guid="{B5CA3475-D3FE-5994-858F-2B70445CF3C4}" Win64="yes">
+        <File Id="f_0231" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\cryptography-50.0.2.dist-info\licenses\LICENSE" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0232" Guid="{A65780C8-AA4A-59AE-8CEF-CEA8E909D020}" Win64="yes">
+        <File Id="f_0232" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\cryptography-50.0.2.dist-info\licenses\LICENSE.APACHE" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0233" Guid="{3B1C6AFD-9E65-5453-BEA4-AF5297DB7B34}" Win64="yes">
+        <File Id="f_0233" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\cryptography-50.0.2.dist-info\licenses\LICENSE.BSD" KeyPath="yes" />
+      </Component>
+      </Directory>
+      <Directory Id="d_0021" Name="sboms">
+      <Component Id="c_0234" Guid="{4708F8C9-2D81-53A7-9FEE-6224930543BD}" Win64="yes">
+        <File Id="f_0234" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\cryptography-50.0.2.dist-info\sboms\cryptography-rust.cyclonedx.json" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0235" Guid="{438AD171-8009-5AB1-8E15-18DA680A3864}" Win64="yes">
+        <File Id="f_0235" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\cryptography-50.0.2.dist-info\sboms\sbom.json" KeyPath="yes" />
+      </Component>
+      </Directory>
+      </Directory>
+      <Directory Id="d_0022" Name="herramientas">
+      <Component Id="c_0236" Guid="{6029D83E-4BA7-5DE8-B0B2-C820967170F0}" Win64="yes">
+        <File Id="f_0236" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\herramientas\ffmpeg.exe" KeyPath="yes" />
+      </Component>
+      </Directory>
+      <Directory Id="d_0023" Name="setuptools">
+      <Directory Id="d_0024" Name="_vendor">
+      <Directory Id="d_0025" Name="jaraco">
+      <Directory Id="d_0026" Name="text">
+      <Component Id="c_0237" Guid="{50D64C5F-E21F-54C0-A30B-6FD64C61FA46}" Win64="yes">
+        <File Id="f_0237" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\setuptools\_vendor\jaraco\text\Lorem ipsum.txt" KeyPath="yes" />
+      </Component>
+      </Directory>
+      </Directory>
+      </Directory>
+      </Directory>
+      <Directory Id="d_0027" Name="shiboken6">
+      <Component Id="c_0238" Guid="{43F5C7F7-BDED-5E69-9C4B-3DADE27A8C3F}" Win64="yes">
+        <File Id="f_0238" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\shiboken6\MSVCP140.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0239" Guid="{8FFAAC9C-6504-5022-B657-3B54110DED44}" Win64="yes">
+        <File Id="f_0239" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\shiboken6\Shiboken.pyd" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0240" Guid="{7CA24EF1-6AFF-5052-9AE6-457433B4F846}" Win64="yes">
+        <File Id="f_0240" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\shiboken6\shiboken6.abi3.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0241" Guid="{92F5A9E6-F6DA-518C-ADC8-1B76591CCFCC}" Win64="yes">
+        <File Id="f_0241" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\shiboken6\VCRUNTIME140.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="c_0242" Guid="{38B425A2-9174-5847-8514-979EEBA1E357}" Win64="yes">
+        <File Id="f_0242" Source="C:\Users\vejie\Documents\SunoPropio\dist\Mi Suno\_internal\shiboken6\VCRUNTIME140_1.dll" KeyPath="yes" />
+      </Component>
+      </Directory>
+      </Directory>
+    </DirectoryRef>
+  </Fragment>
+
+  <Fragment>
+    <ComponentGroup Id="Ficheros">
+      <ComponentRef Id="c_0001" />
+      <ComponentRef Id="c_0002" />
+      <ComponentRef Id="c_0003" />
+      <ComponentRef Id="c_0004" />
+      <ComponentRef Id="c_0005" />
+      <ComponentRef Id="c_0006" />
+      <ComponentRef Id="c_0007" />
+      <ComponentRef Id="c_0008" />
+      <ComponentRef Id="c_0009" />
+      <ComponentRef Id="c_0010" />
+      <ComponentRef Id="c_0011" />
+      <ComponentRef Id="c_0012" />
+      <ComponentRef Id="c_0013" />
+      <ComponentRef Id="c_0014" />
+      <ComponentRef Id="c_0015" />
+      <ComponentRef Id="c_0016" />
+      <ComponentRef Id="c_0017" />
+      <ComponentRef Id="c_0018" />
+      <ComponentRef Id="c_0019" />
+      <ComponentRef Id="c_0020" />
+      <ComponentRef Id="c_0021" />
+      <ComponentRef Id="c_0022" />
+      <ComponentRef Id="c_0023" />
+      <ComponentRef Id="c_0024" />
+      <ComponentRef Id="c_0025" />
+      <ComponentRef Id="c_0026" />
+      <ComponentRef Id="c_0027" />
+      <ComponentRef Id="c_0028" />
+      <ComponentRef Id="c_0029" />
+      <ComponentRef Id="c_0030" />
+      <ComponentRef Id="c_0031" />
+      <ComponentRef Id="c_0032" />
+      <ComponentRef Id="c_0033" />
+      <ComponentRef Id="c_0034" />
+      <ComponentRef Id="c_0035" />
+      <ComponentRef Id="c_0036" />
+      <ComponentRef Id="c_0037" />
+      <ComponentRef Id="c_0038" />
+      <ComponentRef Id="c_0039" />
+      <ComponentRef Id="c_0040" />
+      <ComponentRef Id="c_0041" />
+      <ComponentRef Id="c_0042" />
+      <ComponentRef Id="c_0043" />
+      <ComponentRef Id="c_0044" />
+      <ComponentRef Id="c_0045" />
+      <ComponentRef Id="c_0046" />
+      <ComponentRef Id="c_0047" />
+      <ComponentRef Id="c_0048" />
+      <ComponentRef Id="c_0049" />
+      <ComponentRef Id="c_0050" />
+      <ComponentRef Id="c_0051" />
+      <ComponentRef Id="c_0052" />
+      <ComponentRef Id="c_0053" />
+      <ComponentRef Id="c_0054" />
+      <ComponentRef Id="c_0055" />
+      <ComponentRef Id="c_0056" />
+      <ComponentRef Id="c_0057" />
+      <ComponentRef Id="c_0058" />
+      <ComponentRef Id="c_0059" />
+      <ComponentRef Id="c_0060" />
+      <ComponentRef Id="c_0061" />
+      <ComponentRef Id="c_0062" />
+      <ComponentRef Id="c_0063" />
+      <ComponentRef Id="c_0064" />
+      <ComponentRef Id="c_0065" />
+      <ComponentRef Id="c_0066" />
+      <ComponentRef Id="c_0067" />
+      <ComponentRef Id="c_0068" />
+      <ComponentRef Id="c_0069" />
+      <ComponentRef Id="c_0070" />
+      <ComponentRef Id="c_0071" />
+      <ComponentRef Id="c_0072" />
+      <ComponentRef Id="c_0073" />
+      <ComponentRef Id="c_0074" />
+      <ComponentRef Id="c_0075" />
+      <ComponentRef Id="c_0076" />
+      <ComponentRef Id="c_0077" />
+      <ComponentRef Id="c_0078" />
+      <ComponentRef Id="c_0079" />
+      <ComponentRef Id="c_0080" />
+      <ComponentRef Id="c_0081" />
+      <ComponentRef Id="c_0082" />
+      <ComponentRef Id="c_0083" />
+      <ComponentRef Id="c_0084" />
+      <ComponentRef Id="c_0085" />
+      <ComponentRef Id="c_0086" />
+      <ComponentRef Id="c_0087" />
+      <ComponentRef Id="c_0088" />
+      <ComponentRef Id="c_0089" />
+      <ComponentRef Id="c_0090" />
+      <ComponentRef Id="c_0091" />
+      <ComponentRef Id="c_0092" />
+      <ComponentRef Id="c_0093" />
+      <ComponentRef Id="c_0094" />
+      <ComponentRef Id="c_0095" />
+      <ComponentRef Id="c_0096" />
+      <ComponentRef Id="c_0097" />
+      <ComponentRef Id="c_0098" />
+      <ComponentRef Id="c_0099" />
+      <ComponentRef Id="c_0100" />
+      <ComponentRef Id="c_0101" />
+      <ComponentRef Id="c_0102" />
+      <ComponentRef Id="c_0103" />
+      <ComponentRef Id="c_0104" />
+      <ComponentRef Id="c_0105" />
+      <ComponentRef Id="c_0106" />
+      <ComponentRef Id="c_0107" />
+      <ComponentRef Id="c_0108" />
+      <ComponentRef Id="c_0109" />
+      <ComponentRef Id="c_0110" />
+      <ComponentRef Id="c_0111" />
+      <ComponentRef Id="c_0112" />
+      <ComponentRef Id="c_0113" />
+      <ComponentRef Id="c_0114" />
+      <ComponentRef Id="c_0115" />
+      <ComponentRef Id="c_0116" />
+      <ComponentRef Id="c_0117" />
+      <ComponentRef Id="c_0118" />
+      <ComponentRef Id="c_0119" />
+      <ComponentRef Id="c_0120" />
+      <ComponentRef Id="c_0121" />
+      <ComponentRef Id="c_0122" />
+      <ComponentRef Id="c_0123" />
+      <ComponentRef Id="c_0124" />
+      <ComponentRef Id="c_0125" />
+      <ComponentRef Id="c_0126" />
+      <ComponentRef Id="c_0127" />
+      <ComponentRef Id="c_0128" />
+      <ComponentRef Id="c_0129" />
+      <ComponentRef Id="c_0130" />
+      <ComponentRef Id="c_0131" />
+      <ComponentRef Id="c_0132" />
+      <ComponentRef Id="c_0133" />
+      <ComponentRef Id="c_0134" />
+      <ComponentRef Id="c_0135" />
+      <ComponentRef Id="c_0136" />
+      <ComponentRef Id="c_0137" />
+      <ComponentRef Id="c_0138" />
+      <ComponentRef Id="c_0139" />
+      <ComponentRef Id="c_0140" />
+      <ComponentRef Id="c_0141" />
+      <ComponentRef Id="c_0142" />
+      <ComponentRef Id="c_0143" />
+      <ComponentRef Id="c_0144" />
+      <ComponentRef Id="c_0145" />
+      <ComponentRef Id="c_0146" />
+      <ComponentRef Id="c_0147" />
+      <ComponentRef Id="c_0148" />
+      <ComponentRef Id="c_0149" />
+      <ComponentRef Id="c_0150" />
+      <ComponentRef Id="c_0151" />
+      <ComponentRef Id="c_0152" />
+      <ComponentRef Id="c_0153" />
+      <ComponentRef Id="c_0154" />
+      <ComponentRef Id="c_0155" />
+      <ComponentRef Id="c_0156" />
+      <ComponentRef Id="c_0157" />
+      <ComponentRef Id="c_0158" />
+      <ComponentRef Id="c_0159" />
+      <ComponentRef Id="c_0160" />
+      <ComponentRef Id="c_0161" />
+      <ComponentRef Id="c_0162" />
+      <ComponentRef Id="c_0163" />
+      <ComponentRef Id="c_0164" />
+      <ComponentRef Id="c_0165" />
+      <ComponentRef Id="c_0166" />
+      <ComponentRef Id="c_0167" />
+      <ComponentRef Id="c_0168" />
+      <ComponentRef Id="c_0169" />
+      <ComponentRef Id="c_0170" />
+      <ComponentRef Id="c_0171" />
+      <ComponentRef Id="c_0172" />
+      <ComponentRef Id="c_0173" />
+      <ComponentRef Id="c_0174" />
+      <ComponentRef Id="c_0175" />
+      <ComponentRef Id="c_0176" />
+      <ComponentRef Id="c_0177" />
+      <ComponentRef Id="c_0178" />
+      <ComponentRef Id="c_0179" />
+      <ComponentRef Id="c_0180" />
+      <ComponentRef Id="c_0181" />
+      <ComponentRef Id="c_0182" />
+      <ComponentRef Id="c_0183" />
+      <ComponentRef Id="c_0184" />
+      <ComponentRef Id="c_0185" />
+      <ComponentRef Id="c_0186" />
+      <ComponentRef Id="c_0187" />
+      <ComponentRef Id="c_0188" />
+      <ComponentRef Id="c_0189" />
+      <ComponentRef Id="c_0190" />
+      <ComponentRef Id="c_0191" />
+      <ComponentRef Id="c_0192" />
+      <ComponentRef Id="c_0193" />
+      <ComponentRef Id="c_0194" />
+      <ComponentRef Id="c_0195" />
+      <ComponentRef Id="c_0196" />
+      <ComponentRef Id="c_0197" />
+      <ComponentRef Id="c_0198" />
+      <ComponentRef Id="c_0199" />
+      <ComponentRef Id="c_0200" />
+      <ComponentRef Id="c_0201" />
+      <ComponentRef Id="c_0202" />
+      <ComponentRef Id="c_0203" />
+      <ComponentRef Id="c_0204" />
+      <ComponentRef Id="c_0205" />
+      <ComponentRef Id="c_0206" />
+      <ComponentRef Id="c_0207" />
+      <ComponentRef Id="c_0208" />
+      <ComponentRef Id="c_0209" />
+      <ComponentRef Id="c_0210" />
+      <ComponentRef Id="c_0211" />
+      <ComponentRef Id="c_0212" />
+      <ComponentRef Id="c_0213" />
+      <ComponentRef Id="c_0214" />
+      <ComponentRef Id="c_0215" />
+      <ComponentRef Id="c_0216" />
+      <ComponentRef Id="c_0217" />
+      <ComponentRef Id="c_0218" />
+      <ComponentRef Id="c_0219" />
+      <ComponentRef Id="c_0220" />
+      <ComponentRef Id="c_0221" />
+      <ComponentRef Id="c_0222" />
+      <ComponentRef Id="c_0223" />
+      <ComponentRef Id="c_0224" />
+      <ComponentRef Id="c_0225" />
+      <ComponentRef Id="c_0226" />
+      <ComponentRef Id="c_0227" />
+      <ComponentRef Id="c_0228" />
+      <ComponentRef Id="c_0229" />
+      <ComponentRef Id="c_0230" />
+      <ComponentRef Id="c_0231" />
+      <ComponentRef Id="c_0232" />
+      <ComponentRef Id="c_0233" />
+      <ComponentRef Id="c_0234" />
+      <ComponentRef Id="c_0235" />
+      <ComponentRef Id="c_0236" />
+      <ComponentRef Id="c_0237" />
+      <ComponentRef Id="c_0238" />
+      <ComponentRef Id="c_0239" />
+      <ComponentRef Id="c_0240" />
+      <ComponentRef Id="c_0241" />
+      <ComponentRef Id="c_0242" />
+    </ComponentGroup>
+  </Fragment>
+</Wix>

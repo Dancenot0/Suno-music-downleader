@@ -611,6 +611,13 @@ def _print_blocked(console: Console) -> None:
 
 
 def main(argv=None) -> int:
+    # Windows consoles default to cp1252 and choke on the banner glyphs.
+    for stream in (sys.stdout, sys.stderr):
+        try:
+            stream.reconfigure(encoding="utf-8", errors="replace")
+        except (AttributeError, ValueError):
+            pass
+
     parser = argparse.ArgumentParser(
         prog="suno_dl",
         description="Download every track from public Suno playlists — "

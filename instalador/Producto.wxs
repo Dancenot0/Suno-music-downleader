@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Instalador de "Suno v1".
+  Instala en C:\Program Files\Suno v1 (perMachine, pide administrador),
+  crea el acceso directo en el menu Inicio de todos los usuarios y aparece
+  en Aplicaciones instaladas.
+-->
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <Product Id="*"
+           Name="Suno v1"
+           Language="3082"
+           Version="1.1.0"
+           Manufacturer="Suno v1"
+           UpgradeCode="{7C1B5E4A-2D9F-4E8B-9A31-5F0C2B7D6E10}">
+
+    <Package Description="Descargador de playlists públicas de Suno"
+             Comments="Suno v1 · descargador de playlists"
+             Manufacturer="Suno v1"
+             InstallerVersion="500"
+             Compressed="yes"
+             InstallScope="perMachine" />
+
+    <MajorUpgrade DowngradeErrorMessage="Ya hay una versión más reciente de [ProductName] instalada." />
+    <MediaTemplate EmbedCab="yes" CompressionLevel="high" />
+
+    <Icon Id="IconoSuno" SourceFile="$(var.Arte)\mi_suno.ico" />
+    <Property Id="ARPPRODUCTICON" Value="IconoSuno" />
+    <Property Id="ARPCOMMENTS" Value="Descargador de playlists públicas de Suno" />
+
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <Directory Id="ProgramFiles64Folder">
+        <Directory Id="INSTALLFOLDER" Name="Suno v1" />
+      </Directory>
+      <!-- En una instalación perMachine Windows resuelve ProgramMenuFolder
+           a la carpeta Inicio de todos los usuarios, y DesktopFolder al
+           escritorio público. -->
+      <Directory Id="ProgramMenuFolder">
+        <Directory Id="MenuSuno" Name="Suno v1" />
+      </Directory>
+      <Directory Id="DesktopFolder" />
+    </Directory>
+
+    <DirectoryRef Id="MenuSuno">
+      <Component Id="AccesoMenu" Guid="{B4C6D2E8-3F71-4A95-8C22-9D5E6A1B7F34}" Win64="yes">
+        <Condition>START_SHORTCUT = "1"</Condition>
+        <Shortcut Id="AtajoSuno"
+                  Name="Suno v1"
+                  Description="Descargador de playlists de Suno"
+                  Target="[INSTALLFOLDER]Mi Suno.exe"
+                  WorkingDirectory="INSTALLFOLDER"
+                  Icon="IconoSuno" />
+        <RemoveFolder Id="QuitarMenuSuno" On="uninstall" />
+        <RegistryValue Root="HKLM" Key="Software\Suno v1"
+                       Name="instalado" Type="integer" Value="1" KeyPath="yes" />
+      </Component>
+    </DirectoryRef>
+
+    <DirectoryRef Id="DesktopFolder">
+      <Component Id="AccesoEscritorio" Guid="{D7E4A1C9-62B3-4F58-9A0E-3C5D8B2F14A7}" Win64="yes">
+        <Condition>DESKTOP_SHORTCUT = "1"</Condition>
+        <Shortcut Id="AtajoEscritorio"
+                  Name="Suno v1"
+                  Description="Descargador de playlists de Suno"
+                  Target="[INSTALLFOLDER]Mi Suno.exe"
+                  WorkingDirectory="INSTALLFOLDER"
+                  Icon="IconoSuno" />
+        <RegistryValue Root="HKLM" Key="Software\Suno v1"
+                       Name="escritorio" Type="integer" Value="1" KeyPath="yes" />
+      </Component>
+    </DirectoryRef>
+
+    <Feature Id="Completa" Title="Suno v1" Level="1" Absent="disallow">
+      <ComponentGroupRef Id="Ficheros" />
+      <ComponentRef Id="AccesoMenu" />
+      <ComponentRef Id="AccesoEscritorio" />
+    </Feature>
+
+    <!-- Opciones de accesos: por defecto las dos marcadas. Se pueden
+         desmarcar en la pantalla "Accesos directos" o por línea de comandos
+         (START_SHORTCUT=0 DESKTOP_SHORTCUT=0). -->
+    <Property Id="START_SHORTCUT" Secure="yes" />
+    <Property Id="DESKTOP_SHORTCUT" Secure="yes" />
+    <CustomAction Id="InicioPorDefecto" Property="START_SHORTCUT" Value="1" />
+    <CustomAction Id="EscritorioPorDefecto" Property="DESKTOP_SHORTCUT" Value="1" />
+
+    <InstallUISequence>
+      <Custom Action="InicioPorDefecto" Before="CostInitialize">NOT START_SHORTCUT</Custom>
+      <Custom Action="EscritorioPorDefecto" Before="CostInitialize">NOT DESKTOP_SHORTCUT</Custom>
+    </InstallUISequence>
+    <InstallExecuteSequence>
+      <Custom Action="InicioPorDefecto" Before="CostInitialize">NOT START_SHORTCUT</Custom>
+      <Custom Action="EscritorioPorDefecto" Before="CostInitialize">NOT DESKTOP_SHORTCUT</Custom>
+    </InstallExecuteSequence>
+
+    <UI>
+      <Dialog Id="AccesosDlg" Width="370" Height="270" NoMinimize="yes"
+              Title="Suno v1 · Accesos directos">
+        <Control Id="Bitmap" Type="Bitmap" X="0" Y="0" Width="370" Height="234"
+                 TabSkip="no" Text="WixUI_Bmp_Dialog" />
+        <Control Id="Title" Type="Text" X="24" Y="20" Width="320" Height="18"
+                 Transparent="yes" NoPrefix="yes" Text="Accesos directos" />
+        <Control Id="Description" Type="Text" X="24" Y="42" Width="320" Height="16"
+                 Transparent="yes" NoPrefix="yes"
+                 Text="Elige dónde quieres abrir Suno v1." />
+        <Control Id="StartMenuCheck" Type="CheckBox" X="24" Y="78" Width="330" Height="18"
+                 Property="START_SHORTCUT" CheckBoxValue="1"
+                 Text="En el menú Inicio" />
+        <Control Id="DesktopCheck" Type="CheckBox" X="24" Y="104" Width="330" Height="18"
+                 Property="DESKTOP_SHORTCUT" CheckBoxValue="1"
+                 Text="En el escritorio" />
+        <Control Id="Hint" Type="Text" X="24" Y="140" Width="320" Height="30"
+                 Transparent="yes" NoPrefix="yes"
+                 Text="Si cambias de idea, vuelve a ejecutar el instalador." />
+        <Control Id="Back" Type="PushButton" X="180" Y="243" Width="56" Height="17"
+                 Text="Atrás" />
+        <Control Id="Next" Type="PushButton" X="236" Y="243" Width="56" Height="17"
+                 Default="yes" Text="Siguiente" />
+        <Control Id="Cancel" Type="PushButton" X="304" Y="243" Width="56" Height="17"
+                 Cancel="yes" Text="Cancelar">
+          <Publish Event="SpawnDialog" Value="CancelDlg">1</Publish>
+        </Control>
+      </Dialog>
+
+      <!-- Insertada entre la licencia y la carpeta de instalación. -->
+      <Publish Dialog="LicenseAgreementDlg" Control="Next" Event="NewDialog"
+               Value="AccesosDlg" Order="2">LicenseAccepted = "1"</Publish>
+      <Publish Dialog="AccesosDlg" Control="Back" Event="NewDialog"
+               Value="LicenseAgreementDlg">1</Publish>
+      <Publish Dialog="AccesosDlg" Control="Next" Event="NewDialog"
+               Value="InstallDirDlg">1</Publish>
+    </UI>
+
+    <UIRef Id="WixUI_InstallDir" />
+    <Property Id="WIXUI_INSTALLDIR" Value="INSTALLFOLDER" />
+    <WixVariable Id="WixUILicenseRtf" Value="$(var.Arte)\licencia.rtf" />
+    <WixVariable Id="WixUIBannerBmp" Value="$(var.Arte)\banner.bmp" />
+    <WixVariable Id="WixUIDialogBmp" Value="$(var.Arte)\fondo.bmp" />
+  </Product>
+</Wix>
