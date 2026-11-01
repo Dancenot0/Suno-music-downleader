@@ -40,6 +40,15 @@ compilar.bat               :: genera dist\Mi Suno\Mi Suno.exe
 instalador\compilar_instalador.bat   :: genera el .msi
 ```
 
+La captura que aparece en la web se genera desde la app real:
+
+```bat
+.venv\Scripts\python.exe captura_web.py
+```
+
+Escribe `assets\app-v1.webp` (y un `.png` de reserva). Vuelve a ejecutarlo si
+cambias la interfaz, para que la web no muestre una versión antigua.
+
 El instalador necesita `herramientas\ffmpeg.exe`, que **no se versiona** por su
 tamaño (83 MB): descarga una compilación de <https://ffmpeg.org/download.html> y
 déjala en esa carpeta antes de compilar.
