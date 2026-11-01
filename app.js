@@ -24,6 +24,13 @@
     reveals.forEach((el) => io.observe(el));
   }
 
+  /* red de seguridad: si el observador se retrasa, lo visible no se queda oculto */
+  setTimeout(() => {
+    document.querySelectorAll(".reveal:not(.in)").forEach((el) => {
+      if (el.getBoundingClientRect().top < window.innerHeight * 1.1) el.classList.add("in");
+    });
+  }, 900);
+
   /* ---------- año del pie ---------- */
   const year = document.getElementById("year");
   if (year) year.textContent = String(new Date().getFullYear());
