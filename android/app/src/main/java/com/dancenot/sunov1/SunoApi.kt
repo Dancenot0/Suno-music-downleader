@@ -1,5 +1,7 @@
 package com.dancenot.sunov1
 
+import android.util.Base64
+import org.json.JSONArray
 import org.json.JSONObject
 import java.io.File
 import java.io.IOException
@@ -10,49 +12,62 @@ import javax.crypto.Cipher
 import javax.crypto.spec.GCMParameterSpec
 import javax.crypto.spec.IvParameterSpec
 import javax.crypto.spec.SecretKeySpec
-import android.util.Base64
 
 /**
- * Cliente de la API pública de Suno + descifrado del audio ("esquema Mango").
+ * Cliente de la API publica de Suno + descifrado del audio ("esquema Mango").
  * Es el mismo procedimiento que usa el reproductor web: pedir los derechos,
  * desenvolver la clave con AES-GCM y descifrar el archivo con AES-CTR.
  */
 object SunoApi {
 
     private const val API_PLAYLIST = "https://studio-api.prod.suno.com/api/playlist/%s?page=%d"
+    private const val API_CLIP = "https://studio-api.prod.suno.com/api/clip/%s"
     private const val API_RIGHTS = "https://studio-api.prod.suno.com/api/mango/rights"
     private const val UA =
         "Mozilla/5.0 (Linux; Android 14) AppleWebKit/537.36 (KHTML, like Gecko) " +
             "Chrome/128.0.0.0 Mobile Safari/537.36"
 
+    enum class Tipo { PLAYLIST, SONG }
+
+    data class Enlace(val tipo: Tipo, val id: String)
+
     data class Track(
         val id: String,
-        val title: String,
-        val duration: Int,
-        val model: String,
-        val genre: String,
-        val created: String,
-        val cover: String,
-        val lyrics: String,
-        val mediaUrl: String,
+        val titulo: String,
+        val duracion: Int,
+        val modelo: String,
+        val genero: String,
+        val fecha: String,
+        val portada: String,
+        val video: String,
+        val letra: String,
+        val audioUrl: String,
     )
 
     data class Playlist(
         val id: String,
-        val name: String,
-        val author: String,
-        val cover: String,
-        val tracks: List<Track>,
+        val nombre: String,
+        val autor: String,
+        val portada: String,
+        val descripcion: String,
+        val total: Double,
+        val tipo: Tipo,
+        val pistas: List<Track>,
     )
 
     class Bloqueado(causa: String) : IOException(causa)
 
     // ------------------------------------------------------------- peticiones
-    private fun abrir(url: String, metodo: String = "GET", referer: String? = null): HttpURLConnection {
+    private fun abrir(
+        url: String,
+        metodo: String = "GET",
+        referer: String? = null,
+        timeoutS: Int = 60,
+    ): HttpURLConnection {
         val conexion = URL(url).openConnection() as HttpURLConnection
         conexion.requestMethod = metodo
         conexion.connectTimeout = 15000
-        conexion.readTimeout = 60000
+        conexion.readTimeout = timeoutS * 1000
         conexion.setRequestProperty("User-Agent", UA)
         conexion.setRequestProperty("Accept", "application/json, text/plain, */*")
         conexion.setRequestProperty("Accept-Language", "en-US,en;q=0.9")
@@ -61,8 +76,8 @@ object SunoApi {
         return conexion
     }
 
-    private fun leerJson(url: String, referer: String): JSONObject {
-        val c = abrir(url, "GET", referer)
+    private fun leerJson(url: String, referer: String, timeoutS: Int): JSONObject {
+        val c = abrir(url, "GET", referer, timeoutS)
         try {
             if (c.responseCode == 403 || c.responseCode == 429) {
                 throw Bloqueado("Suno pidió calma (${c.responseCode})")
@@ -74,21 +89,62 @@ object SunoApi {
         }
     }
 
-    fun idDePlaylist(texto: String): String {
-        val m = Regex("suno\\.com/playlist/([0-9a-fA-F-]{30,40})").find(texto.trim())
-        if (m != null) return m.groupValues[1].trim('/', '?', ' ')
-        val solo = Regex("^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$")
-        if (solo.matches(texto.trim())) return texto.trim().lowercase()
-        throw IllegalArgumentException("Ese enlace no es de una playlist de Suno")
+    /** Acepta enlaces de playlist, de canción, o un id suelto. Una por línea. */
+    fun leerEnlaces(texto: String): List<Enlace> {
+        val salida = LinkedHashMap<String, Enlace>()
+        for (linea in texto.lines()) {
+            val t = linea.trim()
+            if (t.isEmpty()) continue
+            val m = Regex("suno\\.com/(playlist|song)/([0-9a-fA-F-]{30,40})").find(t)
+            if (m != null) {
+                val id = m.groupValues[2].trim('/', '?', ' ')
+                val tipo = if (m.groupValues[1] == "playlist") Tipo.PLAYLIST else Tipo.SONG
+                salida["$tipo-$id"] = Enlace(tipo, id)
+                continue
+            }
+            if (Regex("^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$")
+                    .matches(t)
+            ) {
+                salida["PLAYLIST-${t.lowercase()}"] = Enlace(Tipo.PLAYLIST, t.lowercase())
+            }
+        }
+        if (salida.isEmpty()) throw IllegalArgumentException("No hay enlaces de Suno válidos")
+        return salida.values.toList()
     }
 
-    fun playlist(id: String): Playlist {
+    fun idDePlaylist(texto: String): String {
+        val primero = leerEnlaces(texto).firstOrNull()
+            ?: throw IllegalArgumentException("Ese enlace no es de Suno")
+        return primero.id
+    }
+
+    // --------------------------------------------------------------- lectura
+    fun cargar(enlace: Enlace, timeoutS: Int = 60): Playlist =
+        if (enlace.tipo == Tipo.SONG) cancion(enlace.id, timeoutS)
+        else playlist(enlace.id, timeoutS)
+
+    private fun cancion(id: String, timeoutS: Int): Playlist {
+        val clip = leerJson(API_CLIP.format(id), "https://suno.com", timeoutS)
+        val pista = convertir(clip) ?: throw IOException("Esa canción no tiene datos")
+        return Playlist(
+            id = id,
+            nombre = pista.titulo,
+            autor = clip.optString("display_name"),
+            portada = pista.portada,
+            descripcion = "",
+            total = pista.duracion.toDouble(),
+            tipo = Tipo.SONG,
+            pistas = listOf(pista),
+        )
+    }
+
+    private fun playlist(id: String, timeoutS: Int): Playlist {
         val referer = "https://suno.com/playlist/$id"
         val vistas = LinkedHashMap<String, Pair<Double, JSONObject>>()
         var meta: JSONObject? = null
         var pagina = 1
         while (pagina <= 20) {
-            val datos = leerJson(API_PLAYLIST.format(id, pagina), referer)
+            val datos = leerJson(API_PLAYLIST.format(id, pagina), referer, timeoutS)
             meta = datos
             val lote = datos.optJSONArray("playlist_clips") ?: break
             var nuevas = 0
@@ -108,14 +164,17 @@ object SunoApi {
         val base = meta ?: throw IOException("Respuesta vacía de Suno")
         val pistas = vistas.entries
             .sortedBy { it.value.first }
-            .mapNotNull { (_, par) -> convertir(par.second) }
+            .mapNotNull { convertir(it.value.second) }
 
         return Playlist(
             id = id,
-            name = base.optString("name").ifBlank { "Sin título" },
-            author = base.optString("user_display_name").ifBlank { base.optString("display_name") },
-            cover = base.optString("image_url"),
-            tracks = pistas,
+            nombre = base.optString("name").ifBlank { "Sin título" },
+            autor = base.optString("user_display_name").ifBlank { base.optString("display_name") },
+            portada = base.optString("image_url"),
+            descripcion = base.optString("description"),
+            total = base.optDouble("total_duration", 0.0),
+            tipo = Tipo.PLAYLIST,
+            pistas = pistas,
         )
     }
 
@@ -125,18 +184,20 @@ object SunoApi {
         val media = mejorMedia(clip.optJSONArray("media_urls"))
         return Track(
             id = cid,
-            title = clip.optString("title").ifBlank { "Sin título" },
-            duration = meta.optInt("duration", 0),
-            model = clip.optString("model_name").ifBlank { clip.optString("major_model_version") },
-            genre = meta.optString("tags"),
-            created = clip.optString("created_at").take(10),
-            cover = clip.optString("image_large_url").ifBlank { clip.optString("image_url") },
-            lyrics = meta.optString("prompt"),
-            mediaUrl = media,
+            titulo = clip.optString("title").ifBlank { "Sin título" },
+            duracion = meta.optInt("duration", clip.optInt("duration", 0)),
+            modelo = clip.optString("major_model_version")
+                .ifBlank { clip.optString("model_name") },
+            genero = clip.optString("display_tags").ifBlank { meta.optString("tags") },
+            fecha = clip.optString("created_at").take(10),
+            portada = clip.optString("image_large_url").ifBlank { clip.optString("image_url") },
+            video = clip.optString("video_url"),
+            letra = meta.optString("prompt"),
+            audioUrl = media,
         )
     }
 
-    private fun mejorMedia(lista: org.json.JSONArray?): String {
+    private fun mejorMedia(lista: JSONArray?): String {
         if (lista == null) return ""
         for (i in 0 until lista.length()) {
             val m = lista.optJSONObject(i) ?: continue
@@ -152,11 +213,11 @@ object SunoApi {
     }
 
     // --------------------------------------------------------------- derechos
-    private fun derechos(clipId: String): JSONObject {
+    private fun derechos(clipId: String, timeoutS: Int): JSONObject {
         var ultimo: Exception? = null
         repeat(3) { intento ->
             try {
-                val c = abrir(API_RIGHTS, "POST", "https://suno.com/")
+                val c = abrir(API_RIGHTS, "POST", "https://suno.com/", timeoutS)
                 c.doOutput = true
                 c.setRequestProperty("Content-Type", "application/json")
                 val cuerpo = """{"content_params":{"content_id":"$clipId","content_type":"clip"}}"""
@@ -206,62 +267,87 @@ object SunoApi {
         return cipher.doFinal(datos)
     }
 
-    // ------------------------------------------------------------- descarga
-    fun descargarAudio(track: Track, destino: File, aviso: (String) -> Unit = {}) {
-        if (track.mediaUrl.isEmpty()) throw IOException("la pista no tiene audio público")
-        aviso("Conectando con Suno…")
-        val conexion = abrir(track.mediaUrl, "GET", "https://suno.com/")
-        conexion.instanceFollowRedirects = true
-        val buffer = ByteArray(64 * 1024)
-        val salida = java.io.ByteArrayOutputStream()
-        try {
-            val codigo = conexion.responseCode
-            android.util.Log.d("SunoX", "http=$codigo len=${conexion.contentLength}")
-            if (codigo == 403 || codigo == 429) {
-                throw Bloqueado("Suno pidió calma ($codigo)")
-            }
-            if (codigo !in 200..299) throw IOException("HTTP $codigo")
-            val total = conexion.contentLength
-            conexion.inputStream.use { entrada ->
-                var leido = 0
-                var ultimo = -1
-                while (true) {
-                    val n = entrada.read(buffer)
-                    if (n <= 0) break
-                    salida.write(buffer, 0, n)
-                    leido += n
-                    if (total > 0) {
-                        val pct = leido * 100 / total
-                        if (pct / 10 != ultimo) {
-                            ultimo = pct / 10
-                            aviso("Descargando audio $pct%")
+    // ------------------------------------------------------------- descargas
+    /**
+     * Baja una URL al archivo indicado, con reintentos y progreso.
+     * Devuelve los bytes escritos. Lanza [Bloqueado] si Suno nos frena.
+     */
+    fun descargar(
+        url: String,
+        destino: File,
+        referer: String,
+        timeoutS: Int,
+        reintentos: Int,
+        alProgreso: (Long, Long, Double) -> Unit = { _, _, _ -> },
+    ): Long {
+        if (url.isEmpty()) throw IOException("sin archivo disponible")
+        var ultimo: Exception? = null
+        for (intento in 0 until reintentos.coerceAtLeast(1)) {
+            try {
+                val conexion = abrir(url, "GET", referer, timeoutS)
+                conexion.instanceFollowRedirects = true
+                try {
+                    val codigo = conexion.responseCode
+                    if (codigo == 403 || codigo == 429) {
+                        throw Bloqueado("Suno pidió calma ($codigo)")
+                    }
+                    if (codigo !in 200..299) throw IOException("HTTP $codigo")
+                    val total = conexion.contentLength.toLong()
+                    destino.parentFile?.mkdirs()
+                    var escrito = 0L
+                    val inicio = System.currentTimeMillis()
+                    conexion.inputStream.use { entrada ->
+                        destino.outputStream().use { salida ->
+                            val buffer = ByteArray(64 * 1024)
+                            while (true) {
+                                val n = entrada.read(buffer)
+                                if (n <= 0) break
+                                salida.write(buffer, 0, n)
+                                escrito += n
+                                val seg = ((System.currentTimeMillis() - inicio) / 1000.0)
+                                    .coerceAtLeast(0.05)
+                                alProgreso(escrito, total, escrito / seg)
+                            }
                         }
                     }
+                    if (escrito == 0L) throw IOException("archivo vacío")
+                    return escrito
+                } finally {
+                    conexion.disconnect()
                 }
+            } catch (e: Bloqueado) {
+                throw e
+            } catch (e: Exception) {
+                ultimo = e
+                if (intento < reintentos - 1) Thread.sleep(4000L * (intento + 1))
             }
-        } finally {
-            conexion.disconnect()
         }
-        val crudo = salida.toByteArray()
-        android.util.Log.d("SunoX", "audio ${crudo.size} bytes")
-        aviso("Pidiendo la clave…")
-        val derechos = derechos(track.id)
-        aviso("Descifrando…")
-        val claro = descifrar(crudo, track.id, derechos)
-        android.util.Log.d("SunoX", "claro ${claro.size} bytes")
-        destino.parentFile?.mkdirs()
-        destino.writeBytes(claro)
-        aviso("Audio listo.")
+        throw IOException("descarga fallida: ${ultimo?.message}")
     }
 
-    fun descargarImagen(url: String): ByteArray? {
+    /** Descarga el audio original de una pista y lo deja descifrado en [destino]. */
+    fun descargarAudio(
+        track: Track,
+        destino: File,
+        referer: String,
+        timeoutS: Int,
+        reintentos: Int,
+        alProgreso: (Long, Long, Double) -> Unit = { _, _, _ -> },
+    ) {
+        descargar(track.audioUrl, destino, referer, timeoutS, reintentos, alProgreso)
+        val derechos = derechos(track.id, timeoutS)
+        val claro = descifrar(destino.readBytes(), track.id, derechos)
+        destino.writeBytes(claro)
+    }
+
+    fun descargarImagen(url: String, timeoutS: Int = 30): ByteArray? {
         if (url.isEmpty()) return null
         return try {
-            val c = abrir(url, "GET", "https://suno.com/")
+            val c = abrir(url, "GET", "https://suno.com/", timeoutS)
             val datos = c.inputStream.use { it.readBytes() }
             c.disconnect()
             datos
-        } catch (e: Exception) {
+        } catch (_: Exception) {
             null
         }
     }

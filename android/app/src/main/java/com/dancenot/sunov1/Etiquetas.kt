@@ -11,9 +11,9 @@ import java.io.RandomAccessFile
 /**
  * Etiquetas, portada y letra DENTRO del archivo (M4A / MP4).
  *
- * El audio de Suno es Opus dentro de un contenedor MP4, y el lector de
- * cabeceras de jaudiotagger no entiende `dOps`, así que no se usa
- * `AudioFileIO.read`: se lee y escribe directamente el bloque de etiquetas.
+ * El audio de Suno es Opus dentro de un contenedor MP4 y el lector de cabeceras
+ * de jaudiotagger no entiende `dOps`, así que no se usa `AudioFileIO.read`:
+ * se lee y escribe directamente el bloque de etiquetas.
  */
 object Etiquetas {
 
@@ -24,38 +24,42 @@ object Etiquetas {
         artista: String,
         numero: Int,
         portada: ByteArray?,
+        conEtiquetas: Boolean,
+        conPortada: Boolean,
+        conLetra: Boolean,
     ): String? {
+        if (!conEtiquetas && !conPortada && !conLetra) return null
         val temporal = File(archivo.parentFile, archivo.name + ".tags")
         try {
             val original = RandomAccessFile(archivo, "rw")
-            var tag: Mp4Tag? = null
-            try {
-                tag = Mp4TagReader().read(original)
+            val etiqueta: Mp4Tag = try {
+                Mp4TagReader().read(original) ?: Mp4Tag()
             } catch (_: Exception) {
-                tag = null
+                Mp4Tag()
             }
-            val etiqueta = tag ?: Mp4Tag()
 
-            etiqueta.setField(FieldKey.TITLE, track.title)
-            etiqueta.setField(FieldKey.ARTIST, artista.ifBlank { "Suno" })
-            etiqueta.setField(FieldKey.ALBUM, album)
-            if (track.genre.isNotBlank()) etiqueta.setField(FieldKey.GENRE, track.genre)
-            if (track.created.isNotBlank()) {
-                etiqueta.setField(FieldKey.YEAR, track.created.take(4))
+            if (conEtiquetas) {
+                etiqueta.setField(FieldKey.TITLE, track.titulo)
+                etiqueta.setField(FieldKey.ARTIST, artista.ifBlank { "Suno" })
+                etiqueta.setField(FieldKey.ALBUM, album)
+                if (track.genero.isNotBlank()) etiqueta.setField(FieldKey.GENRE, track.genero)
+                if (track.fecha.isNotBlank()) etiqueta.setField(FieldKey.YEAR, track.fecha.take(4))
+                etiqueta.setField(FieldKey.TRACK, numero.toString())
+                etiqueta.setField(
+                    FieldKey.COMMENT,
+                    listOfNotNull(
+                        "Generado con Suno",
+                        track.modelo.takeIf { it.isNotBlank() }?.let { "modelo $it" }
+                    ).joinToString(" · ")
+                )
             }
-            etiqueta.setField(FieldKey.TRACK, numero.toString())
-            etiqueta.setField(
-                FieldKey.COMMENT,
-                listOfNotNull("Generado con Suno", track.model.takeIf { it.isNotBlank() }?.let { "modelo $it" })
-                    .joinToString(" · ")
-            )
-            if (track.lyrics.isNotBlank()) {
+            if (conLetra && track.letra.isNotBlank()) {
                 try {
-                    etiqueta.setField(FieldKey.LYRICS, track.lyrics)
+                    etiqueta.setField(FieldKey.LYRICS, track.letra)
                 } catch (_: Exception) {
                 }
             }
-            if (portada != null) {
+            if (conPortada && portada != null) {
                 val imagen = File(archivo.parentFile, archivo.name + ".jpg")
                 try {
                     imagen.writeBytes(portada)
