@@ -25,7 +25,7 @@ todos los datos que expone Suno.
 
 Descarga el instalador desde la [web oficial](https://dancenot0.github.io/Suno-music-downleader/)
 —un solo archivo, sin compilar nada— o directamente desde
-[`docs/descargas/Suno-v1.msi`](docs/descargas/Suno-v1.msi).
+[`descargas/Suno-v1.msi`](descargas/Suno-v1.msi).
 
 Instala en `C:\Program Files\Suno v1` y pide permisos de administrador, como
 cualquier programa.
@@ -61,8 +61,8 @@ El canal público está en `docs/version.json`, servido por GitHub Pages:
 Para publicar una versión nueva:
 
 1. Compila con `compilar.bat` y `instalador\compilar_instalador.bat`.
-2. Copia el `.msi` sobre `docs\descargas\Suno-v1.msi` (mismo nombre, se sustituye).
-3. Actualiza `version` en `docs/version.json`, `VERSION` en `docs/app.js` y
+2. Copia el `.msi` sobre `descargas\Suno-v1.msi` (mismo nombre, se sustituye).
+3. Actualiza `version` en `docs/version.json`, `VERSION` en `app.js` y
    `APP_VERSION` en `app_pyside.py`.
 4. `git add -A && git commit -m "v1.1.1" && git push`.
 
@@ -72,7 +72,7 @@ descarga sola.
 > **Ojo con el tamaño:** cada versión deja el `.msi` anterior en el historial
 > de git (≈72 MB por versión). Para dos o tres versiones no es problema; si el
 > proyecto crece, lo limpio es mover las versiones antiguas a *Releases* y dejar
-> en `docs/descargas/` solo la última.
+> en `descargas/` solo la última.
 
 ## Licencia
 
