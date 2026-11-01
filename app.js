@@ -43,7 +43,7 @@
   const verWin = document.getElementById("ver-win");
   const verAndroid = document.getElementById("ver-android");
   const VERSION = "1.2.1";
-  const VERSION_ANDROID = "1.3.0";
+  const VERSION_ANDROID = "1.3.1";
 
   if (verWin) verWin.textContent = VERSION;
   if (verAndroid) verAndroid.textContent = VERSION_ANDROID;

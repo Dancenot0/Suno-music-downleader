@@ -6,6 +6,7 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Build
 import android.os.Environment
+import android.provider.DocumentsContract
 import android.provider.MediaStore
 import java.io.File
 
@@ -143,29 +144,32 @@ object Almacen {
 
     /** Abre la carpeta de descargas en el gestor de archivos del teléfono. */
     fun abrirCarpeta(contexto: Context, carpeta: String): Boolean {
-        val doc = "primary:" + Uri.encode(carpeta)
-        val intento = Intent(Intent.ACTION_VIEW).apply {
-            setDataAndType(
-                Uri.parse("content://com.android.externalstorage.documents/document/$doc"), "*/*"
-            )
-            addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
-            addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-        }
-        return try {
-            contexto.startActivity(intento)
-            true
-        } catch (_: Exception) {
+        val proveedor = "com.android.externalstorage.documents"
+        val id = Uri.encode("primary:${carpeta.trimEnd('/')}")
+        val documento = Uri.parse("content://$proveedor/document/$id")
+        val arbol = Uri.parse("content://$proveedor/tree/$id")
+        val intentos = listOf(
+            // Documentos abre la carpeta directamente si no se le pone tipo
+            // ni permisos (el proveedor ya sabe leer su propia carpeta).
+            Intent(Intent.ACTION_VIEW).setData(documento),
+            Intent(Intent.ACTION_VIEW).setData(documento)
+                .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK),
+            Intent(Intent.ACTION_VIEW).setData(arbol),
+            // Último recurso: el selector de archivos, situado en esa carpeta.
+            Intent(Intent.ACTION_OPEN_DOCUMENT).apply {
+                addCategory(Intent.CATEGORY_OPENABLE)
+                type = "audio/*"
+                putExtra(DocumentsContract.EXTRA_INITIAL_URI, documento)
+                addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+            },
+        )
+        for (intento in intentos) {
             try {
-                contexto.startActivity(
-                    Intent(Intent.ACTION_VIEW).apply {
-                        type = "audio/*"
-                        addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                    }
-                )
-                true
+                contexto.startActivity(intento)
+                return true
             } catch (_: Exception) {
-                false
             }
         }
+        return false
     }
 }
