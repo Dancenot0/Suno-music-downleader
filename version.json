@@ -1,5 +1,5 @@
 {
-  "version": "1.2.0",
+  "version": "1.2.1",
   "url": "https://dancenot0.github.io/Suno-music-downleader/descargas/Suno-v1.msi",
-  "notes": "La carpeta de descargas queda solo con musica: portada y letra van dentro del archivo."
+  "notes": "Comprueba actualizaciones al arrancar en silencio y avisa solo si hay una nueva."
 }

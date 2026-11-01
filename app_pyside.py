@@ -85,7 +85,7 @@ BAD = QColor("#E06C6C")
 
 RADIUS = 22
 SETTINGS = QSettings("MiSuno", "MiSuno")
-APP_VERSION = "1.2.0"
+APP_VERSION = "1.2.1"
 # Canal de actualizaciones: el JSON que sirve GitHub Pages junto a la web.
 UPDATE_FEED = "https://dancenot0.github.io/Suno-music-downleader/version.json"
 
@@ -996,8 +996,10 @@ class SettingsDialog(QDialog):
 
         self.notify = Toggle(SETTINGS.value("notify", True, bool))
         self.tray = Toggle(SETTINGS.value("tray", True, bool))
+        self.arranque = Toggle(SETTINGS.value("update_startup", True, bool))
         for txt, w in (("Notificaciones al terminar", self.notify),
-                       ("Cerrar a la bandeja", self.tray)):
+                       ("Cerrar a la bandeja", self.tray),
+                       ("Buscar actualizaciones al iniciar", self.arranque)):
             row = QHBoxLayout()
             row.addWidget(QLabel(txt), 1)
             row.addWidget(w)
@@ -1023,6 +1025,7 @@ class SettingsDialog(QDialog):
             "timeout": self.timeout.value(),
             "notify": self.notify.isChecked(),
             "tray": self.tray.isChecked(),
+            "update_startup": self.arranque.isChecked(),
         }
 
 
@@ -1111,7 +1114,7 @@ class TitleBar(QWidget):
         self.btn_update = GlyphButton("refresh")
         self.btn_settings = GlyphButton("sliders")
         self.btn_update.setToolTip("Buscar actualizaciones")
-        self.btn_update.clicked.connect(window._check_update)
+        self.btn_update.clicked.connect(lambda: window._check_update())
         self.btn_min = WindowButton("min")
         self.btn_max = WindowButton("max")
         self.btn_close = WindowButton("close")
@@ -1198,6 +1201,7 @@ class MainWindow(QMainWindow):
         self._quitting = False
         self._tray = None
         self._update_busy = False
+        self._update_silent = False
         self._update_url = ""
         self._update_ver = ""
 
@@ -1206,6 +1210,10 @@ class MainWindow(QMainWindow):
         self._build_tray()
         self._shortcuts()
         self._set_state("idle")
+
+        # Busca actualizaciones al arrancar, en silencio (no avisa si ya estás al día).
+        if SETTINGS.value("update_startup", True, bool):
+            QTimer.singleShot(2500, lambda: self._check_update(silent=True))
 
     # ------------------------------------------------------------- build --
     def _card(self):
@@ -1612,8 +1620,11 @@ class MainWindow(QMainWindow):
             self._on_status("Ajustes guardados.")
 
     # ------------------------------------------------------- actualizaciones --
-    def _check_update(self):
-        """Un botón, dos modos: buscar (flechas) o descargar (flecha abajo)."""
+    def _check_update(self, silent: bool = False):
+        """Un botón, dos modos: buscar (flechas) o descargar (flecha abajo).
+
+        Con `silent=True` (al arrancar) no avisa si ya estás al día ni si falla.
+        """
         if self._update_busy:
             return
         if self._update_url:
@@ -1622,13 +1633,16 @@ class MainWindow(QMainWindow):
 
         feed = str(SETTINGS.value("update_feed", UPDATE_FEED) or UPDATE_FEED).strip()
         if not feed:
-            self._on_status("Añade la URL del canal de actualizaciones en Ajustes.")
-            self._open_settings()
+            if not silent:
+                self._on_status("Añade la URL del canal de actualizaciones en Ajustes.")
+                self._open_settings()
             return
 
         self._update_busy = True
+        self._update_silent = silent
         self.titlebar.btn_update.set_busy(True)
-        self._on_status("Buscando actualizaciones…")
+        if not silent:
+            self._on_status("Buscando actualizaciones…")
 
         def work():
             try:
@@ -1668,14 +1682,16 @@ class MainWindow(QMainWindow):
                 self._on_status(f"Nueva versión {ver} disponible, pero el canal no trae enlace.")
         else:
             self.titlebar.btn_update.set_kind("refresh")
-            self.titlebar.btn_update.setToolTip("Buscar actualizaciones")
-            self._on_status(f"Tienes la última versión ({APP_VERSION}).")
+            self.titlebar.btn_update.setToolTip(f"Al día · versión {APP_VERSION}")
+            if not self._update_silent:
+                self._on_status(f"Tienes la última versión ({APP_VERSION}).")
 
     def _on_update_error(self, msg: str):
         self._update_busy = False
         self.titlebar.btn_update.set_busy(False)
         engine.log_to_file(f"actualizacion: {msg}")
-        self._on_status("No se pudo comprobar la actualización.")
+        if not self._update_silent:
+            self._on_status("No se pudo comprobar la actualización.")
 
     def _download_update(self):
         url, ver = self._update_url, self._update_ver

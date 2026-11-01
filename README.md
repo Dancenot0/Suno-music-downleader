@@ -59,6 +59,11 @@ déjala en esa carpeta antes de compilar.
 
 ## Actualizaciones
 
+Al abrir la app se consulta el canal **en silencio**: si ya estás al día no dice
+nada; solo avisa cuando hay una versión nueva (y entonces el botón cambia a
+flecha de descarga). Se puede desactivar con «Buscar actualizaciones al iniciar»
+en Ajustes. El botón de la barra superior sigue estando para buscarlas a mano.
+
 La app consulta un JSON pequeño:
 
 ```json

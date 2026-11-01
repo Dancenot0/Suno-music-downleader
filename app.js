@@ -42,7 +42,7 @@
      número. */
   const ver1 = document.getElementById("ver-1");
   const ver2 = document.getElementById("ver-2");
-  const VERSION = "1.2.0";
+  const VERSION = "1.2.1";
 
   if (ver1) ver1.textContent = "v" + VERSION;
   if (ver2) ver2.textContent = VERSION;
