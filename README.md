@@ -23,9 +23,12 @@ todos los datos que expone Suno.
 
 ## Instalar
 
-Descarga el instalador desde la [página de versiones](https://github.com/Dancenot0/Suno-music-downleader/releases/latest)
-o desde la web oficial. Instala en `C:\Program Files\Suno v1` y pide permisos de
-administrador, como cualquier programa.
+Descarga el instalador desde la [web oficial](https://dancenot0.github.io/Suno-music-downleader/)
+—un solo archivo, sin compilar nada— o directamente desde
+[`docs/descargas/Suno-v1.msi`](docs/descargas/Suno-v1.msi).
+
+Instala en `C:\Program Files\Suno v1` y pide permisos de administrador, como
+cualquier programa.
 
 Requisitos: Windows 10 u 11 de 64 bits. No hace falta cuenta de Suno ni Python.
 
@@ -48,16 +51,28 @@ La app consulta un JSON pequeño:
 ```json
 {
   "version": "1.1.0",
-  "url": "https://github.com/Dancenot0/Suno-music-downleader/releases/latest/download/Suno-v1.msi"
+  "url": "https://dancenot0.github.io/Suno-music-downleader/descargas/Suno-v1.msi"
 }
 ```
 
 El canal público está en `docs/version.json`, servido por GitHub Pages:
 <https://dancenot0.github.io/Suno-music-downleader/version.json>
 
-Para publicar una versión nueva: sube la Release con el archivo llamado
-`Suno-v1.msi`, actualiza `version` en `docs/version.json` y `APP_VERSION` en
-`app_pyside.py`.
+Para publicar una versión nueva:
+
+1. Compila con `compilar.bat` y `instalador\compilar_instalador.bat`.
+2. Copia el `.msi` sobre `docs\descargas\Suno-v1.msi` (mismo nombre, se sustituye).
+3. Actualiza `version` en `docs/version.json`, `VERSION` en `docs/app.js` y
+   `APP_VERSION` en `app_pyside.py`.
+4. `git add -A && git commit -m "v1.1.1" && git push`.
+
+El botón de actualizar de las apps ya instaladas verá el cambio y ofrecerá la
+descarga sola.
+
+> **Ojo con el tamaño:** cada versión deja el `.msi` anterior en el historial
+> de git (≈72 MB por versión). Para dos o tres versiones no es problema; si el
+> proyecto crece, lo limpio es mover las versiones antiguas a *Releases* y dejar
+> en `docs/descargas/` solo la última.
 
 ## Licencia
 

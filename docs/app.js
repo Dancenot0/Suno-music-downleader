@@ -3,9 +3,6 @@
 (() => {
   "use strict";
 
-  const REPO = "Dancenot0/Suno-music-downleader";
-  const VERSION_FALLBACK = "1.1.0";
-
   /* ---------- aparición al hacer scroll ---------- */
   const reveals = document.querySelectorAll(".reveal");
   const reducir = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -31,40 +28,17 @@
   const year = document.getElementById("year");
   if (year) year.textContent = String(new Date().getFullYear());
 
-  /* ---------- versión y enlace real del .msi ---------- */
+  /* ---------- versión y descarga ----------
+     El instalador se sirve desde esta misma web (docs/descargas/), así que no
+     hace falta compilar ni pasar por Releases. La versión se escribe aquí y en
+     el HTML; al publicar una nueva, se sustituye el .msi y se actualiza el
+     número. */
   const ver1 = document.getElementById("ver-1");
   const ver2 = document.getElementById("ver-2");
-  const btn = document.getElementById("dl-msi");
+  const VERSION = "1.1.0";
 
-  function pintarVersion(v) {
-    if (!v) return;
-    if (ver1) ver1.textContent = "v" + v;
-    if (ver2) ver2.textContent = v;
-  }
-
-  async function mirarUltimaVersion() {
-    try {
-      const r = await fetch(`https://api.github.com/repos/${REPO}/releases/latest`, {
-        headers: { Accept: "application/vnd.github+json" },
-      });
-      if (!r.ok) return; // repo privado, sin releases o sin red: se queda el valor por defecto
-      const datos = await r.json();
-      const tag = String(datos.tag_name || "").replace(/^v/i, "");
-      pintarVersion(tag || VERSION_FALLBACK);
-
-      const msi = (datos.assets || []).find((a) => a.name.toLowerCase().endsWith(".msi"));
-      if (msi && btn) {
-        btn.href = msi.browser_download_url;
-        btn.removeAttribute("target");
-        btn.removeAttribute("rel");
-      }
-    } catch {
-      /* sin conexión: los valores por defecto ya están puestos */
-    }
-  }
-
-  pintarVersion(VERSION_FALLBACK);
-  mirarUltimaVersion();
+  if (ver1) ver1.textContent = "v" + VERSION;
+  if (ver2) ver2.textContent = VERSION;
 
   /* ---------- sombra al bajar ---------- */
   const nav = document.getElementById("nav");
