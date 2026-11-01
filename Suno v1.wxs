@@ -1,0 +1,1104 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+    <Product Id="{D58B5D54-1E46-45CF-8E32-7481E35FE03A}" Codepage="1252" Language="3082" Manufacturer="Suno v1" Name="Suno v1" UpgradeCode="{7C1B5E4A-2D9F-4E8B-9A31-5F0C2B7D6E10}" Version="1.2.2">
+        <Package Comments="Suno v1 · descargador de playlists" Compressed="yes" Description="Descargador de playlists públicas de Suno" InstallerVersion="500" Languages="3082" Manufacturer="Suno v1" Platform="x64" />
+        <CustomAction Id="InicioPorDefecto" Property="START_SHORTCUT" Value="1" />
+        <CustomAction Id="EscritorioPorDefecto" Property="DESKTOP_SHORTCUT" Value="1" />
+        <Directory Id="TARGETDIR" Name="SourceDir">
+            <Directory Id="DesktopFolder">
+                <Component Id="AccesoEscritorio" Guid="{D7E4A1C9-62B3-4F58-9A0E-3C5D8B2F14A7}" Win64="yes">
+                    <Condition>DESKTOP_SHORTCUT = "1"</Condition>
+                    <RegistryValue Id="reg10902FB1A43C68520776F8EE992672FD" Root="HKLM" Key="Software\Suno v1" Name="escritorio" Value="1" Type="integer" KeyPath="yes" />
+                    <Shortcut Id="AtajoEscritorio" Directory="DesktopFolder" Name="Suno v1" ShortName="5woiuate" Description="Descargador de playlists de Suno" Icon="IconoSuno" WorkingDirectory="INSTALLFOLDER" Advertise="yes" />
+                </Component>
+            </Directory>
+            <Directory Id="ProgramFiles64Folder">
+                <Directory Id="INSTALLFOLDER" Name="Suno v1" ShortName="tntjcp-n">
+                    <Component Id="c_0001" Guid="{1E73EB67-4F47-51D6-B401-2457B2D2B9E5}" Win64="yes">
+                        <File Id="f_0001" Name="Mi Suno.exe" KeyPath="yes" ShortName="bqyc0som.exe" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0001" />
+                    </Component>
+                    <Directory Id="d_0001" Name="_internal" ShortName="daebuvpg">
+                        <Component Id="c_0002" Guid="{140DF875-3301-51DB-9DB3-967743BB873E}" Win64="yes">
+                            <File Id="f_0002" Name="_bz2.pyd" KeyPath="yes" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0002" />
+                        </Component>
+                        <Component Id="c_0003" Guid="{55592E6E-8E8B-56D6-B525-6B6A937062DB}" Win64="yes">
+                            <File Id="f_0003" Name="_cffi_backend.cp313-win_amd64.pyd" KeyPath="yes" ShortName="97jssdu9.pyd" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0003" />
+                        </Component>
+                        <Component Id="c_0004" Guid="{A2BF468A-9822-5BAA-A8A3-4EA359BF1297}" Win64="yes">
+                            <File Id="f_0004" Name="_ctypes.pyd" KeyPath="yes" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0004" />
+                        </Component>
+                        <Component Id="c_0005" Guid="{D59B3C98-3EC5-5563-AE47-F0D0910D76DB}" Win64="yes">
+                            <File Id="f_0005" Name="_decimal.pyd" KeyPath="yes" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0005" />
+                        </Component>
+                        <Component Id="c_0006" Guid="{8FB63643-4C05-5476-8A7C-B0480F233E69}" Win64="yes">
+                            <File Id="f_0006" Name="_hashlib.pyd" KeyPath="yes" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0006" />
+                        </Component>
+                        <Component Id="c_0007" Guid="{7D2967EA-AEC5-5FA9-BB36-FB11258EE608}" Win64="yes">
+                            <File Id="f_0007" Name="_lzma.pyd" KeyPath="yes" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0007" />
+                        </Component>
+                        <Component Id="c_0008" Guid="{533FBC1E-4B63-503A-887D-B39E90574DC5}" Win64="yes">
+                            <File Id="f_0008" Name="_multiprocessing.pyd" KeyPath="yes" ShortName="frjdlhp2.pyd" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0008" />
+                        </Component>
+                        <Component Id="c_0009" Guid="{E403F615-FB4F-5CF7-A596-1D5DD3446544}" Win64="yes">
+                            <File Id="f_0009" Name="_queue.pyd" KeyPath="yes" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0009" />
+                        </Component>
+                        <Component Id="c_0010" Guid="{0D7BCBEF-A593-5698-9D15-3C0A1EA3DDDD}" Win64="yes">
+                            <File Id="f_0010" Name="_socket.pyd" KeyPath="yes" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0010" />
+                        </Component>
+                        <Component Id="c_0011" Guid="{741C5784-E909-5BFE-9541-0E44A46E429B}" Win64="yes">
+                            <File Id="f_0011" Name="_ssl.pyd" KeyPath="yes" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0011" />
+                        </Component>
+                        <Component Id="c_0012" Guid="{B2E81F9C-6D21-5106-A39E-8B34AEE1BA04}" Win64="yes">
+                            <File Id="f_0012" Name="_wmi.pyd" KeyPath="yes" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0012" />
+                        </Component>
+                        <Component Id="c_0013" Guid="{C38E1729-D7A8-5D06-95E0-38781BF1480F}" Win64="yes">
+                            <File Id="f_0013" Name="api-ms-win-core-console-l1-1-0.dll" KeyPath="yes" ShortName="tidb2lb0.dll" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0013" />
+                        </Component>
+                        <Component Id="c_0014" Guid="{2D0B4A1D-F99B-5931-A19F-3C9B4A237C20}" Win64="yes">
+                            <File Id="f_0014" Name="api-ms-win-core-datetime-l1-1-0.dll" KeyPath="yes" ShortName="hr1ermgd.dll" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0014" />
+                        </Component>
+                        <Component Id="c_0015" Guid="{9D3FF032-DCF0-5D7D-9D63-AE64D860AC1D}" Win64="yes">
+                            <File Id="f_0015" Name="api-ms-win-core-debug-l1-1-0.dll" KeyPath="yes" ShortName="2jdekff-.dll" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0015" />
+                        </Component>
+                        <Component Id="c_0016" Guid="{36669D72-6A77-53A7-B296-4F8B131A93B8}" Win64="yes">
+                            <File Id="f_0016" Name="api-ms-win-core-errorhandling-l1-1-0.dll" KeyPath="yes" ShortName="juvk4uej.dll" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0016" />
+                        </Component>
+                        <Component Id="c_0017" Guid="{9A9C0C5F-5085-58F3-987F-04A2DE18D1C9}" Win64="yes">
+                            <File Id="f_0017" Name="api-ms-win-core-fibers-l1-1-0.dll" KeyPath="yes" ShortName="zmcggriu.dll" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0017" />
+                        </Component>
+                        <Component Id="c_0018" Guid="{6939910A-BD37-5007-B0EB-F099D7C1AB02}" Win64="yes">
+                            <File Id="f_0018" Name="api-ms-win-core-fibers-l1-1-1.dll" KeyPath="yes" ShortName="hsog-kq4.dll" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0018" />
+                        </Component>
+                        <Component Id="c_0019" Guid="{901749AE-8290-591A-A9B0-B1912FBB1477}" Win64="yes">
+                            <File Id="f_0019" Name="api-ms-win-core-file-l1-1-0.dll" KeyPath="yes" ShortName="kyao-gt_.dll" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0019" />
+                        </Component>
+                        <Component Id="c_0020" Guid="{FAA75074-5EB2-5CED-86F2-E74FFD100175}" Win64="yes">
+                            <File Id="f_0020" Name="api-ms-win-core-file-l1-2-0.dll" KeyPath="yes" ShortName="gcnrflgm.dll" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0020" />
+                        </Component>
+                        <Component Id="c_0021" Guid="{9B76DF22-7E37-5B0E-AA17-709DFB7EB6B2}" Win64="yes">
+                            <File Id="f_0021" Name="api-ms-win-core-file-l2-1-0.dll" KeyPath="yes" ShortName="t7wwpwid.dll" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0021" />
+                        </Component>
+                        <Component Id="c_0022" Guid="{920F192E-8DC6-5415-A05C-78218022FD8D}" Win64="yes">
+                            <File Id="f_0022" Name="api-ms-win-core-handle-l1-1-0.dll" KeyPath="yes" ShortName="h_qos5xt.dll" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0022" />
+                        </Component>
+                        <Component Id="c_0023" Guid="{FFE91BC9-1479-5382-BD84-6F46973CDDE4}" Win64="yes">
+                            <File Id="f_0023" Name="api-ms-win-core-heap-l1-1-0.dll" KeyPath="yes" ShortName="xpcyf6gi.dll" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0023" />
+                        </Component>
+                        <Component Id="c_0024" Guid="{A0AACC64-4D1C-5FE2-BA43-E50229A10E36}" Win64="yes">
+                            <File Id="f_0024" Name="api-ms-win-core-interlocked-l1-1-0.dll" KeyPath="yes" ShortName="fmfgzobr.dll" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0024" />
+                        </Component>
+                        <Component Id="c_0025" Guid="{2059DE55-C1C1-58DE-8D2B-4A86D43BA7EB}" Win64="yes">
+                            <File Id="f_0025" Name="api-ms-win-core-kernel32-legacy-l1-1-1.dll" KeyPath="yes" ShortName="sd-5wm2i.dll" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0025" />
+                        </Component>
+                        <Component Id="c_0026" Guid="{5E16222A-2CBA-510A-A083-0D2160AA484B}" Win64="yes">
+                            <File Id="f_0026" Name="api-ms-win-core-libraryloader-l1-1-0.dll" KeyPath="yes" ShortName="-sik6hn-.dll" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0026" />
+                        </Component>
+                        <Component Id="c_0027" Guid="{F84CBDD7-497C-5BF8-B3F8-0EAE683511F5}" Win64="yes">
+                            <File Id="f_0027" Name="api-ms-win-core-localization-l1-2-0.dll" KeyPath="yes" ShortName="vfrwhgyq.dll" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0027" />
+                        </Component>
+                        <Component Id="c_0028" Guid="{1628971D-D4D9-5C1B-B341-5E57B0748003}" Win64="yes">
+                            <File Id="f_0028" Name="api-ms-win-core-memory-l1-1-0.dll" KeyPath="yes" ShortName="xglda5yp.dll" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0028" />
+                        </Component>
+                        <Component Id="c_0029" Guid="{4409040B-DD45-563C-A843-5B1CC171D1FE}" Win64="yes">
+                            <File Id="f_0029" Name="api-ms-win-core-namedpipe-l1-1-0.dll" KeyPath="yes" ShortName="ph4qws4-.dll" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0029" />
+                        </Component>
+                        <Component Id="c_0030" Guid="{EC837629-C637-5CAC-BC18-CB238365140E}" Win64="yes">
+                            <File Id="f_0030" Name="api-ms-win-core-processenvironment-l1-1-0.dll" KeyPath="yes" ShortName="lar52zxk.dll" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0030" />
+                        </Component>
+                        <Component Id="c_0031" Guid="{58AB7610-7A22-5749-B578-FA747582BA70}" Win64="yes">
+                            <File Id="f_0031" Name="api-ms-win-core-processthreads-l1-1-0.dll" KeyPath="yes" ShortName="aknvkzmb.dll" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0031" />
+                        </Component>
+                        <Component Id="c_0032" Guid="{523126FD-5F8A-502E-9E23-D928E7B1A4B4}" Win64="yes">
+                            <File Id="f_0032" Name="api-ms-win-core-processthreads-l1-1-1.dll" KeyPath="yes" ShortName="4po6rywq.dll" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0032" />
+                        </Component>
+                        <Component Id="c_0033" Guid="{E36987B3-8EA9-56D8-A577-F36390FB1751}" Win64="yes">
+                            <File Id="f_0033" Name="api-ms-win-core-profile-l1-1-0.dll" KeyPath="yes" ShortName="2owxvqz8.dll" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0033" />
+                        </Component>
+                        <Component Id="c_0034" Guid="{FE782AB6-37FD-5553-89A9-E8BFF920D279}" Win64="yes">
+                            <File Id="f_0034" Name="api-ms-win-core-rtlsupport-l1-1-0.dll" KeyPath="yes" ShortName="sg2bbwoz.dll" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0034" />
+                        </Component>
+                        <Component Id="c_0035" Guid="{71391A59-31FC-5111-B288-8387097A53E9}" Win64="yes">
+                            <File Id="f_0035" Name="api-ms-win-core-string-l1-1-0.dll" KeyPath="yes" ShortName="85dfymrz.dll" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0035" />
+                        </Component>
+                        <Component Id="c_0036" Guid="{8B69A11B-D48E-5ABC-A3DD-13F53254E50F}" Win64="yes">
+                            <File Id="f_0036" Name="api-ms-win-core-synch-l1-1-0.dll" KeyPath="yes" ShortName="b53qjt5k.dll" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0036" />
+                        </Component>
+                        <Component Id="c_0037" Guid="{C3106AF3-4EA9-53B3-A038-77AD99A21A1B}" Win64="yes">
+                            <File Id="f_0037" Name="api-ms-win-core-synch-l1-2-0.dll" KeyPath="yes" ShortName="o0a1b_uf.dll" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0037" />
+                        </Component>
+                        <Component Id="c_0038" Guid="{42F47DF1-DE84-5321-9B0C-5A003000AC0F}" Win64="yes">
+                            <File Id="f_0038" Name="api-ms-win-core-sysinfo-l1-1-0.dll" KeyPath="yes" ShortName="ntnb0mag.dll" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0038" />
+                        </Component>
+                        <Component Id="c_0039" Guid="{0E79AC96-BB68-5400-83DD-DFE948CA0832}" Win64="yes">
+                            <File Id="f_0039" Name="api-ms-win-core-sysinfo-l1-2-0.dll" KeyPath="yes" ShortName="rx8f9wgp.dll" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0039" />
+                        </Component>
+                        <Component Id="c_0040" Guid="{5D02ECC6-218A-5603-A13C-07456F4F6E14}" Win64="yes">
+                            <File Id="f_0040" Name="api-ms-win-core-timezone-l1-1-0.dll" KeyPath="yes" ShortName="ncpi0dhn.dll" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0040" />
+                        </Component>
+                        <Component Id="c_0041" Guid="{8D42CD86-5388-5F13-911C-6DF960656471}" Win64="yes">
+                            <File Id="f_0041" Name="api-ms-win-core-util-l1-1-0.dll" KeyPath="yes" ShortName="atcrkncw.dll" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0041" />
+                        </Component>
+                        <Component Id="c_0042" Guid="{0DEEC318-D519-5D6F-9320-DDAC4F9D6392}" Win64="yes">
+                            <File Id="f_0042" Name="api-ms-win-crt-conio-l1-1-0.dll" KeyPath="yes" ShortName="rglexc09.dll" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0042" />
+                        </Component>
+                        <Component Id="c_0043" Guid="{3C076246-7E80-5CFA-A88C-73EBCF827400}" Win64="yes">
+                            <File Id="f_0043" Name="api-ms-win-crt-convert-l1-1-0.dll" KeyPath="yes" ShortName="jq2iv5bt.dll" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0043" />
+                        </Component>
+                        <Component Id="c_0044" Guid="{6C619E4B-5775-5099-831B-B748774B3A7F}" Win64="yes">
+                            <File Id="f_0044" Name="api-ms-win-crt-environment-l1-1-0.dll" KeyPath="yes" ShortName="m3a0mx_-.dll" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0044" />
+                        </Component>
+                        <Component Id="c_0045" Guid="{C4B30377-9DB4-5ADE-8DB8-CE0B9C0E221A}" Win64="yes">
+                            <File Id="f_0045" Name="api-ms-win-crt-filesystem-l1-1-0.dll" KeyPath="yes" ShortName="xrn7bnuy.dll" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0045" />
+                        </Component>
+                        <Component Id="c_0046" Guid="{29CE983E-3EE3-5C2A-9949-8DB5B9954828}" Win64="yes">
+                            <File Id="f_0046" Name="api-ms-win-crt-heap-l1-1-0.dll" KeyPath="yes" ShortName="zu2njsa2.dll" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0046" />
+                        </Component>
+                        <Component Id="c_0047" Guid="{71F73119-BF08-59C4-A2F9-0DB3102B40FE}" Win64="yes">
+                            <File Id="f_0047" Name="api-ms-win-crt-locale-l1-1-0.dll" KeyPath="yes" ShortName="ozitnkrg.dll" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0047" />
+                        </Component>
+                        <Component Id="c_0048" Guid="{17488209-04B5-5A7D-90D7-5C1E9D0D7A99}" Win64="yes">
+                            <File Id="f_0048" Name="api-ms-win-crt-math-l1-1-0.dll" KeyPath="yes" ShortName="tjyf14si.dll" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0048" />
+                        </Component>
+                        <Component Id="c_0049" Guid="{CC5992C2-F3E3-569E-941A-023923915CCD}" Win64="yes">
+                            <File Id="f_0049" Name="api-ms-win-crt-process-l1-1-0.dll" KeyPath="yes" ShortName="66kwsczy.dll" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0049" />
+                        </Component>
+                        <Component Id="c_0050" Guid="{0B4D5E77-D2BE-57C5-A302-AB0B78420DA4}" Win64="yes">
+                            <File Id="f_0050" Name="api-ms-win-crt-runtime-l1-1-0.dll" KeyPath="yes" ShortName="qmv74he-.dll" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0050" />
+                        </Component>
+                        <Component Id="c_0051" Guid="{2E8F96AD-056A-58CD-8CD0-B85ADFD48DCD}" Win64="yes">
+                            <File Id="f_0051" Name="api-ms-win-crt-stdio-l1-1-0.dll" KeyPath="yes" ShortName="bcetiacx.dll" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0051" />
+                        </Component>
+                        <Component Id="c_0052" Guid="{890DEA4D-66C6-5573-8E2B-DADC4217C3E9}" Win64="yes">
+                            <File Id="f_0052" Name="api-ms-win-crt-string-l1-1-0.dll" KeyPath="yes" ShortName="iup67nn-.dll" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0052" />
+                        </Component>
+                        <Component Id="c_0053" Guid="{A09FC13A-AD46-5F59-8AC7-19BB9447FB03}" Win64="yes">
+                            <File Id="f_0053" Name="api-ms-win-crt-time-l1-1-0.dll" KeyPath="yes" ShortName="rgsxw4lv.dll" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0053" />
+                        </Component>
+                        <Component Id="c_0054" Guid="{334D5D44-1907-5B14-AF93-B1F6AE463917}" Win64="yes">
+                            <File Id="f_0054" Name="api-ms-win-crt-utility-l1-1-0.dll" KeyPath="yes" ShortName="zbsssmw2.dll" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0054" />
+                        </Component>
+                        <Component Id="c_0055" Guid="{14B07B3B-4298-57C6-8FB7-8B732A4F52D5}" Win64="yes">
+                            <File Id="f_0055" Name="base_library.zip" KeyPath="yes" ShortName="jzpnzexz.zip" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0055" />
+                        </Component>
+                        <Component Id="c_0056" Guid="{548FC3BF-EE29-5248-8DCB-63A85996CF7E}" Win64="yes">
+                            <File Id="f_0056" Name="libcrypto-3-x64.dll" KeyPath="yes" ShortName="ngeru5pu.dll" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0056" />
+                        </Component>
+                        <Component Id="c_0057" Guid="{A1080124-BF96-51F1-8697-5687E3D2ECB7}" Win64="yes">
+                            <File Id="f_0057" Name="libcrypto-3.dll" KeyPath="yes" ShortName="saqskuav.dll" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0057" />
+                        </Component>
+                        <Component Id="c_0058" Guid="{C6FA2253-9F1F-59A2-808F-6133617F77DA}" Win64="yes">
+                            <File Id="f_0058" Name="libffi-8.dll" KeyPath="yes" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0058" />
+                        </Component>
+                        <Component Id="c_0059" Guid="{9277E13E-A6DF-542A-A7D8-04C71057B789}" Win64="yes">
+                            <File Id="f_0059" Name="libssl-3-x64.dll" KeyPath="yes" ShortName="q-mllzb8.dll" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0059" />
+                        </Component>
+                        <Component Id="c_0060" Guid="{B463B262-74DC-5D57-8AE3-CAA3DBB4EA46}" Win64="yes">
+                            <File Id="f_0060" Name="libssl-3.dll" KeyPath="yes" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0060" />
+                        </Component>
+                        <Component Id="c_0061" Guid="{C347822F-2FB2-5D1D-B7FD-547C26148D32}" Win64="yes">
+                            <File Id="f_0061" Name="pyexpat.pyd" KeyPath="yes" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0061" />
+                        </Component>
+                        <Component Id="c_0062" Guid="{80C6302B-9E94-5083-A99A-E72532A1888C}" Win64="yes">
+                            <File Id="f_0062" Name="python3.dll" KeyPath="yes" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0062" />
+                        </Component>
+                        <Component Id="c_0063" Guid="{C9826FFD-5539-5A43-8244-922CE8E4E6B7}" Win64="yes">
+                            <File Id="f_0063" Name="python313.dll" KeyPath="yes" ShortName="by0ru0dd.dll" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0063" />
+                        </Component>
+                        <Component Id="c_0064" Guid="{59FEAA1E-0FCD-50E7-A871-C22E358FB586}" Win64="yes">
+                            <File Id="f_0064" Name="select.pyd" KeyPath="yes" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0064" />
+                        </Component>
+                        <Component Id="c_0065" Guid="{39341A75-D16A-5464-8EBE-8C66F62ECA84}" Win64="yes">
+                            <File Id="f_0065" Name="ucrtbase.dll" KeyPath="yes" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0065" />
+                        </Component>
+                        <Component Id="c_0066" Guid="{EC6159FD-3192-5A51-A3EB-1C185CCD89FB}" Win64="yes">
+                            <File Id="f_0066" Name="unicodedata.pyd" KeyPath="yes" ShortName="c99ki4nu.pyd" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0066" />
+                        </Component>
+                        <Component Id="c_0067" Guid="{0E6F5EBB-C2F0-5241-8CC0-23515097E3B3}" Win64="yes">
+                            <File Id="f_0067" Name="VCRUNTIME140.dll" KeyPath="yes" ShortName="x5thpdzj.dll" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0067" />
+                        </Component>
+                        <Component Id="c_0068" Guid="{378E007C-10D5-52C2-A47C-68C89D745424}" Win64="yes">
+                            <File Id="f_0068" Name="VCRUNTIME140_1.dll" KeyPath="yes" ShortName="99mbl9np.dll" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0068" />
+                        </Component>
+                        <Component Id="c_0069" Guid="{7C4AAE09-E262-5C6B-9FB3-142CBD718F5A}" Win64="yes">
+                            <File Id="f_0069" Name="zlib1.dll" KeyPath="yes" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0069" />
+                        </Component>
+                        <Directory Id="d_0002" Name="PySide6">
+                            <Component Id="c_0070" Guid="{1E635278-C9FC-5CAB-96B4-67A1BD53D594}" Win64="yes">
+                                <File Id="f_0070" Name="MSVCP140.dll" KeyPath="yes" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0070" />
+                            </Component>
+                            <Component Id="c_0071" Guid="{92ED49A6-A76F-5CFD-A041-18C1E8771B3A}" Win64="yes">
+                                <File Id="f_0071" Name="MSVCP140_1.dll" KeyPath="yes" ShortName="ildqqs0g.dll" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0071" />
+                            </Component>
+                            <Component Id="c_0072" Guid="{61D5D0CD-12BA-5DFB-B24B-4A8D08C6B88A}" Win64="yes">
+                                <File Id="f_0072" Name="MSVCP140_2.dll" KeyPath="yes" ShortName="7lbvpopy.dll" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0072" />
+                            </Component>
+                            <Component Id="c_0073" Guid="{E24FCB03-1CE8-5C80-AA5F-806AA88E5BF5}" Win64="yes">
+                                <File Id="f_0073" Name="opengl32sw.dll" KeyPath="yes" ShortName="eqyl7nhl.dll" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0073" />
+                            </Component>
+                            <Component Id="c_0074" Guid="{D5595DFB-0379-511B-8273-22BE52240BEB}" Win64="yes">
+                                <File Id="f_0074" Name="pyside6.abi3.dll" KeyPath="yes" ShortName="i0f_hoeo.dll" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0074" />
+                            </Component>
+                            <Component Id="c_0075" Guid="{282C3C8A-3D4C-5938-B5B0-91B4397E190B}" Win64="yes">
+                                <File Id="f_0075" Name="Qt6Core.dll" KeyPath="yes" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0075" />
+                            </Component>
+                            <Component Id="c_0076" Guid="{720266F8-79E6-584B-94FA-9433ADF05DCE}" Win64="yes">
+                                <File Id="f_0076" Name="Qt6Gui.dll" KeyPath="yes" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0076" />
+                            </Component>
+                            <Component Id="c_0077" Guid="{40BBD98F-CBD1-5D9B-9567-8BF3F9625811}" Win64="yes">
+                                <File Id="f_0077" Name="Qt6Network.dll" KeyPath="yes" ShortName="omp-7n_s.dll" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0077" />
+                            </Component>
+                            <Component Id="c_0078" Guid="{AD947B8E-743D-5876-8532-F095A6CAB4BD}" Win64="yes">
+                                <File Id="f_0078" Name="Qt6OpenGL.dll" KeyPath="yes" ShortName="uwfygml6.dll" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0078" />
+                            </Component>
+                            <Component Id="c_0079" Guid="{4B835BCF-B7B5-594F-93E1-1E641AFDDF9D}" Win64="yes">
+                                <File Id="f_0079" Name="Qt6Pdf.dll" KeyPath="yes" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0079" />
+                            </Component>
+                            <Component Id="c_0080" Guid="{2F5D3602-9A26-5E95-BCB7-97B2A1DB55B4}" Win64="yes">
+                                <File Id="f_0080" Name="Qt6Qml.dll" KeyPath="yes" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0080" />
+                            </Component>
+                            <Component Id="c_0081" Guid="{6E91B4ED-EED7-5732-AE80-B4EA419AD512}" Win64="yes">
+                                <File Id="f_0081" Name="Qt6QmlMeta.dll" KeyPath="yes" ShortName="4ieglfqi.dll" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0081" />
+                            </Component>
+                            <Component Id="c_0082" Guid="{D6E5F61F-1FC0-5911-96C9-9BCD004542A7}" Win64="yes">
+                                <File Id="f_0082" Name="Qt6QmlModels.dll" KeyPath="yes" ShortName="hnmuoxvc.dll" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0082" />
+                            </Component>
+                            <Component Id="c_0083" Guid="{5A6D08EA-86C9-5BBA-99A2-C9B01070BB8C}" Win64="yes">
+                                <File Id="f_0083" Name="Qt6QmlWorkerScript.dll" KeyPath="yes" ShortName="fujjkg7k.dll" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0083" />
+                            </Component>
+                            <Component Id="c_0084" Guid="{75290FAA-0B6A-5DA8-A4AF-FE3DE3E102E4}" Win64="yes">
+                                <File Id="f_0084" Name="Qt6Quick.dll" KeyPath="yes" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0084" />
+                            </Component>
+                            <Component Id="c_0085" Guid="{9940BAF9-A88F-59F5-AAA5-4AE27726CB41}" Win64="yes">
+                                <File Id="f_0085" Name="Qt6Svg.dll" KeyPath="yes" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0085" />
+                            </Component>
+                            <Component Id="c_0086" Guid="{3001F0DA-DB75-5285-AFF9-37D45599EBD1}" Win64="yes">
+                                <File Id="f_0086" Name="Qt6VirtualKeyboard.dll" KeyPath="yes" ShortName="wydql2xg.dll" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0086" />
+                            </Component>
+                            <Component Id="c_0087" Guid="{C4CE88FD-72DB-5DB0-9A3D-4F1665401BBD}" Win64="yes">
+                                <File Id="f_0087" Name="Qt6Widgets.dll" KeyPath="yes" ShortName="i4tbtucd.dll" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0087" />
+                            </Component>
+                            <Component Id="c_0088" Guid="{6F93C89A-EE02-5CC6-9582-83FC2E22F4AB}" Win64="yes">
+                                <File Id="f_0088" Name="QtCore.pyd" KeyPath="yes" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0088" />
+                            </Component>
+                            <Component Id="c_0089" Guid="{AE885997-0CD0-567E-9960-AACD1445D450}" Win64="yes">
+                                <File Id="f_0089" Name="QtGui.pyd" KeyPath="yes" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0089" />
+                            </Component>
+                            <Component Id="c_0090" Guid="{D558A09A-5762-5C11-99D0-23CDAFE4A49D}" Win64="yes">
+                                <File Id="f_0090" Name="QtNetwork.pyd" KeyPath="yes" ShortName="vmezws2w.pyd" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0090" />
+                            </Component>
+                            <Component Id="c_0091" Guid="{243DFFE7-6B97-5A76-B75D-C1AF11E46DF9}" Win64="yes">
+                                <File Id="f_0091" Name="QtWidgets.pyd" KeyPath="yes" ShortName="-1wiqb8e.pyd" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0091" />
+                            </Component>
+                            <Component Id="c_0092" Guid="{53214A31-D5CB-52BD-8254-5CD90FE7115D}" Win64="yes">
+                                <File Id="f_0092" Name="VCRUNTIME140.dll" KeyPath="yes" ShortName="bakvmivm.dll" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0092" />
+                            </Component>
+                            <Component Id="c_0093" Guid="{0D203B37-DD89-505E-BE68-3D6F5995B0EC}" Win64="yes">
+                                <File Id="f_0093" Name="VCRUNTIME140_1.dll" KeyPath="yes" ShortName="gconqsok.dll" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0093" />
+                            </Component>
+                            <Directory Id="d_0012" Name="translations" ShortName="bnuadrho">
+                                <Component Id="c_0116" Guid="{D00F8777-505A-5FCE-BFE6-9B8D263DA7F3}" Win64="yes">
+                                    <File Id="f_0116" Name="qt_ar.qm" KeyPath="yes" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0116" />
+                                </Component>
+                                <Component Id="c_0117" Guid="{5E5ADF0E-F148-5068-94F1-2984C24E53F3}" Win64="yes">
+                                    <File Id="f_0117" Name="qt_bg.qm" KeyPath="yes" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0117" />
+                                </Component>
+                                <Component Id="c_0118" Guid="{469DE3E3-914A-5F64-9769-7F5B8E031FEA}" Win64="yes">
+                                    <File Id="f_0118" Name="qt_ca.qm" KeyPath="yes" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0118" />
+                                </Component>
+                                <Component Id="c_0119" Guid="{1F6DFEB3-4459-57E5-91C8-08DECBC32B37}" Win64="yes">
+                                    <File Id="f_0119" Name="qt_cs.qm" KeyPath="yes" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0119" />
+                                </Component>
+                                <Component Id="c_0120" Guid="{8A55E7B4-D26B-5EA3-A683-3E1B716AE8FA}" Win64="yes">
+                                    <File Id="f_0120" Name="qt_da.qm" KeyPath="yes" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0120" />
+                                </Component>
+                                <Component Id="c_0121" Guid="{1EA29375-043E-54A0-96C3-E3C12C014D96}" Win64="yes">
+                                    <File Id="f_0121" Name="qt_de.qm" KeyPath="yes" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0121" />
+                                </Component>
+                                <Component Id="c_0122" Guid="{00104815-DDC4-53D6-9B9E-4766DD271DD4}" Win64="yes">
+                                    <File Id="f_0122" Name="qt_en.qm" KeyPath="yes" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0122" />
+                                </Component>
+                                <Component Id="c_0123" Guid="{18CC1180-FD80-571E-972D-6B2DC37BF446}" Win64="yes">
+                                    <File Id="f_0123" Name="qt_es.qm" KeyPath="yes" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0123" />
+                                </Component>
+                                <Component Id="c_0124" Guid="{3593E8B1-F341-5B5D-8C23-00F72DE51FC5}" Win64="yes">
+                                    <File Id="f_0124" Name="qt_fa.qm" KeyPath="yes" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0124" />
+                                </Component>
+                                <Component Id="c_0125" Guid="{B9D24735-3391-538C-98D2-FB47B7A8A1C1}" Win64="yes">
+                                    <File Id="f_0125" Name="qt_fi.qm" KeyPath="yes" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0125" />
+                                </Component>
+                                <Component Id="c_0126" Guid="{1196C72C-1B1B-56D3-BB3F-7EE55A6C71D2}" Win64="yes">
+                                    <File Id="f_0126" Name="qt_fr.qm" KeyPath="yes" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0126" />
+                                </Component>
+                                <Component Id="c_0127" Guid="{45189FD4-50BF-5F9D-B261-C134FF0E05D3}" Win64="yes">
+                                    <File Id="f_0127" Name="qt_gd.qm" KeyPath="yes" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0127" />
+                                </Component>
+                                <Component Id="c_0128" Guid="{87E1E866-CDCE-582D-A8CF-CE2244B097DA}" Win64="yes">
+                                    <File Id="f_0128" Name="qt_gl.qm" KeyPath="yes" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0128" />
+                                </Component>
+                                <Component Id="c_0129" Guid="{7508441C-3DF2-535E-8043-A95314BDE506}" Win64="yes">
+                                    <File Id="f_0129" Name="qt_he.qm" KeyPath="yes" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0129" />
+                                </Component>
+                                <Component Id="c_0130" Guid="{1276155C-975D-5221-8A6B-1C1146907FB3}" Win64="yes">
+                                    <File Id="f_0130" Name="qt_help_ar.qm" KeyPath="yes" ShortName="16rpcwb8.qm" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0130" />
+                                </Component>
+                                <Component Id="c_0131" Guid="{A6B9B81C-5AD7-52CB-AFFE-2C649F116798}" Win64="yes">
+                                    <File Id="f_0131" Name="qt_help_bg.qm" KeyPath="yes" ShortName="cz1tawir.qm" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0131" />
+                                </Component>
+                                <Component Id="c_0132" Guid="{7D60607D-928A-51E5-9726-CDEEA67B1E70}" Win64="yes">
+                                    <File Id="f_0132" Name="qt_help_ca.qm" KeyPath="yes" ShortName="g4yrusnl.qm" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0132" />
+                                </Component>
+                                <Component Id="c_0133" Guid="{577E768D-66BB-5E37-908D-13E0671C2675}" Win64="yes">
+                                    <File Id="f_0133" Name="qt_help_cs.qm" KeyPath="yes" ShortName="o17w6iys.qm" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0133" />
+                                </Component>
+                                <Component Id="c_0134" Guid="{F2E942CA-732C-5ABE-A6DC-8E8612C1BE0D}" Win64="yes">
+                                    <File Id="f_0134" Name="qt_help_da.qm" KeyPath="yes" ShortName="azrhn4e0.qm" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0134" />
+                                </Component>
+                                <Component Id="c_0135" Guid="{9820CAB1-511A-515C-9510-FB0F60F932A9}" Win64="yes">
+                                    <File Id="f_0135" Name="qt_help_de.qm" KeyPath="yes" ShortName="_woai3xy.qm" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0135" />
+                                </Component>
+                                <Component Id="c_0136" Guid="{5C824405-AF31-5CF0-9A18-E2C7BACC4E78}" Win64="yes">
+                                    <File Id="f_0136" Name="qt_help_en.qm" KeyPath="yes" ShortName="5t9t3gt2.qm" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0136" />
+                                </Component>
+                                <Component Id="c_0137" Guid="{FFAB7FF2-7EBF-5E3A-B052-EB373AE4B602}" Win64="yes">
+                                    <File Id="f_0137" Name="qt_help_es.qm" KeyPath="yes" ShortName="tvj0uuph.qm" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0137" />
+                                </Component>
+                                <Component Id="c_0138" Guid="{928A4EC2-6CCF-58E4-B4F0-6F74ADC5AA0D}" Win64="yes">
+                                    <File Id="f_0138" Name="qt_help_fr.qm" KeyPath="yes" ShortName="8p43ewgk.qm" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0138" />
+                                </Component>
+                                <Component Id="c_0139" Guid="{005A752F-1D99-5262-A8D1-6C62D97D980F}" Win64="yes">
+                                    <File Id="f_0139" Name="qt_help_gl.qm" KeyPath="yes" ShortName="mboljvvs.qm" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0139" />
+                                </Component>
+                                <Component Id="c_0140" Guid="{4361572B-81FF-5A3A-82BD-0B120A673590}" Win64="yes">
+                                    <File Id="f_0140" Name="qt_help_hr.qm" KeyPath="yes" ShortName="vaxqqzp-.qm" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0140" />
+                                </Component>
+                                <Component Id="c_0141" Guid="{B870D686-A07E-5EC7-A04E-1FF5A0666ED8}" Win64="yes">
+                                    <File Id="f_0141" Name="qt_help_hu.qm" KeyPath="yes" ShortName="o5xmzjk5.qm" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0141" />
+                                </Component>
+                                <Component Id="c_0142" Guid="{75913173-6C06-5ADB-9E9D-2AB604FC5BDA}" Win64="yes">
+                                    <File Id="f_0142" Name="qt_help_it.qm" KeyPath="yes" ShortName="yvanvrpa.qm" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0142" />
+                                </Component>
+                                <Component Id="c_0143" Guid="{299D592D-16F5-568B-8219-321F5DEECBB4}" Win64="yes">
+                                    <File Id="f_0143" Name="qt_help_ja.qm" KeyPath="yes" ShortName="0fim8ohl.qm" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0143" />
+                                </Component>
+                                <Component Id="c_0144" Guid="{A1926AAE-49C7-5209-8482-6ABE1DCA52AB}" Win64="yes">
+                                    <File Id="f_0144" Name="qt_help_ka.qm" KeyPath="yes" ShortName="0s-lpitj.qm" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0144" />
+                                </Component>
+                                <Component Id="c_0145" Guid="{65178EBA-5FDD-5E18-9945-C77ADDDEDD68}" Win64="yes">
+                                    <File Id="f_0145" Name="qt_help_kk.qm" KeyPath="yes" ShortName="7j7erg1k.qm" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0145" />
+                                </Component>
+                                <Component Id="c_0146" Guid="{85548A80-6539-5150-9A11-AD5FBE6D94EF}" Win64="yes">
+                                    <File Id="f_0146" Name="qt_help_ko.qm" KeyPath="yes" ShortName="3uzw7ohq.qm" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0146" />
+                                </Component>
+                                <Component Id="c_0147" Guid="{DE2F4C28-C745-5B92-A7D2-E8AC7DD2CFF7}" Win64="yes">
+                                    <File Id="f_0147" Name="qt_help_nl.qm" KeyPath="yes" ShortName="mjua2t1_.qm" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0147" />
+                                </Component>
+                                <Component Id="c_0148" Guid="{BFB5DE52-F911-56C3-B71C-E54D1C63CF50}" Win64="yes">
+                                    <File Id="f_0148" Name="qt_help_nn.qm" KeyPath="yes" ShortName="fczqc8yt.qm" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0148" />
+                                </Component>
+                                <Component Id="c_0149" Guid="{42F06AF5-5D3B-59B4-B742-4B9E5DADEB6C}" Win64="yes">
+                                    <File Id="f_0149" Name="qt_help_pl.qm" KeyPath="yes" ShortName="p42i7wxh.qm" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0149" />
+                                </Component>
+                                <Component Id="c_0150" Guid="{72F7F6C0-F260-57AD-AFE8-C363419260FC}" Win64="yes">
+                                    <File Id="f_0150" Name="qt_help_pt_BR.qm" KeyPath="yes" ShortName="sufrlpvb.qm" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0150" />
+                                </Component>
+                                <Component Id="c_0151" Guid="{5481EDB3-8B7E-57FA-9D0E-44ECF5F206C0}" Win64="yes">
+                                    <File Id="f_0151" Name="qt_help_ru.qm" KeyPath="yes" ShortName="xuoyakgs.qm" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0151" />
+                                </Component>
+                                <Component Id="c_0152" Guid="{184E6C73-6C76-5E07-89ED-BAC103BA1E1B}" Win64="yes">
+                                    <File Id="f_0152" Name="qt_help_sk.qm" KeyPath="yes" ShortName="d9qht4ku.qm" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0152" />
+                                </Component>
+                                <Component Id="c_0153" Guid="{95DF5A35-0E74-5733-9FE2-6FA276C8AA32}" Win64="yes">
+                                    <File Id="f_0153" Name="qt_help_sl.qm" KeyPath="yes" ShortName="mpndnezp.qm" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0153" />
+                                </Component>
+                                <Component Id="c_0154" Guid="{55A3DAA7-0519-5022-AFC8-04785FFE8163}" Win64="yes">
+                                    <File Id="f_0154" Name="qt_help_sv.qm" KeyPath="yes" ShortName="wpf-ocjj.qm" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0154" />
+                                </Component>
+                                <Component Id="c_0155" Guid="{C3CBF9EC-51E2-5270-80F1-755804664153}" Win64="yes">
+                                    <File Id="f_0155" Name="qt_help_tr.qm" KeyPath="yes" ShortName="adlxadrh.qm" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0155" />
+                                </Component>
+                                <Component Id="c_0156" Guid="{3A30D0A4-C7E5-5134-8EED-9A7E53590940}" Win64="yes">
+                                    <File Id="f_0156" Name="qt_help_uk.qm" KeyPath="yes" ShortName="kc1pclmt.qm" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0156" />
+                                </Component>
+                                <Component Id="c_0157" Guid="{B02A6CD5-691B-55C8-A6CE-ED72B01BA8AA}" Win64="yes">
+                                    <File Id="f_0157" Name="qt_help_zh_CN.qm" KeyPath="yes" ShortName="9s16rdud.qm" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0157" />
+                                </Component>
+                                <Component Id="c_0158" Guid="{C8F7AD0D-461E-575A-B92B-43A3D392E35D}" Win64="yes">
+                                    <File Id="f_0158" Name="qt_help_zh_TW.qm" KeyPath="yes" ShortName="ddryonia.qm" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0158" />
+                                </Component>
+                                <Component Id="c_0159" Guid="{A5E5D292-794E-5DA3-BFB9-2BF1B9A26E96}" Win64="yes">
+                                    <File Id="f_0159" Name="qt_hr.qm" KeyPath="yes" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0159" />
+                                </Component>
+                                <Component Id="c_0160" Guid="{18B8B946-6B2E-58C8-83A7-F1CA3A87A874}" Win64="yes">
+                                    <File Id="f_0160" Name="qt_hu.qm" KeyPath="yes" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0160" />
+                                </Component>
+                                <Component Id="c_0161" Guid="{7459A849-B1DE-56ED-8629-C14D29153512}" Win64="yes">
+                                    <File Id="f_0161" Name="qt_it.qm" KeyPath="yes" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0161" />
+                                </Component>
+                                <Component Id="c_0162" Guid="{7B0E7CD4-713C-5361-A8FD-4AA5FE28CF15}" Win64="yes">
+                                    <File Id="f_0162" Name="qt_ja.qm" KeyPath="yes" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0162" />
+                                </Component>
+                                <Component Id="c_0163" Guid="{421A9DE5-77DA-50BC-9E88-CA4CCCB5A4B8}" Win64="yes">
+                                    <File Id="f_0163" Name="qt_ka.qm" KeyPath="yes" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0163" />
+                                </Component>
+                                <Component Id="c_0164" Guid="{1F6FA211-0AB6-50EC-B399-EC5724D422B0}" Win64="yes">
+                                    <File Id="f_0164" Name="qt_kk.qm" KeyPath="yes" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0164" />
+                                </Component>
+                                <Component Id="c_0165" Guid="{A2DCF571-D42B-5C73-A2A3-B95DE3595392}" Win64="yes">
+                                    <File Id="f_0165" Name="qt_ko.qm" KeyPath="yes" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0165" />
+                                </Component>
+                                <Component Id="c_0166" Guid="{93DBCE8E-504F-5655-9F8C-05859957A73F}" Win64="yes">
+                                    <File Id="f_0166" Name="qt_lg.qm" KeyPath="yes" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0166" />
+                                </Component>
+                                <Component Id="c_0167" Guid="{7DD1D5C5-9185-50BC-8DDA-270FACBFE9FB}" Win64="yes">
+                                    <File Id="f_0167" Name="qt_lt.qm" KeyPath="yes" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0167" />
+                                </Component>
+                                <Component Id="c_0168" Guid="{384385A5-1317-56D7-9FC9-F2B3D3D92B0C}" Win64="yes">
+                                    <File Id="f_0168" Name="qt_lv.qm" KeyPath="yes" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0168" />
+                                </Component>
+                                <Component Id="c_0169" Guid="{AA4ECF78-CF39-523F-898B-CF68CCD0292F}" Win64="yes">
+                                    <File Id="f_0169" Name="qt_nl.qm" KeyPath="yes" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0169" />
+                                </Component>
+                                <Component Id="c_0170" Guid="{E60EAD72-C478-5C9C-8C09-7BEA436EAD4F}" Win64="yes">
+                                    <File Id="f_0170" Name="qt_nn.qm" KeyPath="yes" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0170" />
+                                </Component>
+                                <Component Id="c_0171" Guid="{5672D880-F23F-510F-BA02-66619CD1B3AE}" Win64="yes">
+                                    <File Id="f_0171" Name="qt_pl.qm" KeyPath="yes" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0171" />
+                                </Component>
+                                <Component Id="c_0172" Guid="{199BA071-43FF-5254-9ACD-003B11C4B886}" Win64="yes">
+                                    <File Id="f_0172" Name="qt_pt_BR.qm" KeyPath="yes" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0172" />
+                                </Component>
+                                <Component Id="c_0173" Guid="{B075AB80-DE73-521C-A96A-711FA3B80930}" Win64="yes">
+                                    <File Id="f_0173" Name="qt_pt_PT.qm" KeyPath="yes" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0173" />
+                                </Component>
+                                <Component Id="c_0174" Guid="{C8247B5C-A2F2-5CDD-808C-0CBCC38CBFE0}" Win64="yes">
+                                    <File Id="f_0174" Name="qt_ru.qm" KeyPath="yes" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0174" />
+                                </Component>
+                                <Component Id="c_0175" Guid="{00A5F4F6-0B6D-55A9-A31C-8E330AE8CD71}" Win64="yes">
+                                    <File Id="f_0175" Name="qt_sk.qm" KeyPath="yes" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0175" />
+                                </Component>
+                                <Component Id="c_0176" Guid="{9997CC99-132C-5121-9FBE-3AE1190335B0}" Win64="yes">
+                                    <File Id="f_0176" Name="qt_sl.qm" KeyPath="yes" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0176" />
+                                </Component>
+                                <Component Id="c_0177" Guid="{C1102358-9FCD-5B8C-A473-9635290EE520}" Win64="yes">
+                                    <File Id="f_0177" Name="qt_sv.qm" KeyPath="yes" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0177" />
+                                </Component>
+                                <Component Id="c_0178" Guid="{FCDC1E95-A583-518D-87A8-DA92670E7282}" Win64="yes">
+                                    <File Id="f_0178" Name="qt_tr.qm" KeyPath="yes" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0178" />
+                                </Component>
+                                <Component Id="c_0179" Guid="{D3583536-9FA5-5F89-B21F-B483CDA17590}" Win64="yes">
+                                    <File Id="f_0179" Name="qt_uk.qm" KeyPath="yes" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0179" />
+                                </Component>
+                                <Component Id="c_0180" Guid="{0675B21D-8FDD-5D24-871A-4DA8654F4430}" Win64="yes">
+                                    <File Id="f_0180" Name="qt_zh_CN.qm" KeyPath="yes" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0180" />
+                                </Component>
+                                <Component Id="c_0181" Guid="{4D75459A-6F58-5579-8160-132814A7642E}" Win64="yes">
+                                    <File Id="f_0181" Name="qt_zh_TW.qm" KeyPath="yes" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0181" />
+                                </Component>
+                                <Component Id="c_0182" Guid="{AC9B75D3-51B2-5ECC-BD7B-9E2985EA5C79}" Win64="yes">
+                                    <File Id="f_0182" Name="qtbase_ar.qm" KeyPath="yes" ShortName="r1aadfxc.qm" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0182" />
+                                </Component>
+                                <Component Id="c_0183" Guid="{99A83E8F-DE78-5D95-8446-8F8A684562E0}" Win64="yes">
+                                    <File Id="f_0183" Name="qtbase_bg.qm" KeyPath="yes" ShortName="yf1cqkqc.qm" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0183" />
+                                </Component>
+                                <Component Id="c_0184" Guid="{5F4C8C65-779E-5FED-82D4-355589757F5A}" Win64="yes">
+                                    <File Id="f_0184" Name="qtbase_ca.qm" KeyPath="yes" ShortName="6uswa_zl.qm" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0184" />
+                                </Component>
+                                <Component Id="c_0185" Guid="{5D16A422-6AEB-52EA-848B-F8B4D4E3F0F0}" Win64="yes">
+                                    <File Id="f_0185" Name="qtbase_cs.qm" KeyPath="yes" ShortName="e70c6mz-.qm" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0185" />
+                                </Component>
+                                <Component Id="c_0186" Guid="{823A8547-CD7D-52E4-A7E3-C0756BC6EF3F}" Win64="yes">
+                                    <File Id="f_0186" Name="qtbase_da.qm" KeyPath="yes" ShortName="siyw96yr.qm" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0186" />
+                                </Component>
+                                <Component Id="c_0187" Guid="{F55E491C-FA8A-53E7-A41F-0204B972B0AC}" Win64="yes">
+                                    <File Id="f_0187" Name="qtbase_de.qm" KeyPath="yes" ShortName="i_tpuetq.qm" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0187" />
+                                </Component>
+                                <Component Id="c_0188" Guid="{9BF1C8D3-B199-548D-9D8B-3D6250DE434F}" Win64="yes">
+                                    <File Id="f_0188" Name="qtbase_en.qm" KeyPath="yes" ShortName="qvowvycq.qm" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0188" />
+                                </Component>
+                                <Component Id="c_0189" Guid="{C35CCE26-455E-5EFA-A9AE-A6BAA145EEA7}" Win64="yes">
+                                    <File Id="f_0189" Name="qtbase_es.qm" KeyPath="yes" ShortName="gve3hx4z.qm" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0189" />
+                                </Component>
+                                <Component Id="c_0190" Guid="{D3944E4B-0103-54FC-B716-E2B384987B6B}" Win64="yes">
+                                    <File Id="f_0190" Name="qtbase_fa.qm" KeyPath="yes" ShortName="p00-so-h.qm" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0190" />
+                                </Component>
+                                <Component Id="c_0191" Guid="{2DB00EE6-475C-5ECA-B995-D664F66EDA3F}" Win64="yes">
+                                    <File Id="f_0191" Name="qtbase_fi.qm" KeyPath="yes" ShortName="3d9qgciz.qm" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0191" />
+                                </Component>
+                                <Component Id="c_0192" Guid="{52A212DA-93BD-5767-8930-1825B9751956}" Win64="yes">
+                                    <File Id="f_0192" Name="qtbase_fr.qm" KeyPath="yes" ShortName="oqmwtoxq.qm" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0192" />
+                                </Component>
+                                <Component Id="c_0193" Guid="{8FC0022C-7550-5E74-8B9C-0D34F22F39B7}" Win64="yes">
+                                    <File Id="f_0193" Name="qtbase_gd.qm" KeyPath="yes" ShortName="ddufkgc3.qm" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0193" />
+                                </Component>
+                                <Component Id="c_0194" Guid="{E41F4E32-60A1-591A-8382-65AA1F26AE22}" Win64="yes">
+                                    <File Id="f_0194" Name="qtbase_he.qm" KeyPath="yes" ShortName="owslwhox.qm" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0194" />
+                                </Component>
+                                <Component Id="c_0195" Guid="{0D05C678-5B20-54D6-BEDA-199FADA029F1}" Win64="yes">
+                                    <File Id="f_0195" Name="qtbase_hr.qm" KeyPath="yes" ShortName="aqbwj4jy.qm" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0195" />
+                                </Component>
+                                <Component Id="c_0196" Guid="{4A543C05-B192-5D21-8A4C-3E943A755B60}" Win64="yes">
+                                    <File Id="f_0196" Name="qtbase_hu.qm" KeyPath="yes" ShortName="iyrbwhlm.qm" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0196" />
+                                </Component>
+                                <Component Id="c_0197" Guid="{BB4B8114-3E57-51A4-8260-1B4FBB79B74B}" Win64="yes">
+                                    <File Id="f_0197" Name="qtbase_it.qm" KeyPath="yes" ShortName="rav70d4w.qm" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0197" />
+                                </Component>
+                                <Component Id="c_0198" Guid="{E905D83D-DBDA-5CD1-81B3-001FD28208D1}" Win64="yes">
+                                    <File Id="f_0198" Name="qtbase_ja.qm" KeyPath="yes" ShortName="eqp93dfo.qm" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0198" />
+                                </Component>
+                                <Component Id="c_0199" Guid="{2052851B-8E6B-5EED-A9EB-9D28FA54E79B}" Win64="yes">
+                                    <File Id="f_0199" Name="qtbase_ka.qm" KeyPath="yes" ShortName="okx89dk5.qm" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0199" />
+                                </Component>
+                                <Component Id="c_0200" Guid="{50E10AC2-A23F-5A73-985A-D3989AFA42AD}" Win64="yes">
+                                    <File Id="f_0200" Name="qtbase_kk.qm" KeyPath="yes" ShortName="bt5xok5d.qm" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0200" />
+                                </Component>
+                                <Component Id="c_0201" Guid="{B8DD54B9-E2A1-557E-8BE9-1CFBA0D1016F}" Win64="yes">
+                                    <File Id="f_0201" Name="qtbase_ko.qm" KeyPath="yes" ShortName="sdxssqrc.qm" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0201" />
+                                </Component>
+                                <Component Id="c_0202" Guid="{4AA70BED-309A-54AC-ABD4-6E49F9DEE60C}" Win64="yes">
+                                    <File Id="f_0202" Name="qtbase_lg.qm" KeyPath="yes" ShortName="qsmk8d9u.qm" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0202" />
+                                </Component>
+                                <Component Id="c_0203" Guid="{BE7F0A34-038E-5932-A49D-BEFFA51E49E4}" Win64="yes">
+                                    <File Id="f_0203" Name="qtbase_lv.qm" KeyPath="yes" ShortName="_eaoahvy.qm" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0203" />
+                                </Component>
+                                <Component Id="c_0204" Guid="{F56BDA4B-2098-56F3-BF61-1469CD7EE665}" Win64="yes">
+                                    <File Id="f_0204" Name="qtbase_nl.qm" KeyPath="yes" ShortName="cfjd9-oc.qm" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0204" />
+                                </Component>
+                                <Component Id="c_0205" Guid="{BDBAFE55-8251-5711-906B-1F437D3E9D04}" Win64="yes">
+                                    <File Id="f_0205" Name="qtbase_nn.qm" KeyPath="yes" ShortName="5yeykd9f.qm" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0205" />
+                                </Component>
+                                <Component Id="c_0206" Guid="{F43BB4C9-C8FF-56B9-9A93-B37BE86A58E3}" Win64="yes">
+                                    <File Id="f_0206" Name="qtbase_pl.qm" KeyPath="yes" ShortName="p9v5yq9r.qm" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0206" />
+                                </Component>
+                                <Component Id="c_0207" Guid="{86023603-E486-5E6C-A183-694FD07D838A}" Win64="yes">
+                                    <File Id="f_0207" Name="qtbase_pt_BR.qm" KeyPath="yes" ShortName="o4mavwrx.qm" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0207" />
+                                </Component>
+                                <Component Id="c_0208" Guid="{1945A7B5-AA85-54A0-A35E-1653D77588E9}" Win64="yes">
+                                    <File Id="f_0208" Name="qtbase_ru.qm" KeyPath="yes" ShortName="epqla5fx.qm" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0208" />
+                                </Component>
+                                <Component Id="c_0209" Guid="{D4EABD44-18C2-5228-A3ED-769D37D5C39A}" Win64="yes">
+                                    <File Id="f_0209" Name="qtbase_sk.qm" KeyPath="yes" ShortName="ej3awsdl.qm" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0209" />
+                                </Component>
+                                <Component Id="c_0210" Guid="{74109128-4242-5CB9-AC82-7E51CBAADB5B}" Win64="yes">
+                                    <File Id="f_0210" Name="qtbase_sv.qm" KeyPath="yes" ShortName="esttgi38.qm" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0210" />
+                                </Component>
+                                <Component Id="c_0211" Guid="{068E535D-4F3C-5B7F-A760-873A7061489E}" Win64="yes">
+                                    <File Id="f_0211" Name="qtbase_tr.qm" KeyPath="yes" ShortName="yird2qs4.qm" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0211" />
+                                </Component>
+                                <Component Id="c_0212" Guid="{31954633-73D5-5D61-AA92-90F2C24ACBA5}" Win64="yes">
+                                    <File Id="f_0212" Name="qtbase_uk.qm" KeyPath="yes" ShortName="67ttn99m.qm" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0212" />
+                                </Component>
+                                <Component Id="c_0213" Guid="{F741D759-E523-5EC3-B965-5F9F65B1B15B}" Win64="yes">
+                                    <File Id="f_0213" Name="qtbase_zh_CN.qm" KeyPath="yes" ShortName="ab-aohl_.qm" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0213" />
+                                </Component>
+                                <Component Id="c_0214" Guid="{FE914B54-28AC-575C-A2FE-0FC1AEF29BD8}" Win64="yes">
+                                    <File Id="f_0214" Name="qtbase_zh_TW.qm" KeyPath="yes" ShortName="wo4cckxr.qm" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0214" />
+                                </Component>
+                            </Directory>
+                            <Directory Id="d_0003" Name="plugins">
+                                <Directory Id="d_0004" Name="generic">
+                                    <Component Id="c_0094" Guid="{89C050D0-91AA-5874-9FD8-C7EE5A45148C}" Win64="yes">
+                                        <File Id="f_0094" Name="qtuiotouchplugin.dll" KeyPath="yes" ShortName="7e7cnrut.dll" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0094" />
+                                    </Component>
+                                </Directory>
+                                <Directory Id="d_0005" Name="iconengines" ShortName="bneio5qh">
+                                    <Component Id="c_0095" Guid="{56D9E26C-0BD5-5F80-9CF2-123ED5837A9F}" Win64="yes">
+                                        <File Id="f_0095" Name="qsvgicon.dll" KeyPath="yes" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0095" />
+                                    </Component>
+                                </Directory>
+                                <Directory Id="d_0006" Name="imageformats" ShortName="lbydllf-">
+                                    <Component Id="c_0096" Guid="{760CA57F-AE5D-5C1E-801B-7D88918072D2}" Win64="yes">
+                                        <File Id="f_0096" Name="qgif.dll" KeyPath="yes" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0096" />
+                                    </Component>
+                                    <Component Id="c_0097" Guid="{2BF813D8-DD52-5627-9CEC-E5C98D14CF00}" Win64="yes">
+                                        <File Id="f_0097" Name="qicns.dll" KeyPath="yes" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0097" />
+                                    </Component>
+                                    <Component Id="c_0098" Guid="{312883D2-50D1-5EA6-A9CF-01464ACAE319}" Win64="yes">
+                                        <File Id="f_0098" Name="qico.dll" KeyPath="yes" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0098" />
+                                    </Component>
+                                    <Component Id="c_0099" Guid="{E83BC2EE-6924-5393-922B-424A3F105DB5}" Win64="yes">
+                                        <File Id="f_0099" Name="qjpeg.dll" KeyPath="yes" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0099" />
+                                    </Component>
+                                    <Component Id="c_0100" Guid="{304B6689-690E-56A9-845C-87148E4B6CC4}" Win64="yes">
+                                        <File Id="f_0100" Name="qpdf.dll" KeyPath="yes" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0100" />
+                                    </Component>
+                                    <Component Id="c_0101" Guid="{36382DEA-CA45-519C-8F89-822777CE5558}" Win64="yes">
+                                        <File Id="f_0101" Name="qsvg.dll" KeyPath="yes" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0101" />
+                                    </Component>
+                                    <Component Id="c_0102" Guid="{3B94890A-40C9-535B-AA86-1F96AE1BA27F}" Win64="yes">
+                                        <File Id="f_0102" Name="qtga.dll" KeyPath="yes" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0102" />
+                                    </Component>
+                                    <Component Id="c_0103" Guid="{60F9F9FC-A38E-54C0-AAC6-AD8127DE6CA6}" Win64="yes">
+                                        <File Id="f_0103" Name="qtiff.dll" KeyPath="yes" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0103" />
+                                    </Component>
+                                    <Component Id="c_0104" Guid="{0E747BEA-FDE2-5FF3-BEE5-2B990035A09A}" Win64="yes">
+                                        <File Id="f_0104" Name="qwbmp.dll" KeyPath="yes" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0104" />
+                                    </Component>
+                                    <Component Id="c_0105" Guid="{1757739C-5091-5C05-BB82-1355FD09E079}" Win64="yes">
+                                        <File Id="f_0105" Name="qwebp.dll" KeyPath="yes" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0105" />
+                                    </Component>
+                                </Directory>
+                                <Directory Id="d_0007" Name="networkinformation" ShortName="hoz9jt1l">
+                                    <Component Id="c_0106" Guid="{ECB28465-33A8-5038-995F-8F9A74767579}" Win64="yes">
+                                        <File Id="f_0106" Name="qnetworklistmanager.dll" KeyPath="yes" ShortName="7eqg27ij.dll" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0106" />
+                                    </Component>
+                                </Directory>
+                                <Directory Id="d_0008" Name="platforminputcontexts" ShortName="9p25jzqd">
+                                    <Component Id="c_0107" Guid="{F7537746-9DC7-584C-8FDF-09914BEDAC0F}" Win64="yes">
+                                        <File Id="f_0107" Name="qtvirtualkeyboardplugin.dll" KeyPath="yes" ShortName="ityih56v.dll" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0107" />
+                                    </Component>
+                                </Directory>
+                                <Directory Id="d_0009" Name="platforms" ShortName="mxgychod">
+                                    <Component Id="c_0108" Guid="{6FC90E83-30E0-51FC-8350-FD41536B8942}" Win64="yes">
+                                        <File Id="f_0108" Name="qdirect2d.dll" KeyPath="yes" ShortName="p9lziwgg.dll" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0108" />
+                                    </Component>
+                                    <Component Id="c_0109" Guid="{319E8147-D1F8-534E-8490-69CF96F12A48}" Win64="yes">
+                                        <File Id="f_0109" Name="qminimal.dll" KeyPath="yes" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0109" />
+                                    </Component>
+                                    <Component Id="c_0110" Guid="{7A7480D3-981C-53C9-9AA6-0E1135DD3329}" Win64="yes">
+                                        <File Id="f_0110" Name="qoffscreen.dll" KeyPath="yes" ShortName="laf_lvvu.dll" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0110" />
+                                    </Component>
+                                    <Component Id="c_0111" Guid="{1CD9E643-6E75-5217-BADB-916AD0CA2229}" Win64="yes">
+                                        <File Id="f_0111" Name="qwindows.dll" KeyPath="yes" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0111" />
+                                    </Component>
+                                </Directory>
+                                <Directory Id="d_0010" Name="styles">
+                                    <Component Id="c_0112" Guid="{5B0FBC02-D16D-5E84-AAF5-847237ED620A}" Win64="yes">
+                                        <File Id="f_0112" Name="qmodernwindowsstyle.dll" KeyPath="yes" ShortName="c14r57fe.dll" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0112" />
+                                    </Component>
+                                </Directory>
+                                <Directory Id="d_0011" Name="tls">
+                                    <Component Id="c_0113" Guid="{660803BB-2E8C-509C-BABC-EC0D9211D786}" Win64="yes">
+                                        <File Id="f_0113" Name="qcertonlybackend.dll" KeyPath="yes" ShortName="kndqveyd.dll" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0113" />
+                                    </Component>
+                                    <Component Id="c_0114" Guid="{A6D4F0DB-9E95-5B1F-BE2F-1352537B4A2B}" Win64="yes">
+                                        <File Id="f_0114" Name="qopensslbackend.dll" KeyPath="yes" ShortName="ugf9viol.dll" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0114" />
+                                    </Component>
+                                    <Component Id="c_0115" Guid="{193ACE1D-08CF-5145-A6C0-E875C72651E1}" Win64="yes">
+                                        <File Id="f_0115" Name="qschannelbackend.dll" KeyPath="yes" ShortName="j6cyqy77.dll" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0115" />
+                                    </Component>
+                                </Directory>
+                            </Directory>
+                        </Directory>
+                        <Directory Id="d_0013" Name="assets">
+                            <Component Id="c_0215" Guid="{1FB6389F-A85A-5ED1-ACEC-B077AC6E4C06}" Win64="yes">
+                                <File Id="f_0215" Name="app-v1.png" KeyPath="yes" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0215" />
+                            </Component>
+                            <Component Id="c_0216" Guid="{998F6FD9-0F9C-5336-8F5E-A4BF8F0392C5}" Win64="yes">
+                                <File Id="f_0216" Name="app-v1.webp" KeyPath="yes" ShortName="bgmuvaqk.web" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0216" />
+                            </Component>
+                            <Component Id="c_0217" Guid="{F3C65130-AC45-58D5-86A3-BB60C32E2E76}" Win64="yes">
+                                <File Id="f_0217" Name="demo.svg" KeyPath="yes" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0217" />
+                            </Component>
+                            <Component Id="c_0218" Guid="{8B4DD977-8C04-5338-8A6A-110FF375D176}" Win64="yes">
+                                <File Id="f_0218" Name="fuckyousuno.svg" KeyPath="yes" ShortName="vxoapp0i.svg" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0218" />
+                            </Component>
+                            <Component Id="c_0219" Guid="{08E99FCE-9A26-5570-871A-ADFFAA4372F4}" Win64="yes">
+                                <File Id="f_0219" Name="logo.svg" KeyPath="yes" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0219" />
+                            </Component>
+                            <Component Id="c_0220" Guid="{CC12C619-CC60-5CDD-9E91-270D48CEE018}" Win64="yes">
+                                <File Id="f_0220" Name="mi_suno.ico" KeyPath="yes" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0220" />
+                            </Component>
+                            <Component Id="c_0221" Guid="{B8B1A65A-9879-51BD-AD96-5608672DC345}" Win64="yes">
+                                <File Id="f_0221" Name="mi_suno.svg" KeyPath="yes" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0221" />
+                            </Component>
+                            <Component Id="c_0222" Guid="{77F3C5EF-F026-5EE1-B585-BE1D3721DEE1}" Win64="yes">
+                                <File Id="f_0222" Name="mi_suno_512.png" KeyPath="yes" ShortName="wfdbvduh.png" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0222" />
+                            </Component>
+                        </Directory>
+                        <Directory Id="d_0014" Name="certifi">
+                            <Component Id="c_0223" Guid="{B3529CEB-504F-55C3-9108-9865C0B64A3C}" Win64="yes">
+                                <File Id="f_0223" Name="cacert.pem" KeyPath="yes" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0223" />
+                            </Component>
+                            <Component Id="c_0224" Guid="{9BF92A14-B7B9-5239-8915-E2F2C54FE4F1}" Win64="yes">
+                                <File Id="f_0224" Name="py.typed" KeyPath="yes" ShortName="lwolmmxa.typ" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0224" />
+                            </Component>
+                        </Directory>
+                        <Directory Id="d_0015" Name="charset_normalizer" ShortName="-rfn4hpv">
+                            <Component Id="c_0225" Guid="{9326C997-A4DC-5F4D-B1BE-247B49463BAF}" Win64="yes">
+                                <File Id="f_0225" Name="cd.cp313-win_amd64.pyd" KeyPath="yes" ShortName="-tpfopwj.pyd" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0225" />
+                            </Component>
+                            <Component Id="c_0226" Guid="{2A36EB16-FBB3-5DFA-9C6A-B7C1915ECA1B}" Win64="yes">
+                                <File Id="f_0226" Name="md.cp313-win_amd64.pyd" KeyPath="yes" ShortName="lac9khll.pyd" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0226" />
+                            </Component>
+                        </Directory>
+                        <Directory Id="d_0019" Name="cryptography-50.0.2.dist-info" ShortName="odcenrkl">
+                            <Component Id="c_0228" Guid="{65E9A7F3-F491-55E7-9F4E-400A46BECC2D}" Win64="yes">
+                                <File Id="f_0228" Name="INSTALLER" KeyPath="yes" ShortName="tlgtgxnd" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0228" />
+                            </Component>
+                            <Component Id="c_0229" Guid="{85EBAB90-0460-5E05-A17C-E482CB1FB619}" Win64="yes">
+                                <File Id="f_0229" Name="METADATA" KeyPath="yes" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0229" />
+                            </Component>
+                            <Component Id="c_0230" Guid="{A43764CB-C7F0-5D41-9E40-55861D1F9B65}" Win64="yes">
+                                <File Id="f_0230" Name="RECORD" KeyPath="yes" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0230" />
+                            </Component>
+                            <Component Id="c_0231" Guid="{23411211-B06E-5C6A-B456-E24EADDB0272}" Win64="yes">
+                                <File Id="f_0231" Name="REQUESTED" KeyPath="yes" ShortName="z1cxstdx" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0231" />
+                            </Component>
+                            <Component Id="c_0232" Guid="{E920C129-F973-5664-BF2D-245294218287}" Win64="yes">
+                                <File Id="f_0232" Name="WHEEL" KeyPath="yes" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0232" />
+                            </Component>
+                            <Directory Id="d_0020" Name="licenses">
+                                <Component Id="c_0233" Guid="{B5CA3475-D3FE-5994-858F-2B70445CF3C4}" Win64="yes">
+                                    <File Id="f_0233" Name="LICENSE" KeyPath="yes" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0233" />
+                                </Component>
+                                <Component Id="c_0234" Guid="{A65780C8-AA4A-59AE-8CEF-CEA8E909D020}" Win64="yes">
+                                    <File Id="f_0234" Name="LICENSE.APACHE" KeyPath="yes" ShortName="kf39kc0r.apa" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0234" />
+                                </Component>
+                                <Component Id="c_0235" Guid="{3B1C6AFD-9E65-5453-BEA4-AF5297DB7B34}" Win64="yes">
+                                    <File Id="f_0235" Name="LICENSE.BSD" KeyPath="yes" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0235" />
+                                </Component>
+                            </Directory>
+                            <Directory Id="d_0021" Name="sboms">
+                                <Component Id="c_0236" Guid="{4708F8C9-2D81-53A7-9FEE-6224930543BD}" Win64="yes">
+                                    <File Id="f_0236" Name="cryptography-rust.cyclonedx.json" KeyPath="yes" ShortName="_nhy9esn.jso" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0236" />
+                                </Component>
+                                <Component Id="c_0237" Guid="{438AD171-8009-5AB1-8E15-18DA680A3864}" Win64="yes">
+                                    <File Id="f_0237" Name="sbom.json" KeyPath="yes" ShortName="8l_hvamr.jso" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0237" />
+                                </Component>
+                            </Directory>
+                        </Directory>
+                        <Directory Id="d_0022" Name="herramientas" ShortName="hlulrkwb">
+                            <Component Id="c_0238" Guid="{6029D83E-4BA7-5DE8-B0B2-C820967170F0}" Win64="yes">
+                                <File Id="f_0238" Name="ffmpeg.exe" KeyPath="yes" DiskId="2" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0238" />
+                            </Component>
+                        </Directory>
+                        <Directory Id="d_0027" Name="shiboken6" ShortName="3npswnlc">
+                            <Component Id="c_0240" Guid="{43F5C7F7-BDED-5E69-9C4B-3DADE27A8C3F}" Win64="yes">
+                                <File Id="f_0240" Name="MSVCP140.dll" KeyPath="yes" DiskId="2" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0240" />
+                            </Component>
+                            <Component Id="c_0241" Guid="{8FFAAC9C-6504-5022-B657-3B54110DED44}" Win64="yes">
+                                <File Id="f_0241" Name="Shiboken.pyd" KeyPath="yes" DiskId="2" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0241" />
+                            </Component>
+                            <Component Id="c_0242" Guid="{7CA24EF1-6AFF-5052-9AE6-457433B4F846}" Win64="yes">
+                                <File Id="f_0242" Name="shiboken6.abi3.dll" KeyPath="yes" ShortName="rlmdnejo.dll" DiskId="2" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0242" />
+                            </Component>
+                            <Component Id="c_0243" Guid="{92F5A9E6-F6DA-518C-ADC8-1B76591CCFCC}" Win64="yes">
+                                <File Id="f_0243" Name="VCRUNTIME140.dll" KeyPath="yes" ShortName="omsrupig.dll" DiskId="2" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0243" />
+                            </Component>
+                            <Component Id="c_0244" Guid="{38B425A2-9174-5847-8514-979EEBA1E357}" Win64="yes">
+                                <File Id="f_0244" Name="VCRUNTIME140_1.dll" KeyPath="yes" ShortName="0wknjkal.dll" DiskId="2" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0244" />
+                            </Component>
+                        </Directory>
+                        <Directory Id="d_0016" Name="cryptography" ShortName="no_duptr">
+                            <Directory Id="d_0017" Name="hazmat">
+                                <Directory Id="d_0018" Name="bindings">
+                                    <Component Id="c_0227" Guid="{C1A7F3C9-6A01-5E02-876A-8E11997AD168}" Win64="yes">
+                                        <File Id="f_0227" Name="_rust.pyd" KeyPath="yes" DiskId="1" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0227" />
+                                    </Component>
+                                </Directory>
+                            </Directory>
+                        </Directory>
+                        <Directory Id="d_0023" Name="setuptools" ShortName="co1ar3cg">
+                            <Directory Id="d_0024" Name="_vendor">
+                                <Directory Id="d_0025" Name="jaraco">
+                                    <Directory Id="d_0026" Name="text">
+                                        <Component Id="c_0239" Guid="{50D64C5F-E21F-54C0-A30B-6FD64C61FA46}" Win64="yes">
+                                            <File Id="f_0239" Name="Lorem ipsum.txt" KeyPath="yes" ShortName="0qocxgcp.txt" DiskId="2" Source="C:\Users\vejie\AppData\Local\Temp\opencode\msi\File\f_0239" />
+                                        </Component>
+                                    </Directory>
+                                </Directory>
+                            </Directory>
+                        </Directory>
+                    </Directory>
+                </Directory>
+            </Directory>
+            <Directory Id="ProgramMenuFolder">
+                <Directory Id="MenuSuno" Name="Suno v1" ShortName="l1vobu2m">
+                    <Component Id="AccesoMenu" Guid="{B4C6D2E8-3F71-4A95-8C22-9D5E6A1B7F34}" Win64="yes">
+                        <Condition>START_SHORTCUT = "1"</Condition>
+                        <RegistryValue Id="reg0D8673F25EF006A49D7E1455F36CA27B" Root="HKLM" Key="Software\Suno v1" Name="instalado" Value="1" Type="integer" KeyPath="yes" />
+                        <RemoveFolder Id="QuitarMenuSuno" Directory="MenuSuno" On="uninstall" />
+                        <Shortcut Id="AtajoSuno" Directory="MenuSuno" Name="Suno v1" ShortName="vyqivzbv" Description="Descargador de playlists de Suno" Icon="IconoSuno" WorkingDirectory="INSTALLFOLDER" Advertise="yes" />
+                    </Component>
+                </Directory>
+            </Directory>
+        </Directory>
+        <Feature Id="Completa" Absent="disallow" Level="1" Title="Suno v1">
+            <ComponentRef Id="AccesoMenu" />
+            <ComponentRef Id="AccesoEscritorio" />
+            <ComponentRef Id="c_0001" />
+            <ComponentRef Id="c_0002" />
+            <ComponentRef Id="c_0003" />
+            <ComponentRef Id="c_0004" />
+            <ComponentRef Id="c_0005" />
+            <ComponentRef Id="c_0006" />
+            <ComponentRef Id="c_0007" />
+            <ComponentRef Id="c_0008" />
+            <ComponentRef Id="c_0009" />
+            <ComponentRef Id="c_0010" />
+            <ComponentRef Id="c_0011" />
+            <ComponentRef Id="c_0012" />
+            <ComponentRef Id="c_0013" />
+            <ComponentRef Id="c_0014" />
+            <ComponentRef Id="c_0015" />
+            <ComponentRef Id="c_0016" />
+            <ComponentRef Id="c_0017" />
+            <ComponentRef Id="c_0018" />
+            <ComponentRef Id="c_0019" />
+            <ComponentRef Id="c_0020" />
+            <ComponentRef Id="c_0021" />
+            <ComponentRef Id="c_0022" />
+            <ComponentRef Id="c_0023" />
+            <ComponentRef Id="c_0024" />
+            <ComponentRef Id="c_0025" />
+            <ComponentRef Id="c_0026" />
+            <ComponentRef Id="c_0027" />
+            <ComponentRef Id="c_0028" />
+            <ComponentRef Id="c_0029" />
+            <ComponentRef Id="c_0030" />
+            <ComponentRef Id="c_0031" />
+            <ComponentRef Id="c_0032" />
+            <ComponentRef Id="c_0033" />
+            <ComponentRef Id="c_0034" />
+            <ComponentRef Id="c_0035" />
+            <ComponentRef Id="c_0036" />
+            <ComponentRef Id="c_0037" />
+            <ComponentRef Id="c_0038" />
+            <ComponentRef Id="c_0039" />
+            <ComponentRef Id="c_0040" />
+            <ComponentRef Id="c_0041" />
+            <ComponentRef Id="c_0042" />
+            <ComponentRef Id="c_0043" />
+            <ComponentRef Id="c_0044" />
+            <ComponentRef Id="c_0045" />
+            <ComponentRef Id="c_0046" />
+            <ComponentRef Id="c_0047" />
+            <ComponentRef Id="c_0048" />
+            <ComponentRef Id="c_0049" />
+            <ComponentRef Id="c_0050" />
+            <ComponentRef Id="c_0051" />
+            <ComponentRef Id="c_0052" />
+            <ComponentRef Id="c_0053" />
+            <ComponentRef Id="c_0054" />
+            <ComponentRef Id="c_0055" />
+            <ComponentRef Id="c_0056" />
+            <ComponentRef Id="c_0057" />
+            <ComponentRef Id="c_0058" />
+            <ComponentRef Id="c_0059" />
+            <ComponentRef Id="c_0060" />
+            <ComponentRef Id="c_0061" />
+            <ComponentRef Id="c_0062" />
+            <ComponentRef Id="c_0063" />
+            <ComponentRef Id="c_0064" />
+            <ComponentRef Id="c_0065" />
+            <ComponentRef Id="c_0066" />
+            <ComponentRef Id="c_0067" />
+            <ComponentRef Id="c_0068" />
+            <ComponentRef Id="c_0069" />
+            <ComponentRef Id="c_0070" />
+            <ComponentRef Id="c_0071" />
+            <ComponentRef Id="c_0072" />
+            <ComponentRef Id="c_0073" />
+            <ComponentRef Id="c_0074" />
+            <ComponentRef Id="c_0075" />
+            <ComponentRef Id="c_0076" />
+            <ComponentRef Id="c_0077" />
+            <ComponentRef Id="c_0078" />
+            <ComponentRef Id="c_0079" />
+            <ComponentRef Id="c_0080" />
+            <ComponentRef Id="c_0081" />
+            <ComponentRef Id="c_0082" />
+            <ComponentRef Id="c_0083" />
+            <ComponentRef Id="c_0084" />
+            <ComponentRef Id="c_0085" />
+            <ComponentRef Id="c_0086" />
+            <ComponentRef Id="c_0087" />
+            <ComponentRef Id="c_0088" />
+            <ComponentRef Id="c_0089" />
+            <ComponentRef Id="c_0090" />
+            <ComponentRef Id="c_0091" />
+            <ComponentRef Id="c_0092" />
+            <ComponentRef Id="c_0093" />
+            <ComponentRef Id="c_0094" />
+            <ComponentRef Id="c_0095" />
+            <ComponentRef Id="c_0096" />
+            <ComponentRef Id="c_0097" />
+            <ComponentRef Id="c_0098" />
+            <ComponentRef Id="c_0099" />
+            <ComponentRef Id="c_0100" />
+            <ComponentRef Id="c_0101" />
+            <ComponentRef Id="c_0102" />
+            <ComponentRef Id="c_0103" />
+            <ComponentRef Id="c_0104" />
+            <ComponentRef Id="c_0105" />
+            <ComponentRef Id="c_0106" />
+            <ComponentRef Id="c_0107" />
+            <ComponentRef Id="c_0108" />
+            <ComponentRef Id="c_0109" />
+            <ComponentRef Id="c_0110" />
+            <ComponentRef Id="c_0111" />
+            <ComponentRef Id="c_0112" />
+            <ComponentRef Id="c_0113" />
+            <ComponentRef Id="c_0114" />
+            <ComponentRef Id="c_0115" />
+            <ComponentRef Id="c_0116" />
+            <ComponentRef Id="c_0117" />
+            <ComponentRef Id="c_0118" />
+            <ComponentRef Id="c_0119" />
+            <ComponentRef Id="c_0120" />
+            <ComponentRef Id="c_0121" />
+            <ComponentRef Id="c_0122" />
+            <ComponentRef Id="c_0123" />
+            <ComponentRef Id="c_0124" />
+            <ComponentRef Id="c_0125" />
+            <ComponentRef Id="c_0126" />
+            <ComponentRef Id="c_0127" />
+            <ComponentRef Id="c_0128" />
+            <ComponentRef Id="c_0129" />
+            <ComponentRef Id="c_0130" />
+            <ComponentRef Id="c_0131" />
+            <ComponentRef Id="c_0132" />
+            <ComponentRef Id="c_0133" />
+            <ComponentRef Id="c_0134" />
+            <ComponentRef Id="c_0135" />
+            <ComponentRef Id="c_0136" />
+            <ComponentRef Id="c_0137" />
+            <ComponentRef Id="c_0138" />
+            <ComponentRef Id="c_0139" />
+            <ComponentRef Id="c_0140" />
+            <ComponentRef Id="c_0141" />
+            <ComponentRef Id="c_0142" />
+            <ComponentRef Id="c_0143" />
+            <ComponentRef Id="c_0144" />
+            <ComponentRef Id="c_0145" />
+            <ComponentRef Id="c_0146" />
+            <ComponentRef Id="c_0147" />
+            <ComponentRef Id="c_0148" />
+            <ComponentRef Id="c_0149" />
+            <ComponentRef Id="c_0150" />
+            <ComponentRef Id="c_0151" />
+            <ComponentRef Id="c_0152" />
+            <ComponentRef Id="c_0153" />
+            <ComponentRef Id="c_0154" />
+            <ComponentRef Id="c_0155" />
+            <ComponentRef Id="c_0156" />
+            <ComponentRef Id="c_0157" />
+            <ComponentRef Id="c_0158" />
+            <ComponentRef Id="c_0159" />
+            <ComponentRef Id="c_0160" />
+            <ComponentRef Id="c_0161" />
+            <ComponentRef Id="c_0162" />
+            <ComponentRef Id="c_0163" />
+            <ComponentRef Id="c_0164" />
+            <ComponentRef Id="c_0165" />
+            <ComponentRef Id="c_0166" />
+            <ComponentRef Id="c_0167" />
+            <ComponentRef Id="c_0168" />
+            <ComponentRef Id="c_0169" />
+            <ComponentRef Id="c_0170" />
+            <ComponentRef Id="c_0171" />
+            <ComponentRef Id="c_0172" />
+            <ComponentRef Id="c_0173" />
+            <ComponentRef Id="c_0174" />
+            <ComponentRef Id="c_0175" />
+            <ComponentRef Id="c_0176" />
+            <ComponentRef Id="c_0177" />
+            <ComponentRef Id="c_0178" />
+            <ComponentRef Id="c_0179" />
+            <ComponentRef Id="c_0180" />
+            <ComponentRef Id="c_0181" />
+            <ComponentRef Id="c_0182" />
+            <ComponentRef Id="c_0183" />
+            <ComponentRef Id="c_0184" />
+            <ComponentRef Id="c_0185" />
+            <ComponentRef Id="c_0186" />
+            <ComponentRef Id="c_0187" />
+            <ComponentRef Id="c_0188" />
+            <ComponentRef Id="c_0189" />
+            <ComponentRef Id="c_0190" />
+            <ComponentRef Id="c_0191" />
+            <ComponentRef Id="c_0192" />
+            <ComponentRef Id="c_0193" />
+            <ComponentRef Id="c_0194" />
+            <ComponentRef Id="c_0195" />
+            <ComponentRef Id="c_0196" />
+            <ComponentRef Id="c_0197" />
+            <ComponentRef Id="c_0198" />
+            <ComponentRef Id="c_0199" />
+            <ComponentRef Id="c_0200" />
+            <ComponentRef Id="c_0201" />
+            <ComponentRef Id="c_0202" />
+            <ComponentRef Id="c_0203" />
+            <ComponentRef Id="c_0204" />
+            <ComponentRef Id="c_0205" />
+            <ComponentRef Id="c_0206" />
+            <ComponentRef Id="c_0207" />
+            <ComponentRef Id="c_0208" />
+            <ComponentRef Id="c_0209" />
+            <ComponentRef Id="c_0210" />
+            <ComponentRef Id="c_0211" />
+            <ComponentRef Id="c_0212" />
+            <ComponentRef Id="c_0213" />
+            <ComponentRef Id="c_0214" />
+            <ComponentRef Id="c_0215" />
+            <ComponentRef Id="c_0216" />
+            <ComponentRef Id="c_0217" />
+            <ComponentRef Id="c_0218" />
+            <ComponentRef Id="c_0219" />
+            <ComponentRef Id="c_0220" />
+            <ComponentRef Id="c_0221" />
+            <ComponentRef Id="c_0222" />
+            <ComponentRef Id="c_0223" />
+            <ComponentRef Id="c_0224" />
+            <ComponentRef Id="c_0225" />
+            <ComponentRef Id="c_0226" />
+            <ComponentRef Id="c_0227" />
+            <ComponentRef Id="c_0228" />
+            <ComponentRef Id="c_0229" />
+            <ComponentRef Id="c_0230" />
+            <ComponentRef Id="c_0231" />
+            <ComponentRef Id="c_0232" />
+            <ComponentRef Id="c_0233" />
+            <ComponentRef Id="c_0234" />
+            <ComponentRef Id="c_0235" />
+            <ComponentRef Id="c_0236" />
+            <ComponentRef Id="c_0237" />
+            <ComponentRef Id="c_0238" />
+            <ComponentRef Id="c_0239" />
+            <ComponentRef Id="c_0240" />
+            <ComponentRef Id="c_0241" />
+            <ComponentRef Id="c_0242" />
+            <ComponentRef Id="c_0243" />
+            <ComponentRef Id="c_0244" />
+        </Feature>
+        <Icon Id="IconoSuno" SourceFile="C:\Users\vejie\AppData\Local\Temp\opencode\msi\Icon\IconoSuno" />
+        <MajorUpgrade DowngradeErrorMessage="Ya hay una versión más reciente de [ProductName] instalada." Schedule="afterInstallValidate" />
+        <Media Id="1" Cabinet="cab1.cab" EmbedCab="yes" />
+        <Media Id="2" Cabinet="cab2.cab" EmbedCab="yes" />
+        <Property Id="ALLUSERS" Value="1" />
+        <Property Id="ARPPRODUCTICON" Value="IconoSuno" />
+        <Property Id="ARPCOMMENTS" Value="Descargador de playlists públicas de Suno" />
+        <Property Id="DESKTOP_SHORTCUT" Secure="yes" />
+        <Property Id="START_SHORTCUT" Secure="yes" />
+        <Property Id="WIX_DOWNGRADE_DETECTED" Secure="yes" />
+        <Property Id="WIX_UPGRADE_DETECTED" Secure="yes" />
+        <UI>
+            <Dialog Id="AccesosDlg" X="50" Y="50" Width="370" Height="270" Title="Suno v1 · Accesos directos" NoMinimize="yes">
+                <Control Id="Bitmap" Type="Bitmap" X="0" Y="0" Width="370" Height="234" Text="WixUI_Bmp_Dialog" TabSkip="no" Disabled="yes" />
+                <Control Id="StartMenuCheck" Type="CheckBox" X="24" Y="78" Width="330" Height="18" Property="START_SHORTCUT" Text="En el menú Inicio" CheckBoxValue="1" TabSkip="no" />
+                <Control Id="DesktopCheck" Type="CheckBox" X="24" Y="104" Width="330" Height="18" Property="DESKTOP_SHORTCUT" Text="En el escritorio" CheckBoxValue="1" TabSkip="no" />
+                <Control Id="Back" Type="PushButton" X="180" Y="243" Width="56" Height="17" Text="Atrás" TabSkip="no">
+                    <Publish Event="NewDialog" Value="LicenseAgreementDlg">1</Publish>
+                </Control>
+                <Control Id="Next" Type="PushButton" X="236" Y="243" Width="56" Height="17" Text="Siguiente" TabSkip="no" Default="yes">
+                    <Publish Event="NewDialog" Value="InstallDirDlg">1</Publish>
+                </Control>
+                <Control Id="Cancel" Type="PushButton" X="304" Y="243" Width="56" Height="17" Text="Cancelar" TabSkip="no" Cancel="yes">
+                    <Publish Event="SpawnDialog" Value="CancelDlg">1</Publish>
+                </Control>
+                <Control Id="Description" Type="Text" X="24" Y="42" Width="320" Height="16" Text="Elige dónde quieres abrir Suno v1." TabSkip="yes" Transparent="yes" NoPrefix="yes" />
+                <Control Id="Title" Type="Text" X="24" Y="20" Width="320" Height="18" Text="Accesos directos" TabSkip="yes" Transparent="yes" NoPrefix="yes" />
+                <Control Id="Hint" Type="Text" X="24" Y="140" Width="320" Height="30" Text="Si cambias de idea, vuelve a ejecutar el instalador." TabSkip="yes" Transparent="yes" NoPrefix="yes" />
+            </Dialog>
+        </UI>
+        <UIRef Id="WixUI_InstallDir" />
+        <InstallExecuteSequence>
+            <Custom Action="EscritorioPorDefecto" Before="InicioPorDefecto">NOT DESKTOP_SHORTCUT</Custom>
+            <Custom Action="InicioPorDefecto" Before="CostInitialize">NOT START_SHORTCUT</Custom>
+        </InstallExecuteSequence>
+        <InstallUISequence>
+            <Custom Action="EscritorioPorDefecto" Before="InicioPorDefecto">NOT DESKTOP_SHORTCUT</Custom>
+            <Custom Action="InicioPorDefecto" Before="CostInitialize">NOT START_SHORTCUT</Custom>
+        </InstallUISequence>
+    </Product>
+</Wix>

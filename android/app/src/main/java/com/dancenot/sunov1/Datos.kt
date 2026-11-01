@@ -19,6 +19,7 @@ data class Ajustes(
     val video: Boolean = false,
     val omitir: Boolean = true,
     val subcarpeta: Boolean = false,
+    val autoActualizar: Boolean = true,
 ) {
     companion object {
         const val MUSICA = "Music/Suno v1"
@@ -44,6 +45,7 @@ data class Ajustes(
                 video = p.getBoolean("video", false),
                 omitir = p.getBoolean("omitir", true),
                 subcarpeta = p.getBoolean("subcarpeta", false),
+                autoActualizar = p.getBoolean("auto_actualizar", true),
             )
         }
 
@@ -62,6 +64,7 @@ data class Ajustes(
                 .putBoolean("video", a.video)
                 .putBoolean("omitir", a.omitir)
                 .putBoolean("subcarpeta", a.subcarpeta)
+                .putBoolean("auto_actualizar", a.autoActualizar)
                 .apply()
         }
     }

@@ -36,6 +36,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.List
 import androidx.compose.material.icons.filled.Settings
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.LinearProgressIndicator
@@ -70,7 +71,7 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-const val VERSION = "1.3.1"
+const val VERSION = "1.3.2"
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -153,6 +154,8 @@ private fun Pantalla(enlaceInicial: String, auto: Boolean) {
     var recientes by remember { mutableStateOf(Historial.leer(contexto)) }
     var fallidas by remember { mutableStateOf<List<String>>(emptyList()) }
     var fallidasIds by remember { mutableStateOf<List<String>>(emptyList()) }
+    var actualizando by remember { mutableStateOf(false) }
+    var avanceActualizacion by remember { mutableStateOf("") }
     val desplazamiento = rememberScrollState()
 
     fun estado(texto: String, color: Color = T.SUAVE, registrar: Boolean = true) {
@@ -247,6 +250,41 @@ private fun Pantalla(enlaceInicial: String, auto: Boolean) {
         }
     }
 
+    fun actualizar(silencioso: Boolean = false) {
+        if (actualizando) return
+        alcance.launch {
+            val nueva = Actualizador.buscar()
+            if (nueva == null) {
+                if (!silencioso) estado("Tienes la última versión ($VERSION).", T.VERDE)
+                return@launch
+            }
+            if (!Actualizador.puedeInstalar(contexto)) {
+                estado(
+                    "Permite «instalar apps desconocidas» para Suno v1 y vuelve a intentarlo.",
+                    T.SUAVE
+                )
+                Actualizador.pedirPermiso(contexto)
+                return@launch
+            }
+            actualizando = true
+            avanceActualizacion = "Descargando Suno v1 ${nueva.version}… 0%"
+            estado("Actualizando a ${nueva.version}…", T.SUAVE)
+            val fallo = Actualizador.instalar(contexto, nueva) { pct ->
+                alcance.launch {
+                    avanceActualizacion = "Descargando Suno v1 ${nueva.version}… $pct%"
+                }
+            }
+            actualizando = false
+            if (fallo != null) {
+                avanceActualizacion = ""
+                estado("No se pudo actualizar: $fallo", T.ROJO)
+            } else {
+                avanceActualizacion = "Instalando ${nueva.version}. La app se reinicia sola."
+                estado("Instalando ${nueva.version}…", T.VERDE)
+            }
+        }
+    }
+
     LaunchedEffect(descargando) {
         while (descargando) {
             motor?.let { m ->
@@ -262,6 +300,11 @@ private fun Pantalla(enlaceInicial: String, auto: Boolean) {
         if (enlaceInicial.isNotBlank()) analizar(enlaceInicial)
     }
 
+    LaunchedEffect(Unit) {
+        delay(2200)
+        if (ajustes.autoActualizar) actualizar(silencioso = true)
+    }
+
     LaunchedEffect(auto, playlists) {
         if (auto && playlists.isNotEmpty() && !descargando && motor == null) descargar()
     }
@@ -271,6 +314,10 @@ private fun Pantalla(enlaceInicial: String, auto: Boolean) {
             ajustes = ajustes,
             alCambiar = ::cambiar,
             alCerrar = { verAjustes = false },
+            alBuscarActualizacion = {
+                verAjustes = false
+                actualizar(false)
+            },
             alBorrarHistorial = {
                 Historial.limpiar(contexto)
                 recientes = emptyList()
@@ -313,6 +360,30 @@ private fun Pantalla(enlaceInicial: String, auto: Boolean) {
                 .navigationBarsPadding()
         ) {
             Cabecera(alAjustes = { verAjustes = true }, alRecientes = { verRecientes = true })
+            if (avanceActualizacion.isNotBlank()) {
+                Row(
+                    Modifier
+                        .fillMaxWidth()
+                        .padding(horizontal = 16.dp, vertical = 4.dp)
+                        .clip(RoundedCornerShape(12.dp))
+                        .background(Color(0x1AF2A94E))
+                        .padding(horizontal = 12.dp, vertical = 9.dp),
+                    verticalAlignment = Alignment.CenterVertically,
+                ) {
+                    CircularProgressIndicator(
+                        modifier = Modifier.size(13.dp),
+                        color = T.AMBAR,
+                        strokeWidth = 2.dp,
+                    )
+                    Spacer(Modifier.width(10.dp))
+                    Text(
+                        avanceActualizacion,
+                        color = T.SUAVE,
+                        fontSize = 12.sp,
+                        maxLines = 1,
+                    )
+                }
+            }
             Column(
                 Modifier
                     .weight(1f)
@@ -770,6 +841,7 @@ private fun PantallaAjustes(
     ajustes: Ajustes,
     alCambiar: (Ajustes) -> Unit,
     alCerrar: () -> Unit,
+    alBuscarActualizacion: () -> Unit,
     alBorrarHistorial: () -> Unit,
 ) {
     Column(
@@ -855,6 +927,22 @@ private fun PantallaAjustes(
                 Etiqueta("HISTORIAL")
                 Nota("Las playlists analizadas se guardan para volver a abrirlas.")
                 Boton("Borrar historial", variante = 1, alto = 40, alPulsar = alBorrarHistorial)
+            }
+
+            Tarjeta {
+                Etiqueta("ACTUALIZACIONES")
+                Text("Suno v1 · $VERSION", color = T.TEXTO, fontSize = 14.sp)
+                Interruptor(
+                    "Actualizar sola", ajustes.autoActualizar,
+                    "Al abrir la app busca la versión nueva, la descarga y la instala",
+                ) { alCambiar(ajustes.copy(autoActualizar = it)) }
+                Boton("Buscar actualización ahora", variante = 1, alto = 40) {
+                    alBuscarActualizacion()
+                }
+                Nota(
+                    "La primera vez Android pedirá permiso para instalar apps desde Suno v1. " +
+                        "Se instala encima: no se pierden los ajustes ni la música."
+                )
             }
 
             Tarjeta {

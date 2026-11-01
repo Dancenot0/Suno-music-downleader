@@ -13,9 +13,11 @@ from __future__ import annotations
 
 import math
 import json
+import ctypes
 import os
 import re
 import sys
+import tempfile
 import threading
 from pathlib import Path
 
@@ -85,7 +87,7 @@ BAD = QColor("#E06C6C")
 
 RADIUS = 22
 SETTINGS = QSettings("MiSuno", "MiSuno")
-APP_VERSION = "1.2.1"
+APP_VERSION = "1.2.2"
 # Canal de actualizaciones: el JSON que sirve GitHub Pages junto a la web.
 UPDATE_FEED = "https://dancenot0.github.io/Suno-music-downleader/version.json"
 
@@ -997,9 +999,11 @@ class SettingsDialog(QDialog):
         self.notify = Toggle(SETTINGS.value("notify", True, bool))
         self.tray = Toggle(SETTINGS.value("tray", True, bool))
         self.arranque = Toggle(SETTINGS.value("update_startup", True, bool))
+        self.auto_update = Toggle(SETTINGS.value("auto_update", True, bool))
         for txt, w in (("Notificaciones al terminar", self.notify),
                        ("Cerrar a la bandeja", self.tray),
-                       ("Buscar actualizaciones al iniciar", self.arranque)):
+                       ("Buscar actualizaciones al iniciar", self.arranque),
+                       ("Instalar las actualizaciones sola", self.auto_update)):
             row = QHBoxLayout()
             row.addWidget(QLabel(txt), 1)
             row.addWidget(w)
@@ -1026,6 +1030,7 @@ class SettingsDialog(QDialog):
             "notify": self.notify.isChecked(),
             "tray": self.tray.isChecked(),
             "update_startup": self.arranque.isChecked(),
+            "auto_update": self.auto_update.isChecked(),
         }
 
 
@@ -1204,6 +1209,7 @@ class MainWindow(QMainWindow):
         self._update_silent = False
         self._update_url = ""
         self._update_ver = ""
+        self._update_pendiente = ""
 
         self._build()
         self._load_settings()
@@ -1676,7 +1682,12 @@ class MainWindow(QMainWindow):
             self._update_ver = ver
             self.titlebar.btn_update.set_kind("download")
             self.titlebar.btn_update.setToolTip(f"Descargar Suno v1 {ver}")
-            if url:
+            automatico = bool(SETTINGS.value("auto_update", True, bool))
+            if url and automatico:
+                # Al arrancar: se baja y se instala sola, sin preguntar.
+                self._on_status(f"Actualizando a la versión {ver}.")
+                self._download_update()
+            elif url:
                 self._on_status(f"Nueva versión {ver} disponible · pulsa la flecha para descargarla.")
             else:
                 self._on_status(f"Nueva versión {ver} disponible, pero el canal no trae enlace.")
@@ -1733,14 +1744,61 @@ class MainWindow(QMainWindow):
     def _on_update_ready(self, ruta: str):
         self._update_busy = False
         self.titlebar.btn_update.set_busy(False)
-        self._on_status("Actualización descargada. Abriendo el instalador…")
+        if self.state in ("running", "paused"):
+            # No se corta una descarga a medias: se instala al terminar.
+            self._update_pendiente = ruta
+            self._on_status("Actualización lista. Se instalará al terminar la descarga.")
+            return
+        self._instalar_actualizacion(ruta)
+
+    def _instalar_actualizacion(self, ruta: str):
+        """Instala el .msi en silencio y vuelve a abrir la app, ya actualizada."""
+        self._on_status("Instalando la actualización…")
+        if not getattr(sys, "frozen", False):
+            # En desarrollo no hay .exe que reinstalar: se abre el instalador.
+            try:
+                os.startfile(ruta)  # noqa: S606
+            except Exception as exc:  # noqa: BLE001
+                engine.log_to_file(f"actualizacion: {exc}")
+                self._on_status(f"Instalador en {ruta}")
+                return
+            QTimer.singleShot(900, self._quit)
+            return
+
+        exe = sys.executable
+        guion = Path(tempfile.gettempdir()) / "suno_v1_actualizar.bat"
         try:
-            os.startfile(ruta)  # noqa: S606
-        except Exception as exc:  # noqa: BLE001
+            guion.write_text(
+                "@echo off\r\n"
+                "ping -n 3 127.0.0.1 >nul\r\n"
+                f'msiexec /i "{ruta}" /qn /norestart\r\n'
+                f'start "" "{exe}"\r\n',
+                encoding="utf-8",
+            )
+        except OSError as exc:
             engine.log_to_file(f"actualizacion: {exc}")
             self._on_status(f"Instalador en {ruta}")
             return
-        QTimer.singleShot(900, self._quit)
+
+        codigo = 0
+        try:
+            # "runas" pide permiso de administrador una vez; luego todo es solo.
+            codigo = int(
+                ctypes.windll.shell32.ShellExecuteW(
+                    None, "runas", "cmd.exe", f'/c "{guion}"', None, 0
+                )
+            )
+        except Exception as exc:  # noqa: BLE001
+            engine.log_to_file(f"actualizacion: {exc}")
+        if codigo <= 32:
+            # Canceló el aviso de administrador: se deja el instalador a mano.
+            self._on_status("Actualización descargada. Falta el permiso de administrador.")
+            try:
+                os.startfile(ruta)  # noqa: S606
+            except Exception:  # noqa: BLE001
+                pass
+            return
+        QTimer.singleShot(700, self._quit)
 
     def _show_history(self):
         items = engine.read_history()
@@ -1993,6 +2051,9 @@ class MainWindow(QMainWindow):
                 QSystemTrayIcon.MessageIcon.Information,
                 4000,
             )
+        if self._update_pendiente and not self._quitting:
+            ruta, self._update_pendiente = self._update_pendiente, ""
+            QTimer.singleShot(1200, lambda: self._instalar_actualizacion(ruta))
 
     # ------------------------------------------------------------- ajustes --
     def _load_settings(self):

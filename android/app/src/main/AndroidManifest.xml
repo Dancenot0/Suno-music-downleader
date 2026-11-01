@@ -5,6 +5,7 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
     <uses-permission android:name="android.permission.READ_MEDIA_AUDIO" />
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
     <uses-permission
         android:name="android.permission.READ_EXTERNAL_STORAGE"
         android:maxSdkVersion="32" />
@@ -35,5 +36,13 @@
                 <data android:scheme="https" android:host="suno.com" android:pathPrefix="/playlist/" />
             </intent-filter>
         </activity>
+
+        <receiver
+            android:name=".InstaladorReceptor"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.dancenot.sunov1.INSTALADO" />
+            </intent-filter>
+        </receiver>
     </application>
 </manifest>

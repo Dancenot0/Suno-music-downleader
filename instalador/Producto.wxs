@@ -9,7 +9,7 @@
   <Product Id="*"
            Name="Suno v1"
            Language="3082"
-           Version="1.2.1"
+           Version="1.2.2"
            Manufacturer="Suno v1"
            UpgradeCode="{7C1B5E4A-2D9F-4E8B-9A31-5F0C2B7D6E10}">
 
