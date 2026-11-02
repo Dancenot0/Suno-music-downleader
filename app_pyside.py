@@ -87,7 +87,7 @@ BAD = QColor("#E06C6C")
 
 RADIUS = 22
 SETTINGS = QSettings("MiSuno", "MiSuno")
-APP_VERSION = "1.2.4"
+APP_VERSION = "1.2.5"
 # Canal de actualizaciones: el JSON que sirve GitHub Pages junto a la web.
 UPDATE_FEED = "https://dancenot0.github.io/Suno-music-downleader/version.json"
 

@@ -55,7 +55,7 @@ BLOQUES = [
     ),
     dict(
         id="potencia",
-        lineas=["Pausa, reanuda, reintenta. Hasta tres descargas a la vez. Y nunca te duplica una canción."],
+        lineas=["Pausa, reanuda, reintenta. Hasta diez descargas a la vez. Y nunca te duplica una canción."],
         minimo=9.6, cola=0.4,
     ),
     dict(

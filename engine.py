@@ -555,35 +555,51 @@ class Engine:
         session = _session(self.o.proxy, self.o.timeout)
         referer = f"https://suno.com/playlist/{pl.id}" if pl.kind == "playlist" else "https://suno.com"
         last = None
-        for attempt in range(max(1, self.o.retries)):
-            try:
-                with session.get(url, headers={"Referer": referer}, stream=True,
-                                 timeout=(15, self.o.timeout)) as r:
-                    if r.status_code in (403, 429):
-                        raise core.BlockedError(f"HTTP {r.status_code}")
-                    r.raise_for_status()
-                    length = int(r.headers.get("Content-Length") or 0) or 0
-                    written = 0
-                    start = time.time()
-                    with open(dest, "wb") as fh:
-                        for chunk in r.iter_content(64 * 1024):
-                            self._wait_if_paused()
-                            if self.cancel.is_set():
-                                raise RuntimeError("cancelado")
-                            if chunk:
-                                fh.write(chunk)
-                                written += len(chunk)
-                                frac = written / length if length else 0.0
-                                speed = written / max(0.001, time.time() - start)
-                                self._report(t.id, frac * 0.9)
-                                self.cb.track(t.title, frac * 100, speed)
-                return
-            except core.BlockedError:
-                raise
-            except Exception as e:  # noqa: BLE001
-                last = e
-                if attempt < self.o.retries - 1:
-                    time.sleep(5 * (attempt + 1))
+        bloqueado = None
+        # con muchas descargas a la vez Suno puede pedir bajar el ritmo:
+        # se espera y se reintenta antes de rendirse.
+        for ronda in range(3):
+            for attempt in range(max(1, self.o.retries)):
+                try:
+                    with session.get(url, headers={"Referer": referer}, stream=True,
+                                     timeout=(15, self.o.timeout)) as r:
+                        if r.status_code in (403, 429):
+                            raise core.BlockedError(f"HTTP {r.status_code}")
+                        r.raise_for_status()
+                        length = int(r.headers.get("Content-Length") or 0) or 0
+                        written = 0
+                        start = time.time()
+                        with open(dest, "wb") as fh:
+                            for chunk in r.iter_content(64 * 1024):
+                                self._wait_if_paused()
+                                if self.cancel.is_set():
+                                    raise RuntimeError("cancelado")
+                                if chunk:
+                                    fh.write(chunk)
+                                    written += len(chunk)
+                                    frac = written / length if length else 0.0
+                                    speed = written / max(0.001, time.time() - start)
+                                    self._report(t.id, frac * 0.9)
+                                    self.cb.track(t.title, frac * 100, speed)
+                    return
+                except core.BlockedError as e:
+                    bloqueado = e
+                    break
+                except Exception as e:  # noqa: BLE001
+                    last = e
+                    if attempt < self.o.retries - 1:
+                        time.sleep(5 * (attempt + 1))
+            else:
+                break
+            if ronda >= 2:
+                raise core.BlockedError(str(bloqueado))
+            espera = 20 + 20 * ronda
+            self.cb.log(f"  … Suno pidió esperar ({bloqueado}). Reintento en {espera} s.")
+            fin = time.time() + espera
+            while time.time() < fin:
+                if self.cancel.is_set():
+                    raise RuntimeError("cancelado")
+                time.sleep(0.5)
         raise RuntimeError(f"descarga fallida: {last}")
 
     def _convert(self, src: Path, dest_dir: Path, base: str, t: Track) -> Path:

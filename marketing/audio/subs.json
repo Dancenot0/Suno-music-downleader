@@ -98,13 +98,13 @@
  {
   "b": "potencia",
   "t0": 49.548832999999995,
-  "t1": 51.569540999999994,
-  "texto": "Hasta tres descargas a la vez."
+  "t1": 51.5575,
+  "texto": "Hasta diez descargas a la vez."
  },
  {
   "b": "potencia",
-  "t0": 52.048832999999995,
-  "t1": 54.177707999999996,
+  "t0": 52.036832999999994,
+  "t1": 54.165665999999995,
   "texto": "Y nunca te duplica una canción."
  },
  {
