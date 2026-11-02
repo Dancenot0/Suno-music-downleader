@@ -143,6 +143,19 @@ class Callbacks:
 
 
 # ------------------------------------------------------------------ utilidad --
+def sin_ventana() -> dict:
+    """Argumentos para que Windows no abra una consola al llamar a ffmpeg."""
+    if os.name != "nt":
+        return {}
+    arranque = subprocess.STARTUPINFO()
+    arranque.dwFlags |= subprocess.STARTF_USESHOWWINDOW
+    arranque.wShowWindow = subprocess.SW_HIDE
+    return {
+        "creationflags": getattr(subprocess, "CREATE_NO_WINDOW", 0x08000000),
+        "startupinfo": arranque,
+    }
+
+
 def _ffmpeg_year(folder: Path) -> int:
     exe = folder / "ffmpeg.exe"
     if not exe.exists():
@@ -151,7 +164,7 @@ def _ffmpeg_year(folder: Path) -> int:
         out = subprocess.run(
             [str(exe), "-version"],
             capture_output=True, text=True, timeout=15,
-            encoding="utf-8", errors="replace",
+            encoding="utf-8", errors="replace", **sin_ventana(),
         ).stdout
     except Exception:  # noqa: BLE001
         return 0
@@ -403,7 +416,7 @@ class Engine:
         self.cb.log(f"[{pl.name}] {len(tracks)} pistas → {dest_dir}")
 
         if self.o.concurrency > 1 and len(tracks) > 1:
-            with ThreadPoolExecutor(max_workers=min(3, self.o.concurrency)) as pool:
+            with ThreadPoolExecutor(max_workers=min(10, self.o.concurrency)) as pool:
                 futures = [
                     pool.submit(self._one, pl, t, dest_dir, cover_bytes, manifest, manifest_path)
                     for t in tracks
@@ -444,10 +457,21 @@ class Engine:
             already = (dest_dir / prev.get("file", "")).exists()
         if dest.exists():
             already = True
+        if not already and not self.o.overwrite:
+            # mismo nombre con otro formato: ya la tienes, no la repitas
+            for otro in (".mp3", ".m4a", ".wav", ".flac", ".ogg", ".mp4"):
+                if otro != ext and (dest_dir / f"{base}{otro}").exists():
+                    already = True
+                    dest = dest_dir / f"{base}{otro}"
+                    break
         if already and not self.o.overwrite:
             self._skipped += 1
-            existing = dest if dest.exists() else dest_dir / prev.get("file", "")
-            self._finish_track(t.id, existing, t, "ya existe")
+            with self._lock:
+                self._done += 1
+                self._partial.pop(t.id, None)
+            self.cb.log(f"  · {t.title} — ya estaba")
+            self._report(t.id, 0.0)
+            self._emit_overall()
             return
 
         try:
@@ -595,7 +619,7 @@ class Engine:
             args += ["-c:a", "aac", "-b:a", "192k"]
         args += [str(dst)]
 
-        proc = subprocess.run(args, capture_output=True)
+        proc = subprocess.run(args, capture_output=True, **sin_ventana())
         if proc.returncode != 0 or not dst.exists():
             raise RuntimeError(proc.stderr.decode(errors="replace").strip()[:200] or "ffmpeg falló")
         return dst

@@ -1,7 +1,7 @@
 {
-  "version": "1.2.3",
+  "version": "1.2.4",
   "url": "https://dancenot0.github.io/Suno-music-downleader/descargas/Suno-v1.msi",
-  "notes": "Actualización sin asistente: se descarga, se instala con una barra de progreso y la app se reabre sola.",
+  "notes": "Ya no salta la ventana negra de ffmpeg al convertir. Añade «Omitir existentes» y hasta 10 descargas en paralelo.",
   "android": {
     "version": "1.3.6",
     "url": "https://dancenot0.github.io/Suno-music-downleader/descargas/Suno-v1-android.apk",

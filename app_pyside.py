@@ -87,7 +87,7 @@ BAD = QColor("#E06C6C")
 
 RADIUS = 22
 SETTINGS = QSettings("MiSuno", "MiSuno")
-APP_VERSION = "1.2.3"
+APP_VERSION = "1.2.4"
 # Canal de actualizaciones: el JSON que sirve GitHub Pages junto a la web.
 UPDATE_FEED = "https://dancenot0.github.io/Suno-music-downleader/version.json"
 
@@ -985,7 +985,7 @@ class SettingsDialog(QDialog):
         grid.setHorizontalSpacing(18)
         grid.setVerticalSpacing(10)
         self.delay = Stepper(int(SETTINGS.value("delay", 2)), 0, 60)
-        self.conc = Stepper(int(SETTINGS.value("concurrency", 1)), 1, 3, "x")
+        self.conc = Stepper(int(SETTINGS.value("concurrency", 10)), 1, 10, "x")
         self.retries = Stepper(int(SETTINGS.value("retries", 3)), 1, 8, "x")
         self.timeout = Stepper(int(SETTINGS.value("timeout", 60)), 15, 300, " s")
         for i, (txt, w) in enumerate([
@@ -995,6 +995,10 @@ class SettingsDialog(QDialog):
             grid.addWidget(QLabel(txt), i // 2, (i % 2) * 2)
             grid.addWidget(w, i // 2, (i % 2) * 2 + 1)
         lay.addLayout(grid)
+        nota_conc = QLabel("Concurrencia alta descarga más rápido; si Suno pide bajar el ritmo, bájala.")
+        nota_conc.setWordWrap(True)
+        nota_conc.setStyleSheet("color: #7d7d8a; font-size: 11px;")
+        lay.addWidget(nota_conc)
 
         self.notify = Toggle(SETTINGS.value("notify", True, bool))
         self.tray = Toggle(SETTINGS.value("tray", True, bool))
@@ -1471,13 +1475,14 @@ class MainWindow(QMainWindow):
             ("aparte", "Archivos aparte", False),
             ("normalize", "Normalizar", False),
             ("video", "Video", False),
+            ("omitir", "Omitir existentes", True),
         ]):
             sw = Toggle(default)
             self.tg[key] = sw
             toggles.addWidget(sw, i // 2, (i % 2) * 2)
             toggles.addWidget(label(txt, 9, QFont.DemiBold, TEXT), i // 2, (i % 2) * 2 + 1)
         lay.addLayout(toggles)
-        nota = label("La portada y la letra van dentro del archivo de música.", 8.2, QFont.Normal, TEXT3)
+        nota = label("La portada y la letra van dentro del archivo de música. «Omitir existentes» se salta lo que ya tengas.", 8.2, QFont.Normal, TEXT3)
         nota.setWordWrap(True)
         lay.addWidget(nota)
 
@@ -1927,7 +1932,7 @@ class MainWindow(QMainWindow):
             template=self.txt_template.text().strip() or "{n} - {title}",
             normalize=self.tg["normalize"].isChecked(),
             video=self.tg["video"].isChecked(),
-            overwrite=False,
+            overwrite=not self.tg["omitir"].isChecked(),
             delay=float(SETTINGS.value("delay", 2)),
             concurrency=int(SETTINGS.value("concurrency", 1)),
             proxy=SETTINGS.value("proxy", ""),
@@ -2035,17 +2040,24 @@ class MainWindow(QMainWindow):
         if res.get("cancelled"):
             self._on_status("Detenido." + (" Suno pidió bajar el ritmo." if res.get("blocked") else ""))
         elif res.get("failed"):
-            self._on_status(f"Terminado · {res.get('ok', 0)} ok · {len(res['failed'])} fallidas")
+            self._on_status(
+                f"Terminado · {res.get('ok', 0)} ok"
+                + (f" · {res.get('skipped', 0)} omitidas" if res.get("skipped") else "")
+                + f" · {len(res['failed'])} fallidas"
+            )
             self.bar.animate_to(100)
             self.lbl_pct.setText("100%")
         else:
-            self._on_status("Listo.")
+            omitidas = res.get("skipped", 0)
+            self._on_status(f"Listo · {res.get('ok', 0)} descargadas"
+                            + (f" · {omitidas} ya estaban" if omitidas else ""))
             self.bar.animate_to(100)
             self.lbl_pct.setText("100%")
         if SETTINGS.value("notify", True, bool) and self._tray:
             self._tray.showMessage(
                 "Mi Suno",
                 f"{res.get('ok', 0)} pistas descargadas"
+                + (f" · {res.get('skipped', 0)} omitidas" if res.get("skipped") else "")
                 + (f" · {len(res['failed'])} fallidas" if res.get("failed") else ""),
                 QSystemTrayIcon.MessageIcon.Information,
                 4000,
@@ -2062,7 +2074,8 @@ class MainWindow(QMainWindow):
         if idx >= 0:
             self.cmb_quality.setCurrentIndex(idx)
         for key, default in (("tags", True), ("cover", True), ("lyrics", True),
-                             ("aparte", False), ("normalize", False), ("video", False)):
+                             ("aparte", False), ("normalize", False), ("video", False),
+                             ("omitir", True)):
             self.tg[key].setChecked(SETTINGS.value(key, default, bool))
         self.txt_template.setText(SETTINGS.value("template", "{n} - {title}"))
         self._on_format(0)
@@ -2072,7 +2085,7 @@ class MainWindow(QMainWindow):
         SETTINGS.setValue("outdir", self.txt_out.text())
         SETTINGS.setValue("fmt", self.seg_fmt.current())
         SETTINGS.setValue("quality", self.cmb_quality.currentData())
-        for key in ("tags", "cover", "lyrics", "aparte", "normalize", "video"):
+        for key in ("tags", "cover", "lyrics", "aparte", "normalize", "video", "omitir"):
             SETTINGS.setValue(key, self.tg[key].isChecked())
         SETTINGS.setValue("template", self.txt_template.text())
 
